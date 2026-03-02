@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "اختبار الجنسية الألمانية"
+  },
+  "onboarding": {
+    "welcome_title": "مرحباً",
+    "welcome_subtitle": "اختر لغتك",
+    "select_bundesland": "اختر ولايتك",
+    "bundesland_subtitle": "اختر الولاية التي تعيش فيها",
+    "continue": "متابعة"
+  },
+  "tabs": {
+    "home": "الرئيسية",
+    "practice": "تدريب",
+    "catalog": "الأسئلة",
+    "profile": "الملف الشخصي"
+  },
+  "home": {
+    "dashboard": "لوحة المعلومات",
+    "readiness": "الاستعداد",
+    "questions_practiced": "الأسئلة المتدرب عليها",
+    "accuracy": "الدقة",
+    "quick_actions": "إجراءات سريعة",
+    "start_practice": "بدء التدريب",
+    "take_exam": "محاكاة الامتحان",
+    "review_mistakes": "مراجعة الأخطاء"
+  },
+  "practice": {
+    "title": "تدريب",
+    "choose_mode": "اختر وضع الدراسة",
+    "practice_mode": "وضع التدريب",
+    "practice_desc": "ادرس الأسئلة بسرعتك الخاصة",
+    "exam_mode": "محاكاة الامتحان",
+    "exam_desc": "٣٣ سؤالاً في ٦٠ دقيقة",
+    "review_mode": "مراجعة الأخطاء",
+    "review_desc": "تدرب على الأسئلة التي أخطأت فيها",
+    "question": "سؤال",
+    "of": "من",
+    "next": "التالي",
+    "previous": "السابق",
+    "check": "تحقق من الإجابة",
+    "correct": "صحيح!",
+    "incorrect": "خطأ",
+    "no_mistakes": "لا توجد أخطاء للمراجعة. واصل التدريب!"
+  },
+  "exam": {
+    "title": "محاكاة الامتحان",
+    "time_remaining": "الوقت المتبقي",
+    "submit": "تسليم الامتحان",
+    "results": "نتائج الامتحان",
+    "score": "النتيجة",
+    "passed": "ناجح!",
+    "failed": "غير ناجح",
+    "pass_threshold": "تحتاج على الأقل ١٧ من ٣٣ إجابة صحيحة للنجاح.",
+    "try_again": "حاول مرة أخرى",
+    "review_answers": "مراجعة الإجابات"
+  },
+  "catalog": {
+    "title": "كتالوج الأسئلة",
+    "search": "ابحث في الأسئلة...",
+    "showing": "عرض {{count}} من {{total}} سؤال",
+    "all": "الكل",
+    "politik": "السياسة",
+    "geschichte": "التاريخ",
+    "gesellschaft": "المجتمع",
+    "bundesland": "الولاية",
+    "bookmarked": "محفوظة",
+    "incorrect": "خاطئة",
+    "unanswered": "بدون إجابة"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "bundesland": "الولاية",
+    "reset_progress": "إعادة تعيين كل التقدم",
+    "reset_confirm": "هل أنت متأكد؟ سيتم حذف كل تقدمك.",
+    "reset_confirm_title": "إعادة تعيين التقدم",
+    "cancel": "إلغاء",
+    "reset": "إعادة تعيين",
+    "about": "حول",
+    "version": "الإصدار",
+    "cache": "ذاكرة الترجمة المؤقتة",
+    "clear_cache": "مسح الذاكرة المؤقتة",
+    "cache_cleared": "تم مسح الذاكرة المؤقتة"
+  },
+  "translation": {
+    "translate": "ترجمة",
+    "translation_unavailable": "الترجمة غير متاحة بدون اتصال",
+    "retry": "إعادة المحاولة"
+  },
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "error": "حدث خطأ ما",
+    "ok": "حسناً"
+  }
+}

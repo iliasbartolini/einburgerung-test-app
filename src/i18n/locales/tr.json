@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "Einbürgerungstest"
+  },
+  "onboarding": {
+    "welcome_title": "Hoş Geldiniz",
+    "welcome_subtitle": "Dilinizi seçin",
+    "select_bundesland": "Eyaletinizi seçin",
+    "bundesland_subtitle": "Yaşadığınız eyaleti seçin",
+    "continue": "Devam"
+  },
+  "tabs": {
+    "home": "Ana Sayfa",
+    "practice": "Alıştırma",
+    "catalog": "Katalog",
+    "profile": "Profil"
+  },
+  "home": {
+    "dashboard": "Genel Bakış",
+    "readiness": "Hazırlık",
+    "questions_practiced": "Çalışılan Sorular",
+    "accuracy": "Doğruluk",
+    "quick_actions": "Hızlı İşlemler",
+    "start_practice": "Alıştırmaya Başla",
+    "take_exam": "Sınav Simülasyonu",
+    "review_mistakes": "Hataları Gözden Geçir"
+  },
+  "practice": {
+    "title": "Alıştırma",
+    "choose_mode": "Çalışma modunu seçin",
+    "practice_mode": "Alıştırma Modu",
+    "practice_desc": "Soruları kendi hızınızda çalışın",
+    "exam_mode": "Sınav Simülasyonu",
+    "exam_desc": "60 dakikada 33 soru",
+    "review_mode": "Hataları Gözden Geçir",
+    "review_desc": "Yanlış cevapladığınız soruları çalışın",
+    "question": "Soru",
+    "of": "/",
+    "next": "Sonraki",
+    "previous": "Önceki",
+    "check": "Cevabı Kontrol Et",
+    "correct": "Doğru!",
+    "incorrect": "Yanlış",
+    "no_mistakes": "Gözden geçirilecek hata yok. Çalışmaya devam edin!"
+  },
+  "exam": {
+    "title": "Sınav Simülasyonu",
+    "time_remaining": "Kalan Süre",
+    "submit": "Sınavı Gönder",
+    "results": "Sınav Sonuçları",
+    "score": "Puan",
+    "passed": "Geçtiniz!",
+    "failed": "Geçemediniz",
+    "pass_threshold": "Geçmek için en az 17/33 doğru cevap gereklidir.",
+    "try_again": "Tekrar Dene",
+    "review_answers": "Cevapları Gözden Geçir"
+  },
+  "catalog": {
+    "title": "Soru Kataloğu",
+    "search": "Soru ara...",
+    "showing": "{{total}} sorudan {{count}} tanesi gösteriliyor",
+    "all": "Tümü",
+    "politik": "Siyaset",
+    "geschichte": "Tarih",
+    "gesellschaft": "Toplum",
+    "bundesland": "Eyalet",
+    "bookmarked": "İşaretli",
+    "incorrect": "Yanlış",
+    "unanswered": "Cevaplanmamış"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "bundesland": "Eyalet",
+    "reset_progress": "Tüm İlerlemeyi Sıfırla",
+    "reset_confirm": "Emin misiniz? Tüm ilerlemeniz silinecektir.",
+    "reset_confirm_title": "İlerlemeyi Sıfırla",
+    "cancel": "İptal",
+    "reset": "Sıfırla",
+    "about": "Hakkında",
+    "version": "Sürüm",
+    "cache": "Çeviri Önbelleği",
+    "clear_cache": "Önbelleği Temizle",
+    "cache_cleared": "Önbellek temizlendi"
+  },
+  "translation": {
+    "translate": "Çevir",
+    "translation_unavailable": "Çeviri çevrimdışı kullanılamaz",
+    "retry": "Tekrar Dene"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir şeyler yanlış gitti",
+    "ok": "Tamam"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "Einbürgerungstest"
+  },
+  "onboarding": {
+    "welcome_title": "Welcome",
+    "welcome_subtitle": "Choose your language",
+    "select_bundesland": "Select your Bundesland",
+    "bundesland_subtitle": "Choose the state you live in",
+    "continue": "Continue"
+  },
+  "tabs": {
+    "home": "Home",
+    "practice": "Practice",
+    "catalog": "Catalog",
+    "profile": "Profile"
+  },
+  "home": {
+    "dashboard": "Dashboard",
+    "readiness": "Readiness",
+    "questions_practiced": "Questions Practiced",
+    "accuracy": "Accuracy",
+    "quick_actions": "Quick Actions",
+    "start_practice": "Start Practice",
+    "take_exam": "Take Exam",
+    "review_mistakes": "Review Mistakes"
+  },
+  "practice": {
+    "title": "Practice",
+    "choose_mode": "Choose your study mode",
+    "practice_mode": "Practice Mode",
+    "practice_desc": "Study questions at your own pace",
+    "exam_mode": "Exam Simulation",
+    "exam_desc": "33 questions in 60 minutes",
+    "review_mode": "Review Mistakes",
+    "review_desc": "Practice questions you got wrong",
+    "question": "Question",
+    "of": "of",
+    "next": "Next",
+    "previous": "Previous",
+    "check": "Check Answer",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "no_mistakes": "No mistakes to review. Keep practicing!"
+  },
+  "exam": {
+    "title": "Exam Simulation",
+    "time_remaining": "Time Remaining",
+    "submit": "Submit Exam",
+    "results": "Exam Results",
+    "score": "Score",
+    "passed": "Passed!",
+    "failed": "Not Passed",
+    "pass_threshold": "You need at least 17 of 33 correct answers to pass.",
+    "try_again": "Try Again",
+    "review_answers": "Review Answers"
+  },
+  "catalog": {
+    "title": "Question Catalog",
+    "search": "Search questions...",
+    "showing": "Showing {{count}} of {{total}} questions",
+    "all": "All",
+    "politik": "Politics",
+    "geschichte": "History",
+    "gesellschaft": "Society",
+    "bundesland": "State",
+    "bookmarked": "Bookmarked",
+    "incorrect": "Incorrect",
+    "unanswered": "Unanswered"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "bundesland": "Bundesland",
+    "reset_progress": "Reset All Progress",
+    "reset_confirm": "Are you sure? This will delete all your progress.",
+    "reset_confirm_title": "Reset Progress",
+    "cancel": "Cancel",
+    "reset": "Reset",
+    "about": "About",
+    "version": "Version",
+    "cache": "Translation Cache",
+    "clear_cache": "Clear Cache",
+    "cache_cleared": "Cache cleared"
+  },
+  "translation": {
+    "translate": "Translate",
+    "translation_unavailable": "Translation unavailable offline",
+    "retry": "Retry"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "ok": "OK"
+  }
+}

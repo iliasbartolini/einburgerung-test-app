@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "Einbürgerungstest"
+  },
+  "onboarding": {
+    "welcome_title": "Willkommen",
+    "welcome_subtitle": "Wählen Sie Ihre Sprache",
+    "select_bundesland": "Wählen Sie Ihr Bundesland",
+    "bundesland_subtitle": "Wählen Sie das Bundesland, in dem Sie leben",
+    "continue": "Weiter"
+  },
+  "tabs": {
+    "home": "Start",
+    "practice": "Üben",
+    "catalog": "Katalog",
+    "profile": "Profil"
+  },
+  "home": {
+    "dashboard": "Übersicht",
+    "readiness": "Bereitschaft",
+    "questions_practiced": "Geübte Fragen",
+    "accuracy": "Genauigkeit",
+    "quick_actions": "Schnellaktionen",
+    "start_practice": "Üben starten",
+    "take_exam": "Prüfung ablegen",
+    "review_mistakes": "Fehler wiederholen"
+  },
+  "practice": {
+    "title": "Üben",
+    "choose_mode": "Wählen Sie Ihren Lernmodus",
+    "practice_mode": "Übungsmodus",
+    "practice_desc": "Fragen in Ihrem eigenen Tempo lernen",
+    "exam_mode": "Prüfungssimulation",
+    "exam_desc": "33 Fragen in 60 Minuten",
+    "review_mode": "Fehler wiederholen",
+    "review_desc": "Falsch beantwortete Fragen üben",
+    "question": "Frage",
+    "of": "von",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "check": "Antwort prüfen",
+    "correct": "Richtig!",
+    "incorrect": "Falsch",
+    "no_mistakes": "Keine Fehler zum Wiederholen. Weiter üben!"
+  },
+  "exam": {
+    "title": "Prüfungssimulation",
+    "time_remaining": "Verbleibende Zeit",
+    "submit": "Prüfung abgeben",
+    "results": "Prüfungsergebnisse",
+    "score": "Ergebnis",
+    "passed": "Bestanden!",
+    "failed": "Nicht bestanden",
+    "pass_threshold": "Sie brauchen mindestens 17 von 33 richtigen Antworten.",
+    "try_again": "Erneut versuchen",
+    "review_answers": "Antworten überprüfen"
+  },
+  "catalog": {
+    "title": "Fragenkatalog",
+    "search": "Fragen suchen...",
+    "showing": "{{count}} von {{total}} Fragen",
+    "all": "Alle",
+    "politik": "Politik",
+    "geschichte": "Geschichte",
+    "gesellschaft": "Gesellschaft",
+    "bundesland": "Bundesland",
+    "bookmarked": "Markiert",
+    "incorrect": "Falsch",
+    "unanswered": "Unbeantwortet"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": "Sprache",
+    "bundesland": "Bundesland",
+    "reset_progress": "Fortschritt zurücksetzen",
+    "reset_confirm": "Sind Sie sicher? Ihr gesamter Fortschritt wird gelöscht.",
+    "reset_confirm_title": "Fortschritt zurücksetzen",
+    "cancel": "Abbrechen",
+    "reset": "Zurücksetzen",
+    "about": "Über",
+    "version": "Version",
+    "cache": "Übersetzungs-Cache",
+    "clear_cache": "Cache leeren",
+    "cache_cleared": "Cache geleert"
+  },
+  "translation": {
+    "translate": "Übersetzen",
+    "translation_unavailable": "Übersetzung offline nicht verfügbar",
+    "retry": "Erneut versuchen"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Etwas ist schiefgelaufen",
+    "ok": "OK"
+  }
+}

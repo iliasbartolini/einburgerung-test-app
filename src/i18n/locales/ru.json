@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "Тест на гражданство Германии"
+  },
+  "onboarding": {
+    "welcome_title": "Добро пожаловать",
+    "welcome_subtitle": "Выберите язык",
+    "select_bundesland": "Выберите вашу землю",
+    "bundesland_subtitle": "Выберите федеральную землю, в которой вы живёте",
+    "continue": "Продолжить"
+  },
+  "tabs": {
+    "home": "Главная",
+    "practice": "Практика",
+    "catalog": "Каталог",
+    "profile": "Профиль"
+  },
+  "home": {
+    "dashboard": "Обзор",
+    "readiness": "Готовность",
+    "questions_practiced": "Изучено вопросов",
+    "accuracy": "Точность",
+    "quick_actions": "Быстрые действия",
+    "start_practice": "Начать практику",
+    "take_exam": "Пробный экзамен",
+    "review_mistakes": "Работа над ошибками"
+  },
+  "practice": {
+    "title": "Практика",
+    "choose_mode": "Выберите режим обучения",
+    "practice_mode": "Режим практики",
+    "practice_desc": "Изучайте вопросы в своём темпе",
+    "exam_mode": "Симуляция экзамена",
+    "exam_desc": "33 вопроса за 60 минут",
+    "review_mode": "Работа над ошибками",
+    "review_desc": "Повторите вопросы, на которые ответили неправильно",
+    "question": "Вопрос",
+    "of": "из",
+    "next": "Далее",
+    "previous": "Назад",
+    "check": "Проверить ответ",
+    "correct": "Правильно!",
+    "incorrect": "Неправильно",
+    "no_mistakes": "Нет ошибок для повторения. Продолжайте практику!"
+  },
+  "exam": {
+    "title": "Симуляция экзамена",
+    "time_remaining": "Оставшееся время",
+    "submit": "Сдать экзамен",
+    "results": "Результаты экзамена",
+    "score": "Результат",
+    "passed": "Сдано!",
+    "failed": "Не сдано",
+    "pass_threshold": "Для сдачи необходимо минимум 17 из 33 правильных ответов.",
+    "try_again": "Попробовать снова",
+    "review_answers": "Просмотреть ответы"
+  },
+  "catalog": {
+    "title": "Каталог вопросов",
+    "search": "Поиск вопросов...",
+    "showing": "Показано {{count}} из {{total}} вопросов",
+    "all": "Все",
+    "politik": "Политика",
+    "geschichte": "История",
+    "gesellschaft": "Общество",
+    "bundesland": "Земля",
+    "bookmarked": "Избранные",
+    "incorrect": "Неправильные",
+    "unanswered": "Без ответа"
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык",
+    "bundesland": "Федеральная земля",
+    "reset_progress": "Сбросить весь прогресс",
+    "reset_confirm": "Вы уверены? Весь ваш прогресс будет удалён.",
+    "reset_confirm_title": "Сбросить прогресс",
+    "cancel": "Отмена",
+    "reset": "Сбросить",
+    "about": "О приложении",
+    "version": "Версия",
+    "cache": "Кэш переводов",
+    "clear_cache": "Очистить кэш",
+    "cache_cleared": "Кэш очищен"
+  },
+  "translation": {
+    "translate": "Перевести",
+    "translation_unavailable": "Перевод недоступен офлайн",
+    "retry": "Повторить"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Что-то пошло не так",
+    "ok": "ОК"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "Test de naturalisation allemande"
+  },
+  "onboarding": {
+    "welcome_title": "Bienvenue",
+    "welcome_subtitle": "Choisissez votre langue",
+    "select_bundesland": "Sélectionnez votre Land",
+    "bundesland_subtitle": "Choisissez le Land dans lequel vous vivez",
+    "continue": "Continuer"
+  },
+  "tabs": {
+    "home": "Accueil",
+    "practice": "Pratique",
+    "catalog": "Catalogue",
+    "profile": "Profil"
+  },
+  "home": {
+    "dashboard": "Tableau de bord",
+    "readiness": "Préparation",
+    "questions_practiced": "Questions pratiquées",
+    "accuracy": "Précision",
+    "quick_actions": "Actions rapides",
+    "start_practice": "Commencer la pratique",
+    "take_exam": "Passer l'examen",
+    "review_mistakes": "Revoir les erreurs"
+  },
+  "practice": {
+    "title": "Pratique",
+    "choose_mode": "Choisissez votre mode d'étude",
+    "practice_mode": "Mode pratique",
+    "practice_desc": "Étudiez les questions à votre rythme",
+    "exam_mode": "Simulation d'examen",
+    "exam_desc": "33 questions en 60 minutes",
+    "review_mode": "Revoir les erreurs",
+    "review_desc": "Pratiquez les questions auxquelles vous avez mal répondu",
+    "question": "Question",
+    "of": "sur",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "check": "Vérifier la réponse",
+    "correct": "Correct !",
+    "incorrect": "Incorrect",
+    "no_mistakes": "Aucune erreur à revoir. Continuez à pratiquer !"
+  },
+  "exam": {
+    "title": "Simulation d'examen",
+    "time_remaining": "Temps restant",
+    "submit": "Soumettre l'examen",
+    "results": "Résultats de l'examen",
+    "score": "Score",
+    "passed": "Réussi !",
+    "failed": "Non réussi",
+    "pass_threshold": "Vous avez besoin d'au moins 17 bonnes réponses sur 33.",
+    "try_again": "Réessayer",
+    "review_answers": "Revoir les réponses"
+  },
+  "catalog": {
+    "title": "Catalogue des questions",
+    "search": "Rechercher des questions...",
+    "showing": "Affichage de {{count}} sur {{total}} questions",
+    "all": "Toutes",
+    "politik": "Politique",
+    "geschichte": "Histoire",
+    "gesellschaft": "Société",
+    "bundesland": "Land",
+    "bookmarked": "Favoris",
+    "incorrect": "Incorrectes",
+    "unanswered": "Sans réponse"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "bundesland": "Land",
+    "reset_progress": "Réinitialiser la progression",
+    "reset_confirm": "Êtes-vous sûr ? Toute votre progression sera supprimée.",
+    "reset_confirm_title": "Réinitialiser la progression",
+    "cancel": "Annuler",
+    "reset": "Réinitialiser",
+    "about": "À propos",
+    "version": "Version",
+    "cache": "Cache de traduction",
+    "clear_cache": "Vider le cache",
+    "cache_cleared": "Cache vidé"
+  },
+  "translation": {
+    "translate": "Traduire",
+    "translation_unavailable": "Traduction non disponible hors ligne",
+    "retry": "Réessayer"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "ok": "OK"
+  }
+}
