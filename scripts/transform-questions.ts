@@ -56,7 +56,7 @@ const LAND_TO_ID: Record<string, number> = {
   'Thüringen': 16,
 };
 
-function getTopicForQuestion(questionNumber: number): string {
+export function getTopicForQuestion(questionNumber: number): string {
   // Based on BAMF catalog structure:
   // 1-100: Politik in der Demokratie (Politics)
   // 101-200: Geschichte und Verantwortung (History)
@@ -68,7 +68,7 @@ function getTopicForQuestion(questionNumber: number): string {
   return 'bundesland';
 }
 
-function findCorrectOption(options: string[], answer: string): 'a' | 'b' | 'c' | 'd' {
+export function findCorrectOption(options: string[], answer: string): 'a' | 'b' | 'c' | 'd' {
   const letters: Array<'a' | 'b' | 'c' | 'd'> = ['a', 'b', 'c', 'd'];
   const index = options.findIndex((opt) => opt === answer);
   if (index === -1) {
@@ -164,4 +164,6 @@ function main() {
   console.log(`\nOutput written to assets/data/questions.json`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
