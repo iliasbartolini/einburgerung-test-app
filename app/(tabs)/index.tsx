@@ -49,13 +49,18 @@ export default function HomeScreen() {
     ? Math.round((correctAttempts / totalAttempts) * (attemptedCount / totalQuestions) * 100)
     : 0;
 
+  const readinessColor = readiness >= 67 ? '#22C55E' : readiness >= 34 ? '#EAB308' : '#EF4444';
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       <ScrollView className="flex-1" contentContainerStyle={{ padding: 16 }}>
         {/* Readiness Score */}
         <View className="items-center mb-8 mt-4">
-          <View className="w-36 h-36 rounded-full border-8 border-primary/20 items-center justify-center mb-3">
-            <Text className="text-4xl font-bold text-primary">{readiness}%</Text>
+          <View
+            className="w-36 h-36 rounded-full items-center justify-center mb-3"
+            style={{ borderWidth: 8, borderColor: readinessColor }}
+          >
+            <Text className="text-4xl font-bold" style={{ color: readinessColor }}>{readiness}%</Text>
             <Text className="text-xs text-gray-500">{t('home.readiness')}</Text>
           </View>
         </View>
@@ -63,15 +68,15 @@ export default function HomeScreen() {
         {/* Stats Row */}
         <View className="flex-row gap-3 mb-6">
           <View className="flex-1 bg-light rounded-xl p-4 items-center">
-            <Text className="text-2xl font-bold text-primary">{attemptedCount}</Text>
-            <Text className="text-xs text-gray-500 text-center mt-1">
-              {t('home.questions_practiced')}
-            </Text>
-          </View>
-          <View className="flex-1 bg-light rounded-xl p-4 items-center">
             <Text className="text-2xl font-bold text-primary">{accuracy}%</Text>
             <Text className="text-xs text-gray-500 text-center mt-1">
               {t('home.accuracy')}
+            </Text>
+          </View>
+          <View className="flex-1 bg-light rounded-xl p-4 items-center">
+            <Text className="text-2xl font-bold text-primary">{attemptedCount}</Text>
+            <Text className="text-xs text-gray-500 text-center mt-1">
+              {t('home.questions_practiced')}
             </Text>
           </View>
           <View className="flex-1 bg-light rounded-xl p-4 items-center">
