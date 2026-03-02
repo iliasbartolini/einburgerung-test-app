@@ -1,4 +1,4 @@
-import { View, Text, Pressable, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, Pressable, SafeAreaView, ScrollView, Alert } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useCallback, useRef } from 'react';
@@ -124,6 +124,17 @@ export default function QuestionScreen() {
     } as any);
   }, [questions, answers, router]);
 
+  const confirmExamSubmit = useCallback(() => {
+    Alert.alert(
+      t('exam.submit_confirm_title'),
+      t('exam.submit_confirm'),
+      [
+        { text: t('settings.cancel'), style: 'cancel' },
+        { text: t('exam.submit'), style: 'destructive', onPress: handleExamSubmit },
+      ]
+    );
+  }, [t, handleExamSubmit]);
+
   // Exam timer
   useEffect(() => {
     if (!isExam || loading) return;
@@ -240,33 +251,36 @@ export default function QuestionScreen() {
       {/* Navigation */}
       <View className="px-4 py-3 border-t border-gray-100">
         <View className="flex-row gap-3">
-          {!isExam && (
-            <Pressable
-              onPress={handlePrevious}
-              disabled={currentIndex === 0}
-              className={`flex-1 py-3 rounded-xl items-center border ${
-                currentIndex === 0
-                  ? 'border-gray-200 bg-gray-50'
-                  : 'border-gray-300 bg-white active:bg-gray-50'
+          <Pressable
+            onPress={handlePrevious}
+            disabled={currentIndex === 0}
+            className={`flex-1 py-3 rounded-xl items-center border ${
+              currentIndex === 0
+                ? 'border-gray-200 bg-gray-50'
+                : 'border-gray-300 bg-white active:bg-gray-50'
+            }`}
+          >
+            <Text
+              className={`font-semibold ${
+                currentIndex === 0 ? 'text-gray-300' : 'text-gray-700'
               }`}
             >
-              <Text
-                className={`font-semibold ${
-                  currentIndex === 0 ? 'text-gray-300' : 'text-gray-700'
-                }`}
-              >
-                {t('practice.previous')}
-              </Text>
-            </Pressable>
-          )}
+              {t('practice.previous')}
+            </Text>
+          </Pressable>
 
           {isExam ? (
             <Pressable
-              onPress={handleExamSubmit}
-              className="flex-1 py-3 rounded-xl items-center bg-accent active:bg-accent/80"
+              onPress={handleNext}
+              disabled={currentIndex === questions.length - 1}
+              className={`flex-1 py-3 rounded-xl items-center ${
+                currentIndex === questions.length - 1
+                  ? 'bg-primary/40'
+                  : 'bg-primary active:bg-primary/80'
+              }`}
             >
               <Text className="text-white font-semibold">
-                {t('exam.submit')}
+                {t('practice.next')}
               </Text>
             </Pressable>
           ) : (
@@ -286,6 +300,17 @@ export default function QuestionScreen() {
             </Pressable>
           )}
         </View>
+
+        {isExam && (
+          <Pressable
+            onPress={confirmExamSubmit}
+            className="mt-3 py-3 rounded-xl items-center bg-accent active:bg-accent/80"
+          >
+            <Text className="text-white font-semibold">
+              {t('exam.submit')}
+            </Text>
+          </Pressable>
+        )}
       </View>
     </SafeAreaView>
   );

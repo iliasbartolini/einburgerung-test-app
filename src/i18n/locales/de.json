@@ -53,7 +53,9 @@
     "failed": "Nicht bestanden",
     "pass_threshold": "Sie brauchen mindestens 17 von 33 richtigen Antworten.",
     "try_again": "Erneut versuchen",
-    "review_answers": "Antworten überprüfen"
+    "review_answers": "Antworten überprüfen",
+    "submit_confirm_title": "Prüfung abgeben",
+    "submit_confirm": "Sind Sie sicher, dass Sie abgeben möchten? Sie können Ihre Antworten danach nicht mehr ändern."
   },
   "catalog": {
     "title": "Fragenkatalog",

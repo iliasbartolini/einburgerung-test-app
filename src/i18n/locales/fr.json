@@ -53,7 +53,9 @@
     "failed": "Non réussi",
     "pass_threshold": "Vous avez besoin d'au moins 17 bonnes réponses sur 33.",
     "try_again": "Réessayer",
-    "review_answers": "Revoir les réponses"
+    "review_answers": "Revoir les réponses",
+    "submit_confirm_title": "Soumettre l'examen",
+    "submit_confirm": "Êtes-vous sûr de vouloir soumettre ? Vous ne pourrez plus modifier vos réponses après la soumission."
   },
   "catalog": {
     "title": "Catalogue des questions",
