@@ -44,7 +44,7 @@ export default function SettingsScreen() {
       t('settings.reset_confirm_title'),
       t('settings.reset_confirm'),
       [
-        { text: t('settings.cancel'), style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
           text: t('settings.reset'),
           style: 'destructive',
@@ -54,7 +54,7 @@ export default function SettingsScreen() {
               t('settings.reset_confirm_title'),
               t('settings.reset_confirm'),
               [
-                { text: t('settings.cancel'), style: 'cancel' },
+                { text: t('common.cancel'), style: 'cancel' },
                 {
                   text: t('settings.reset'),
                   style: 'destructive',

@@ -93,6 +93,7 @@
   "common": {
     "loading": "Yükleniyor...",
     "error": "Bir şeyler yanlış gitti",
-    "ok": "Tamam"
+    "ok": "Tamam",
+    "cancel": "İptal"
   }
 }

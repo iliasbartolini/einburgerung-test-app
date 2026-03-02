@@ -93,6 +93,7 @@
   "common": {
     "loading": "Chargement...",
     "error": "Une erreur est survenue",
-    "ok": "OK"
+    "ok": "OK",
+    "cancel": "Annuler"
   }
 }

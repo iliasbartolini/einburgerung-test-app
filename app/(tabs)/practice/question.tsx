@@ -22,6 +22,12 @@ import {
 import QuestionCard from '../../../components/QuestionCard';
 import type { Question } from '../../../src/types';
 
+function formatTime(seconds: number) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
 export default function QuestionScreen() {
   const { mode } = useLocalSearchParams<{ mode: string }>();
   const router = useRouter();
@@ -37,10 +43,12 @@ export default function QuestionScreen() {
   // Exam-specific state
   const examSessionRef = useRef<number | null>(null);
   const examStartRef = useRef<number>(0);
+  const handleExamSubmitRef = useRef<() => void>(() => {});
   const [timeRemaining, setTimeRemaining] = useState(60 * 60); // 60 minutes in seconds
 
   const isExam = mode === 'exam';
   const currentQuestion = questions[currentIndex];
+  const isLastQuestion = currentIndex === questions.length - 1;
 
   const loadQuestions = useCallback(async () => {
     if (!bundeslandId) return;
@@ -124,12 +132,14 @@ export default function QuestionScreen() {
     } as any);
   }, [questions, answers, router]);
 
+  handleExamSubmitRef.current = handleExamSubmit;
+
   const confirmExamSubmit = useCallback(() => {
     Alert.alert(
       t('exam.submit_confirm_title'),
       t('exam.submit_confirm'),
       [
-        { text: t('settings.cancel'), style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         { text: t('exam.submit'), style: 'destructive', onPress: handleExamSubmit },
       ]
     );
@@ -142,20 +152,14 @@ export default function QuestionScreen() {
       setTimeRemaining((prev) => {
         if (prev <= 1) {
           clearInterval(interval);
-          handleExamSubmit();
+          handleExamSubmitRef.current();
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [isExam, loading, handleExamSubmit]);
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+  }, [isExam, loading]);
 
   if (loading) {
     return (
@@ -269,36 +273,19 @@ export default function QuestionScreen() {
             </Text>
           </Pressable>
 
-          {isExam ? (
-            <Pressable
-              onPress={handleNext}
-              disabled={currentIndex === questions.length - 1}
-              className={`flex-1 py-3 rounded-xl items-center ${
-                currentIndex === questions.length - 1
-                  ? 'bg-primary/40'
-                  : 'bg-primary active:bg-primary/80'
-              }`}
-            >
-              <Text className="text-white font-semibold">
-                {t('practice.next')}
-              </Text>
-            </Pressable>
-          ) : (
-            <Pressable
-              onPress={handleNext}
-              className={`flex-1 py-3 rounded-xl items-center ${
-                currentIndex === questions.length - 1
-                  ? 'bg-secondary active:bg-secondary/80'
-                  : 'bg-primary active:bg-primary/80'
-              }`}
-            >
-              <Text className="text-white font-semibold">
-                {currentIndex === questions.length - 1
-                  ? t('common.ok')
-                  : t('practice.next')}
-              </Text>
-            </Pressable>
-          )}
+          <Pressable
+            onPress={handleNext}
+            disabled={isExam && isLastQuestion}
+            className={`flex-1 py-3 rounded-xl items-center ${
+              isExam
+                ? isLastQuestion ? 'bg-primary/40' : 'bg-primary active:bg-primary/80'
+                : isLastQuestion ? 'bg-secondary active:bg-secondary/80' : 'bg-primary active:bg-primary/80'
+            }`}
+          >
+            <Text className="text-white font-semibold">
+              {!isExam && isLastQuestion ? t('common.ok') : t('practice.next')}
+            </Text>
+          </Pressable>
         </View>
 
         {isExam && (

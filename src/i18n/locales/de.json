@@ -93,6 +93,7 @@
   "common": {
     "loading": "Laden...",
     "error": "Etwas ist schiefgelaufen",
-    "ok": "OK"
+    "ok": "OK",
+    "cancel": "Abbrechen"
   }
 }

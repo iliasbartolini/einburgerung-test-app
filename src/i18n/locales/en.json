@@ -93,6 +93,7 @@
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",
-    "ok": "OK"
+    "ok": "OK",
+    "cancel": "Cancel"
   }
 }
