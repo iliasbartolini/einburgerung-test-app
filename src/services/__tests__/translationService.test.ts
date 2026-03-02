@@ -1,7 +1,6 @@
 import {
   translateText,
   translateWord,
-  setTranslationApiKey,
 } from '../translationService';
 
 // Mock the translation repository
@@ -19,7 +18,6 @@ global.fetch = mockFetch;
 
 beforeEach(() => {
   jest.clearAllMocks();
-  setTranslationApiKey(null as any);
 });
 
 describe('translateText', () => {
@@ -43,24 +41,13 @@ describe('translateText', () => {
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
-  it('throws TRANSLATION_UNAVAILABLE when no API key', async () => {
-    mockGetCachedTranslation.mockResolvedValue(null);
-
-    await expect(translateText('Hallo', 'en')).rejects.toThrow(
-      'TRANSLATION_UNAVAILABLE'
-    );
-  });
-
   it('calls API and caches result on cache miss', async () => {
     mockGetCachedTranslation.mockResolvedValue(null);
     mockCacheTranslation.mockResolvedValue(undefined);
-    setTranslationApiKey('test-key');
 
     mockFetch.mockResolvedValue({
       ok: true,
-      json: async () => ({
-        data: { translations: [{ translatedText: 'Hello' }] },
-      }),
+      json: async () => [['Hello', 'Hallo']],
     });
 
     const result = await translateText('Hallo', 'en');
@@ -68,14 +55,36 @@ describe('translateText', () => {
     expect(result).toEqual({ translatedText: 'Hello', fromCache: false });
     expect(mockCacheTranslation).toHaveBeenCalledWith('Hallo', 'en', 'Hello');
     expect(mockFetch).toHaveBeenCalledWith(
-      expect.stringContaining('test-key'),
-      expect.objectContaining({ method: 'POST' })
+      expect.stringContaining('clients5.google.com')
+    );
+  });
+
+  it('handles flat array response format', async () => {
+    mockGetCachedTranslation.mockResolvedValue(null);
+    mockCacheTranslation.mockResolvedValue(undefined);
+
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => ['Hello'],
+    });
+
+    const result = await translateText('Hallo', 'en');
+
+    expect(result).toEqual({ translatedText: 'Hello', fromCache: false });
+  });
+
+  it('throws TRANSLATION_API_ERROR on non-ok response', async () => {
+    mockGetCachedTranslation.mockResolvedValue(null);
+
+    mockFetch.mockResolvedValue({ ok: false, status: 403 });
+
+    await expect(translateText('Hallo', 'en')).rejects.toThrow(
+      'TRANSLATION_API_ERROR'
     );
   });
 
   it('throws TRANSLATION_OFFLINE on network error', async () => {
     mockGetCachedTranslation.mockResolvedValue(null);
-    setTranslationApiKey('test-key');
 
     mockFetch.mockRejectedValue(new TypeError('Network request failed'));
 

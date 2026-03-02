@@ -3,13 +3,7 @@ import {
   cacheTranslation,
 } from '../db/repositories/translationRepository';
 
-const API_BASE = 'https://translation.googleapis.com/language/translate/v2';
-
-let apiKey: string | null = null;
-
-export function setTranslationApiKey(key: string) {
-  apiKey = key;
-}
+const API_BASE = 'https://clients5.google.com/translate_a/t';
 
 export async function translateText(
   text: string,
@@ -26,29 +20,30 @@ export async function translateText(
     return { translatedText: text, fromCache: false };
   }
 
-  // Call API if key is configured
-  if (!apiKey) {
-    throw new Error('TRANSLATION_UNAVAILABLE');
-  }
-
   try {
-    const response = await fetch(`${API_BASE}?key=${apiKey}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        q: text,
-        source: 'de',
-        target: targetLanguage,
-        format: 'text',
-      }),
+    const params = new URLSearchParams({
+      client: 'dict-chrome-ex',
+      sl: 'de',
+      tl: targetLanguage,
+      q: text,
     });
+
+    const response = await fetch(`${API_BASE}?${params}`);
 
     if (!response.ok) {
       throw new Error('TRANSLATION_API_ERROR');
     }
 
     const data = await response.json();
-    const translatedText = data.data.translations[0].translatedText;
+
+    // Response is an array of [translatedText, sourceText] pairs
+    const translatedText = Array.isArray(data)
+      ? (Array.isArray(data[0]) ? data[0][0] : data[0])
+      : data;
+
+    if (typeof translatedText !== 'string') {
+      throw new Error('TRANSLATION_API_ERROR');
+    }
 
     // Cache the result
     await cacheTranslation(text, targetLanguage, translatedText);

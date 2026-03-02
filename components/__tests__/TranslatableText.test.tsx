@@ -59,7 +59,7 @@ describe('TranslatableText', () => {
 
   it('shows error message when translation fails', async () => {
     mockTranslateWord.mockRejectedValue(
-      new Error('TRANSLATION_UNAVAILABLE')
+      new Error('TRANSLATION_OFFLINE')
     );
 
     render(<TranslatableText text="Hallo Welt" />);

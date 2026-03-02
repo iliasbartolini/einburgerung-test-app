@@ -38,7 +38,7 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
         });
       } catch (error: any) {
         const errorKey =
-          error.message === 'TRANSLATION_OFFLINE' || error.message === 'TRANSLATION_UNAVAILABLE'
+          error.message === 'TRANSLATION_OFFLINE'
             ? 'translation.translation_unavailable'
             : 'common.error';
         setPopover({
