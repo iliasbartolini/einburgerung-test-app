@@ -1,5 +1,5 @@
 import { View, Text, Pressable } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Question } from '../src/types';
 import TranslatableText from './TranslatableText';
 
@@ -32,7 +32,13 @@ export default function QuestionCard({
   const [internalSelected, setInternalSelected] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
 
-  const selectedOption = externalSelectedOption ?? internalSelected;
+  // Reset internal state when the question changes
+  useEffect(() => {
+    setInternalSelected(null);
+    setAnswered(false);
+  }, [question.id]);
+
+  const selectedOption = externalSelectedOption !== undefined ? externalSelectedOption : internalSelected;
   const isAnswered = externalSelectedOption !== undefined ? !!externalSelectedOption : answered;
 
   const options = [

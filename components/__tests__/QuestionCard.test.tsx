@@ -26,6 +26,20 @@ const mockQuestion: Question = {
   image_asset_path: null,
 };
 
+const secondQuestion: Question = {
+  id: 43,
+  question_text: 'Wie viele Bundesländer hat Deutschland?',
+  option_a: '14',
+  option_b: '15',
+  option_c: '16',
+  option_d: '17',
+  correct_option: 'c',
+  topic: 'politik',
+  bundesland_id: null,
+  has_image: 0,
+  image_asset_path: null,
+};
+
 describe('QuestionCard', () => {
   const defaultProps = {
     question: mockQuestion,
@@ -118,5 +132,64 @@ describe('QuestionCard', () => {
     );
 
     expect(screen.getByLabelText('Remove bookmark')).toBeTruthy();
+  });
+
+  it('clears selection when question changes to an unanswered question', () => {
+    const onAnswer = jest.fn();
+    const { rerender } = render(
+      <QuestionCard {...defaultProps} onAnswer={onAnswer} selectedOption={null} />
+    );
+
+    // Answer the first question
+    fireEvent.press(screen.getByLabelText('Option B: München'));
+    expect(onAnswer).toHaveBeenCalledWith('b', false);
+
+    // Navigate to a new unanswered question (parent passes null)
+    rerender(
+      <QuestionCard
+        {...defaultProps}
+        question={secondQuestion}
+        onAnswer={onAnswer}
+        selectedOption={null}
+      />
+    );
+
+    // The new question's options should not have any selection
+    const optionA = screen.getByLabelText('Option A: 14');
+    expect(optionA.props.accessibilityState.selected).toBe(false);
+    const optionB = screen.getByLabelText('Option B: 15');
+    expect(optionB.props.accessibilityState.selected).toBe(false);
+  });
+
+  it('restores selection when navigating back to an answered question', () => {
+    const onAnswer = jest.fn();
+    const { rerender } = render(
+      <QuestionCard {...defaultProps} onAnswer={onAnswer} selectedOption={null} />
+    );
+
+    // Answer the first question
+    fireEvent.press(screen.getByLabelText('Option A: Berlin'));
+
+    // Navigate away to second question
+    rerender(
+      <QuestionCard
+        {...defaultProps}
+        question={secondQuestion}
+        onAnswer={onAnswer}
+        selectedOption={null}
+      />
+    );
+
+    // Navigate back — parent provides the stored answer
+    rerender(
+      <QuestionCard
+        {...defaultProps}
+        onAnswer={onAnswer}
+        selectedOption="a"
+      />
+    );
+
+    const optionA = screen.getByLabelText('Option A: Berlin');
+    expect(optionA.props.accessibilityState.selected).toBe(true);
   });
 });
