@@ -1,6 +1,7 @@
 import { View, Text, Pressable } from 'react-native';
 import { useState } from 'react';
 import type { Question } from '../src/types';
+import TranslatableText from './TranslatableText';
 
 interface QuestionCardProps {
   question: Question;
@@ -105,9 +106,10 @@ export default function QuestionCard({
 
       {/* Question Text */}
       <View className="mb-6">
-        <Text className="text-lg font-medium text-gray-900 leading-7">
-          {question.question_text}
-        </Text>
+        <TranslatableText
+          text={question.question_text}
+          className="text-lg font-medium text-gray-900 leading-7"
+        />
       </View>
 
       {/* Options */}
