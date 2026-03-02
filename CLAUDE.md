@@ -17,25 +17,15 @@ npx expo start --clear                 # Start with cleared Metro cache
 # Data pipeline
 npx tsx scripts/transform-questions.ts # Transform source questions → assets/data/questions.json
 
-# Type checking
-npx tsc --noEmit                       # TypeScript check (no test framework yet)
+# Type checking & linting
+npx tsc --noEmit                       # TypeScript check
+npm run lint                           # ESLint (eslint-config-expo flat config)
+npm run lint -- --fix                  # ESLint with auto-fix
 ```
 
 ## Architecture
 
 ### Data Flow
-```
-questions-catalogue/*.json → scripts/transform-questions.ts → assets/data/questions.json
-                                                                      ↓
-                                                            app/_layout.tsx (on first launch)
-                                                                      ↓
-                                                            SQLite (expo-sqlite, WAL mode)
-                                                                      ↓
-                                                            src/db/repositories/*.ts
-                                                                      ↓
-                                                            React components (via async queries)
-```
-
 The root layout (`app/_layout.tsx`) orchestrates initialization: DB schema creation → question seeding → loading persisted user settings → onboarding redirect (if needed) → splash screen hide.
 
 ### Routing (Expo Router, file-based)
@@ -61,6 +51,13 @@ The root layout (`app/_layout.tsx`) orchestrates initialization: DB schema creat
 - react-i18next with 6 locales in `src/i18n/locales/`. Language list and RTL config in `src/i18n/index.ts`.
 - Arabic (`ar`) is RTL. All others LTR.
 - Translation keys are hierarchical: `onboarding.welcome_title`, `practice.correct`, etc.
+
+## Pre-commit Checklist
+
+Before every commit, run all three checks and fix any issues:
+1. `npx tsc --noEmit` — TypeScript must pass with no errors
+2. `npm run lint` — ESLint must pass with no errors
+3. `npm test` — All tests must pass
 
 ## Key Conventions
 
