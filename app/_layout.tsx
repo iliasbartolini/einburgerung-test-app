@@ -3,7 +3,8 @@ import '../src/i18n';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Platform, Text, View } from 'react-native';
 import 'react-native-reanimated';
 import { useAppStore } from '../src/stores/useAppStore';
 import { initDatabase, seedQuestions } from '../src/db/database';
@@ -23,6 +24,7 @@ export default function RootLayout() {
   });
   const { isOnboarded, isDbReady, setDbReady, setOnboarded, setUiLanguage, setBundeslandId } =
     useAppStore();
+  const [dbError, setDbError] = useState<string | null>(null);
   const segments = useSegments();
   const router = useRouter();
 
@@ -38,7 +40,15 @@ export default function RootLayout() {
         await seedQuestions(questionsData as any);
         setDbReady(true);
       } catch (e) {
-        console.error('Failed to initialize database:', e);
+        const isWebDbConflict =
+          Platform.OS === 'web' &&
+          e instanceof Error &&
+          (e.message.includes('createSyncAccessHandle') || e.message.includes('Invalid VFS'));
+        if (isWebDbConflict) {
+          setDbError('This app can only run in one browser tab at a time. Please close other tabs and reload.');
+        } else {
+          console.error('Failed to initialize database:', e);
+        }
       }
     }
     init();
@@ -83,6 +93,14 @@ export default function RootLayout() {
       router.replace('/(tabs)');
     }
   }, [isOnboarded, segments, loaded, isDbReady]);
+
+  if (dbError) {
+    return (
+      <View className="flex-1 items-center justify-center p-8 bg-light">
+        <Text className="text-lg text-center text-primary">{dbError}</Text>
+      </View>
+    );
+  }
 
   if (!loaded || !isDbReady) {
     return null;

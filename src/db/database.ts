@@ -1,14 +1,27 @@
+import { Platform } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 import { CREATE_TABLES_SQL, CREATE_INDEXES_SQL, SCHEMA_VERSION } from './schema';
 
-let db: SQLite.SQLiteDatabase | null = null;
+let dbPromise: Promise<SQLite.SQLiteDatabase> | null = null;
 
 export async function getDatabase(): Promise<SQLite.SQLiteDatabase> {
-  if (db) return db;
-  db = await SQLite.openDatabaseAsync('einburgerung.db');
-  await db.execAsync('PRAGMA journal_mode = WAL');
-  await db.execAsync('PRAGMA foreign_keys = ON');
-  return db;
+  if (!dbPromise) {
+    dbPromise = (async () => {
+      const database = await SQLite.openDatabaseAsync('einburgerung.db');
+      await database.execAsync('PRAGMA journal_mode = WAL');
+      await database.execAsync('PRAGMA foreign_keys = ON');
+
+      // On web, release the OPFS handle when the tab closes so other tabs can open it
+      if (Platform.OS === 'web' && typeof window !== 'undefined') {
+        window.addEventListener('beforeunload', () => {
+          database.closeAsync();
+        });
+      }
+
+      return database;
+    })();
+  }
+  return dbPromise;
 }
 
 export async function initDatabase(): Promise<void> {
