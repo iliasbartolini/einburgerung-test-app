@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "einburgerung-temp",
-    "slug": "einburgerung-temp",
+    "name": "Einbürgerungstest",
+    "slug": "einburgerung-test-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "einburgerungtemp",
+    "scheme": "einburgerung-test",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash-icon.png",
