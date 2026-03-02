@@ -72,23 +72,7 @@ export default function QuestionScreen() {
   useEffect(() => {
     if (!currentQuestion) return;
     checkBookmarked(currentQuestion.id).then(setBookmarked);
-  }, [currentQuestion?.id]);
-
-  // Exam timer
-  useEffect(() => {
-    if (!isExam || loading) return;
-    const interval = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          handleExamSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [isExam, loading]);
+  }, [currentQuestion]);
 
   const handleAnswer = async (selectedOption: string, isCorrect: boolean) => {
     if (!currentQuestion) return;
@@ -122,7 +106,7 @@ export default function QuestionScreen() {
     }
   };
 
-  const handleExamSubmit = async () => {
+  const handleExamSubmit = useCallback(async () => {
     if (!examSessionRef.current) return;
     const correctCount = questions.filter(
       (q) => answers[q.id] === q.correct_option
@@ -138,7 +122,23 @@ export default function QuestionScreen() {
         timeTaken: String(timeTaken),
       },
     } as any);
-  };
+  }, [questions, answers, router]);
+
+  // Exam timer
+  useEffect(() => {
+    if (!isExam || loading) return;
+    const interval = setInterval(() => {
+      setTimeRemaining((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          handleExamSubmit();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [isExam, loading, handleExamSubmit]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);

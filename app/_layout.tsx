@@ -52,7 +52,7 @@ export default function RootLayout() {
       }
     }
     init();
-  }, []);
+  }, [setDbReady]);
 
   // Load user settings from DB once ready
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function RootLayout() {
       }
     }
     loadSettings();
-  }, [isDbReady]);
+  }, [isDbReady, setBundeslandId, setOnboarded, setUiLanguage]);
 
   useEffect(() => {
     if (loaded && isDbReady) {
@@ -92,7 +92,7 @@ export default function RootLayout() {
     } else if (isOnboarded && inOnboarding) {
       router.replace('/(tabs)');
     }
-  }, [isOnboarded, segments, loaded, isDbReady]);
+  }, [isOnboarded, segments, loaded, isDbReady, router]);
 
   if (dbError) {
     return (

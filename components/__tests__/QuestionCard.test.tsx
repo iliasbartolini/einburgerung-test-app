@@ -5,8 +5,11 @@ import type { Question } from '../../src/types';
 
 // Mock TranslatableText as a simple Text passthrough
 jest.mock('../TranslatableText', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { Text } = require('react-native');
-  return ({ text }: { text: string }) => <Text>{text}</Text>;
+  const MockTranslatableText = ({ text }: { text: string }) => <Text>{text}</Text>;
+  MockTranslatableText.displayName = 'TranslatableText';
+  return MockTranslatableText;
 });
 
 const mockQuestion: Question = {

@@ -44,7 +44,7 @@ export async function initDatabase(): Promise<void> {
 }
 
 export async function seedQuestions(
-  questions: Array<{
+  questions: {
     id: number;
     question_text: string;
     option_a: string;
@@ -56,7 +56,7 @@ export async function seedQuestions(
     bundesland_id: number | null;
     has_image: number;
     image_asset_path: string | null;
-  }>
+  }[]
 ): Promise<void> {
   const database = await getDatabase();
 
