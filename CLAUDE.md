@@ -52,13 +52,6 @@ The root layout (`app/_layout.tsx`) orchestrates initialization: DB schema creat
 - Arabic (`ar`) is RTL. All others LTR.
 - Translation keys are hierarchical: `onboarding.welcome_title`, `practice.correct`, etc.
 
-## Pre-commit Checklist
-
-Before every commit, run all three checks and fix any issues:
-1. `npx tsc --noEmit` — TypeScript must pass with no errors
-2. `npm run lint` — ESLint must pass with no errors
-3. `npm test` — All tests must pass
-
 ## Key Conventions
 
 - **Styling**: NativeWind v4 (Tailwind classes via `className`). Custom palette defined in `tailwind.config.js`: `primary` (#1D3557), `secondary` (#457B9D), `accent` (#E63946), `light` (#F1FAEE).
