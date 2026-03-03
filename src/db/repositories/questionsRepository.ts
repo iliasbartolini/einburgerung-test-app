@@ -94,6 +94,23 @@ export async function getBookmarkedQuestions(): Promise<Question[]> {
   );
 }
 
+export async function getSmartStartQuestionId(bundeslandId: number): Promise<number | null> {
+  const db = await getDatabase();
+  const result = await db.getFirstAsync<{ id: number }>(
+    `SELECT q.id FROM questions q
+     LEFT JOIN (
+       SELECT question_id, COUNT(*) as attempt_count
+       FROM question_attempts
+       GROUP BY question_id
+     ) ac ON q.id = ac.question_id
+     WHERE q.bundesland_id IS NULL OR q.bundesland_id = ?
+     ORDER BY COALESCE(ac.attempt_count, 0) ASC, q.id ASC
+     LIMIT 1`,
+    [bundeslandId]
+  );
+  return result?.id ?? null;
+}
+
 export async function getQuestionCount(): Promise<number> {
   const db = await getDatabase();
   const result = await db.getFirstAsync<{ count: number }>(

@@ -6,6 +6,8 @@ import { useAppStore } from '../../../src/stores/useAppStore';
 import {
   getQuestionsByBundesland,
   getIncorrectQuestions,
+  getSmartStartQuestionId,
+  getAllQuestionStats,
 } from '../../../src/db/repositories/questionsRepository';
 import {
   recordAttempt,
@@ -20,7 +22,7 @@ import {
   toggleBookmark,
 } from '../../../src/db/repositories/bookmarksRepository';
 import QuestionCard from '../../../components/QuestionCard';
-import type { Question } from '../../../src/types';
+import type { Question, QuestionStats } from '../../../src/types';
 
 function formatTime(seconds: number) {
   const mins = Math.floor(seconds / 60);
@@ -39,6 +41,8 @@ export default function QuestionScreen() {
   const [bookmarked, setBookmarked] = useState(false);
   const [loading, setLoading] = useState(true);
   const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [statsMap, setStatsMap] = useState<Record<number, QuestionStats>>({});
+  const navigatorRef = useRef<ScrollView>(null);
 
   // Exam-specific state
   const examSessionRef = useRef<number | null>(null);
@@ -65,6 +69,22 @@ export default function QuestionScreen() {
         loaded = await getIncorrectQuestions(bundeslandId);
       } else {
         loaded = await getQuestionsByBundesland(bundeslandId);
+
+        // Load stats for navigator colors and find smart start position
+        const [allStats, smartStartId] = await Promise.all([
+          getAllQuestionStats(),
+          getSmartStartQuestionId(bundeslandId),
+        ]);
+        const map: Record<number, QuestionStats> = {};
+        for (const s of allStats) {
+          map[s.question_id] = s;
+        }
+        setStatsMap(map);
+
+        if (smartStartId != null) {
+          const idx = loaded.findIndex((q) => q.id === smartStartId);
+          if (idx > 0) setCurrentIndex(idx);
+        }
       }
       setQuestions(loaded);
     } catch (e) {
@@ -155,6 +175,30 @@ export default function QuestionScreen() {
     return () => clearInterval(interval);
   }, [isExam, loading]);
 
+  // Auto-scroll navigator to current question
+  const isPractice = mode === 'practice';
+  useEffect(() => {
+    if (!isPractice && !isExam) return;
+    const ref = isPractice ? navigatorRef : null;
+    if (!ref?.current) return;
+    // Each button is 32px wide + 4px gap
+    const scrollX = Math.max(0, currentIndex * 36 - 120);
+    ref.current.scrollTo({ x: scrollX, animated: true });
+  }, [currentIndex, isPractice, isExam]);
+
+  const getNavigatorColor = (questionId: number, index: number) => {
+    if (index === currentIndex) return 'bg-primary';
+    const stats = statsMap[questionId];
+    if (!stats || stats.difficulty_tier === 'unseen') return 'bg-gray-100';
+    switch (stats.difficulty_tier) {
+      case 'mastered': return 'bg-green-200';
+      case 'comfortable': return 'bg-amber-200';
+      case 'struggling': return 'bg-orange-200';
+      case 'difficult': return 'bg-red-200';
+      default: return 'bg-gray-100';
+    }
+  };
+
   if (loading) {
     return (
       <SafeAreaView className="flex-1 bg-white items-center justify-center">
@@ -216,6 +260,35 @@ export default function QuestionScreen() {
                         ? 'bg-secondary/30'
                         : 'bg-gray-100'
                   }`}
+                >
+                  <Text
+                    className={`text-xs font-medium ${
+                      i === currentIndex ? 'text-white' : 'text-gray-600'
+                    }`}
+                  >
+                    {i + 1}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+      )}
+
+      {/* Practice question navigator */}
+      {isPractice && (
+        <View className="px-4 py-2 bg-primary/5">
+          <ScrollView
+            ref={navigatorRef}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
+            <View className="flex-row gap-1">
+              {questions.map((q, i) => (
+                <Pressable
+                  key={q.id}
+                  onPress={() => setCurrentIndex(i)}
+                  className={`w-8 h-8 rounded items-center justify-center ${getNavigatorColor(q.id, i)}`}
                 >
                   <Text
                     className={`text-xs font-medium ${
