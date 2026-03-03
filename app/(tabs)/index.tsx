@@ -87,25 +87,25 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* Quick Actions */}
+        {/* Practice */}
         <Text className="text-lg font-semibold text-gray-800 mb-3">
           {t('home.quick_actions')}
         </Text>
         <View className="gap-3 mb-6">
-          <Pressable
-            onPress={() => router.push({ pathname: '/practice/question', params: { mode: 'practice' } } as any)}
-            className="flex-row items-center p-4 rounded-xl bg-primary active:bg-primary/80"
-            accessibilityRole="button"
-          >
-            <Text className="text-2xl mr-3">{'\u270F\uFE0F'}</Text>
-            <View className="flex-1">
-              <Text className="text-white font-semibold text-base">
-                {t('home.start_practice')}
-              </Text>
-            </View>
-          </Pressable>
-
           <View className="flex-row gap-3">
+            <Pressable
+              onPress={() => router.push({ pathname: '/practice/question', params: { mode: 'practice' } } as any)}
+              className="flex-1 p-4 rounded-xl bg-primary active:bg-primary/80"
+              accessibilityRole="button"
+            >
+              <Text className="text-2xl mb-1">{'\u270F\uFE0F'}</Text>
+              <Text className="text-white font-semibold text-sm">
+                {t('practice.practice_mode')}
+              </Text>
+              <Text className="text-white/70 text-xs mt-1">
+                {t('practice.practice_desc')}
+              </Text>
+            </Pressable>
             <Pressable
               onPress={() => router.push({ pathname: '/practice/question', params: { mode: 'exam' } } as any)}
               className="flex-1 p-4 rounded-xl bg-secondary active:bg-secondary/80"
@@ -113,9 +113,15 @@ export default function HomeScreen() {
             >
               <Text className="text-2xl mb-1">{'\u23F1\uFE0F'}</Text>
               <Text className="text-white font-semibold text-sm">
-                {t('home.take_exam')}
+                {t('practice.exam_mode')}
+              </Text>
+              <Text className="text-white/70 text-xs mt-1">
+                {t('practice.exam_desc')}
               </Text>
             </Pressable>
+          </View>
+
+          <View className="flex-row gap-3">
             <Pressable
               onPress={() => router.push({ pathname: '/practice/question', params: { mode: 'review' } } as any)}
               className="flex-1 p-4 rounded-xl bg-accent active:bg-accent/80"
@@ -123,7 +129,23 @@ export default function HomeScreen() {
             >
               <Text className="text-2xl mb-1">{'\uD83D\uDD04'}</Text>
               <Text className="text-white font-semibold text-sm">
-                {t('home.review_mistakes')}
+                {t('practice.review_mode')}
+              </Text>
+              <Text className="text-white/70 text-xs mt-1">
+                {t('practice.review_desc')}
+              </Text>
+            </Pressable>
+            <Pressable
+              onPress={() => router.push('/practice/flashcards' as any)}
+              className="flex-1 p-4 rounded-xl bg-amber-600 active:bg-amber-600/80"
+              accessibilityRole="button"
+            >
+              <Text className="text-2xl mb-1">{'\uD83D\uDCC7'}</Text>
+              <Text className="text-white font-semibold text-sm">
+                {t('practice.flashcards_mode')}
+              </Text>
+              <Text className="text-white/70 text-xs mt-1">
+                {t('practice.flashcards_desc')}
               </Text>
             </Pressable>
           </View>

@@ -27,6 +27,7 @@ export default function TabLayout() {
         options={{
           title: 'Practice',
           headerShown: false,
+          href: null,
           tabBarIcon: ({ color }) => (
             <SymbolView
               name={{ ios: 'pencil.and.list.clipboard', android: 'quiz', web: 'quiz' }}

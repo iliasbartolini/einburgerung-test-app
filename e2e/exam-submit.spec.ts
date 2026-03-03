@@ -14,13 +14,9 @@ test('onboarding → exam → answer 2 questions → submit', async ({ page }) =
   await page.getByRole('button', { name: 'Continue' }).click();
 
   // --- Main app: home screen should show after onboarding ---
-  await expect(page.getByText('Quick Actions')).toBeVisible();
+  await expect(page.getByText('Practice', { exact: true })).toBeVisible();
 
-  // Navigate to Practice tab
-  await page.getByText('Practice', { exact: true }).click();
-
-  // --- Practice: select Exam Simulation ---
-  await expect(page.getByText('Choose your study mode')).toBeVisible();
+  // --- Start Exam Simulation from Home screen ---
   await page.getByRole('button', { name: /Exam Simulation/i }).click();
 
   // --- Exam: answer question 1 ---

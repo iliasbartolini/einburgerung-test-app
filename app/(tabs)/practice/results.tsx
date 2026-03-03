@@ -66,11 +66,11 @@ export default function ResultsScreen() {
           </Pressable>
 
           <Pressable
-            onPress={() => router.navigate('/practice' as any)}
+            onPress={() => router.navigate('/' as any)}
             className="py-4 rounded-xl items-center border border-gray-300 active:bg-gray-50"
           >
             <Text className="text-gray-700 font-semibold text-lg">
-              {t('practice.title')}
+              {t('tabs.home')}
             </Text>
           </Pressable>
         </View>
