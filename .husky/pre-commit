@@ -1,0 +1,15 @@
+echo "Running pre-commit checks..."
+
+echo "1/4 TypeScript..."
+npx tsc --noEmit || exit 1
+
+echo "2/4 ESLint..."
+npm run lint || exit 1
+
+echo "3/4 Unit tests..."
+npm test || exit 1
+
+echo "4/4 E2E tests..."
+npm run test:e2e || exit 1
+
+echo "All checks passed."
