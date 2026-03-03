@@ -19,6 +19,27 @@ interface QuestionCardProps {
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
 const OPTION_KEYS = ['a', 'b', 'c', 'd'] as const;
 
+function QuestionImage({ questionId }: { questionId: number }) {
+  const source = getQuestionImage(questionId)!;
+  const [aspectRatio, setAspectRatio] = useState(532 / 378);
+
+  return (
+    <View className="mb-6">
+      <Image
+        source={source}
+        style={{ width: '100%', aspectRatio }}
+        resizeMode="contain"
+        onLoad={(e) => {
+          const src = e.nativeEvent.source ?? e.nativeEvent;
+          const { width, height } = src;
+          if (width && height) setAspectRatio(width / height);
+        }}
+        accessibilityLabel={`Image for question ${questionId}`}
+      />
+    </View>
+  );
+}
+
 export default function QuestionCard({
   question,
   questionNumber,
@@ -121,15 +142,7 @@ export default function QuestionCard({
 
       {/* Question Image */}
       {question.has_image === 1 && getQuestionImage(question.id) && (
-        <View className="mb-6 items-center">
-          <Image
-            source={getQuestionImage(question.id)!}
-            className="w-full rounded-lg"
-            style={{ aspectRatio: 532 / 378 }}
-            resizeMode="contain"
-            accessibilityLabel={`Image for question ${question.id}`}
-          />
-        </View>
+        <QuestionImage questionId={question.id} />
       )}
 
       {/* Options */}
