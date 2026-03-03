@@ -49,3 +49,4 @@ yarn-error.*
 
 # Claude
 .claude/
+test-results/.last-run.json
