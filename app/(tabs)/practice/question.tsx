@@ -1,4 +1,4 @@
-import { View, Text, Pressable, SafeAreaView, ScrollView, Alert, Platform } from 'react-native';
+import { View, Text, Pressable, SafeAreaView, ScrollView, Modal } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useCallback, useRef } from 'react';
@@ -45,6 +45,7 @@ export default function QuestionScreen() {
   const examStartRef = useRef<number>(0);
   const handleExamSubmitRef = useRef<() => void>(() => {});
   const [timeRemaining, setTimeRemaining] = useState(60 * 60); // 60 minutes in seconds
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const isExam = mode === 'exam';
   const currentQuestion = questions[currentIndex];
@@ -135,24 +136,8 @@ export default function QuestionScreen() {
   handleExamSubmitRef.current = handleExamSubmit;
 
   const confirmExamSubmit = useCallback(() => {
-    if (Platform.OS === 'web') {
-      const confirmed = window.confirm(
-        `${t('exam.submit_confirm_title')}\n${t('exam.submit_confirm')}`
-      );
-      if (confirmed) {
-        handleExamSubmit();
-      }
-    } else {
-      Alert.alert(
-        t('exam.submit_confirm_title'),
-        t('exam.submit_confirm'),
-        [
-          { text: t('common.cancel'), style: 'cancel' },
-          { text: t('exam.submit'), style: 'destructive', onPress: handleExamSubmit },
-        ]
-      );
-    }
-  }, [t, handleExamSubmit]);
+    setShowConfirm(true);
+  }, []);
 
   // Exam timer
   useEffect(() => {
@@ -308,6 +293,48 @@ export default function QuestionScreen() {
           </Pressable>
         )}
       </View>
+
+      {/* Submit confirmation modal */}
+      <Modal
+        visible={showConfirm}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowConfirm(false)}
+      >
+        <Pressable
+          className="flex-1 items-center justify-center bg-black/30"
+          onPress={() => setShowConfirm(false)}
+        >
+          <Pressable
+            className="bg-white rounded-2xl p-5 mx-8 w-72 shadow-lg"
+            onPress={(e) => e.stopPropagation()}
+          >
+            <Text className="text-lg font-bold text-primary mb-1">
+              {t('exam.submit_confirm_title')}
+            </Text>
+            <Text className="text-base text-gray-700 mb-4">
+              {t('exam.submit_confirm')}
+            </Text>
+            <View className="flex-row gap-3">
+              <Pressable
+                onPress={() => setShowConfirm(false)}
+                className="flex-1 py-2 rounded-lg bg-gray-100 items-center"
+              >
+                <Text className="text-gray-600 font-medium">{t('common.cancel')}</Text>
+              </Pressable>
+              <Pressable
+                onPress={() => {
+                  setShowConfirm(false);
+                  handleExamSubmit();
+                }}
+                className="flex-1 py-2 rounded-lg bg-accent items-center"
+              >
+                <Text className="text-white font-medium">{t('exam.submit')}</Text>
+              </Pressable>
+            </View>
+          </Pressable>
+        </Pressable>
+      </Modal>
     </SafeAreaView>
   );
 }

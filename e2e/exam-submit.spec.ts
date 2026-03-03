@@ -34,9 +34,12 @@ test('onboarding → exam → answer 2 questions → submit', async ({ page }) =
   await page.getByRole('radio').first().click();
 
   // --- Submit exam ---
-  // Accept the window.confirm dialog that appears on submit
-  page.on('dialog', (dialog) => dialog.accept());
   await page.getByText('Submit Exam', { exact: true }).click();
+
+  // Confirm in the modal dialog
+  await expect(page.getByText('Are you sure you want to submit?')).toBeVisible();
+  // The modal confirm button is the last "Submit Exam" text on the page
+  await page.getByText('Submit Exam', { exact: true }).last().click();
 
   // --- Results screen ---
   await expect(page.getByText(/Passed!|Not Passed/)).toBeVisible();
