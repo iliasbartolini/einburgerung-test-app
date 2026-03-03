@@ -1,7 +1,7 @@
 import { View, Text, Pressable, ScrollView, SafeAreaView } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useAppStore } from '../../src/stores/useAppStore';
 import {
   getTotalAttempts,
@@ -39,9 +39,11 @@ export default function HomeScreen() {
     setRecentExams(exams.slice(0, 3));
   }, [bundeslandId]);
 
-  useEffect(() => {
-    loadStats();
-  }, [loadStats]);
+  useFocusEffect(
+    useCallback(() => {
+      loadStats();
+    }, [loadStats])
+  );
 
   const accuracy = totalAttempts > 0 ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
   const coverage = totalQuestions > 0 ? Math.round((attemptedCount / totalQuestions) * 100) : 0;
