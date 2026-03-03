@@ -1,4 +1,4 @@
-import { View, Text, Pressable, SafeAreaView, ScrollView, Alert } from 'react-native';
+import { View, Text, Pressable, SafeAreaView, ScrollView, Alert, Platform } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useCallback, useRef } from 'react';
@@ -135,14 +135,23 @@ export default function QuestionScreen() {
   handleExamSubmitRef.current = handleExamSubmit;
 
   const confirmExamSubmit = useCallback(() => {
-    Alert.alert(
-      t('exam.submit_confirm_title'),
-      t('exam.submit_confirm'),
-      [
-        { text: t('common.cancel'), style: 'cancel' },
-        { text: t('exam.submit'), style: 'destructive', onPress: handleExamSubmit },
-      ]
-    );
+    if (Platform.OS === 'web') {
+      const confirmed = window.confirm(
+        `${t('exam.submit_confirm_title')}\n${t('exam.submit_confirm')}`
+      );
+      if (confirmed) {
+        handleExamSubmit();
+      }
+    } else {
+      Alert.alert(
+        t('exam.submit_confirm_title'),
+        t('exam.submit_confirm'),
+        [
+          { text: t('common.cancel'), style: 'cancel' },
+          { text: t('exam.submit'), style: 'destructive', onPress: handleExamSubmit },
+        ]
+      );
+    }
   }, [t, handleExamSubmit]);
 
   // Exam timer
