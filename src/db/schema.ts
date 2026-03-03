@@ -1,4 +1,4 @@
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 export const CREATE_TABLES_SQL = [
   `CREATE TABLE IF NOT EXISTS questions (
@@ -56,6 +56,17 @@ export const CREATE_TABLES_SQL = [
     UNIQUE(source_text, target_language)
   )`,
 
+  `CREATE TABLE IF NOT EXISTS flash_cards (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    german_word TEXT NOT NULL UNIQUE,
+    translated_text TEXT NOT NULL,
+    target_language TEXT NOT NULL,
+    correct_count INTEGER DEFAULT 0,
+    wrong_count INTEGER DEFAULT 0,
+    last_reviewed_at TEXT,
+    created_at TEXT DEFAULT (datetime('now'))
+  )`,
+
   `CREATE VIEW IF NOT EXISTS question_stats AS
   SELECT q.id AS question_id,
     COUNT(qa.id) AS total_attempts,
@@ -83,4 +94,5 @@ export const CREATE_INDEXES_SQL = [
   `CREATE INDEX IF NOT EXISTS idx_translation_cache ON translation_cache(source_text, target_language)`,
   `CREATE INDEX IF NOT EXISTS idx_questions_bundesland ON questions(bundesland_id)`,
   `CREATE INDEX IF NOT EXISTS idx_questions_topic ON questions(topic)`,
+  `CREATE INDEX IF NOT EXISTS idx_flash_cards_difficulty ON flash_cards(wrong_count DESC, last_reviewed_at ASC)`,
 ];

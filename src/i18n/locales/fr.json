@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Test de naturalisation allemande"
+    "name": "Test de citoyenneté allemande"
   },
   "onboarding": {
     "welcome_title": "Bienvenue",
@@ -23,17 +23,19 @@
     "quick_actions": "Actions rapides",
     "start_practice": "Commencer la pratique",
     "take_exam": "Passer l'examen",
-    "review_mistakes": "Revoir les erreurs"
+    "review_mistakes": "Réviser les erreurs"
   },
   "practice": {
     "title": "Pratique",
     "choose_mode": "Choisissez votre mode d'étude",
-    "practice_mode": "Mode pratique",
+    "practice_mode": "Mode Pratique",
     "practice_desc": "Étudiez les questions à votre rythme",
     "exam_mode": "Simulation d'examen",
     "exam_desc": "33 questions en 60 minutes",
-    "review_mode": "Revoir les erreurs",
-    "review_desc": "Pratiquez les questions auxquelles vous avez mal répondu",
+    "review_mode": "Réviser les erreurs",
+    "review_desc": "Pratiquez les questions que vous avez ratées",
+    "flashcards_mode": "Réviser les mots difficiles",
+    "flashcards_desc": "Pratiquer les mots que vous avez sauvegardés",
     "question": "Question",
     "of": "sur",
     "next": "Suivant",
@@ -41,7 +43,7 @@
     "check": "Vérifier la réponse",
     "correct": "Correct !",
     "incorrect": "Incorrect",
-    "no_mistakes": "Aucune erreur à revoir. Continuez à pratiquer !"
+    "no_mistakes": "Aucune erreur à réviser. Continuez la pratique !"
   },
   "exam": {
     "title": "Simulation d'examen",
@@ -51,14 +53,14 @@
     "score": "Score",
     "passed": "Réussi !",
     "failed": "Non réussi",
-    "pass_threshold": "Vous avez besoin d'au moins 17 bonnes réponses sur 33.",
+    "pass_threshold": "Vous avez besoin d'au moins 17 bonnes réponses sur 33 pour réussir.",
     "try_again": "Réessayer",
-    "review_answers": "Revoir les réponses",
+    "review_answers": "Réviser les réponses",
     "submit_confirm_title": "Soumettre l'examen",
-    "submit_confirm": "Êtes-vous sûr de vouloir soumettre ? Vous ne pourrez plus modifier vos réponses après la soumission."
+    "submit_confirm": "Êtes-vous sûr de vouloir soumettre ? Vous ne pourrez pas modifier vos réponses après."
   },
   "catalog": {
-    "title": "Catalogue des questions",
+    "title": "Catalogue de questions",
     "search": "Rechercher des questions...",
     "showing": "Affichage de {{count}} sur {{total}} questions",
     "all": "Toutes",
@@ -68,15 +70,15 @@
     "bundesland": "Land",
     "bookmarked": "Favoris",
     "incorrect": "Incorrectes",
-    "unanswered": "Sans réponse"
+    "unanswered": "Non répondues"
   },
   "settings": {
     "title": "Paramètres",
     "language": "Langue",
     "bundesland": "Land",
-    "reset_progress": "Réinitialiser la progression",
-    "reset_confirm": "Êtes-vous sûr ? Toute votre progression sera supprimée.",
-    "reset_confirm_title": "Réinitialiser la progression",
+    "reset_progress": "Réinitialiser tout le progrès",
+    "reset_confirm": "Êtes-vous sûr ? Tout votre progrès sera supprimé.",
+    "reset_confirm_title": "Réinitialiser le progrès",
     "cancel": "Annuler",
     "reset": "Réinitialiser",
     "about": "À propos",
@@ -87,13 +89,30 @@
   },
   "translation": {
     "translate": "Traduire",
-    "translation_unavailable": "Traduction non disponible hors ligne",
+    "translation_unavailable": "Traduction indisponible hors ligne",
     "retry": "Réessayer"
   },
   "common": {
     "loading": "Chargement...",
-    "error": "Une erreur est survenue",
+    "error": "Quelque chose s'est mal passé",
     "ok": "OK",
     "cancel": "Annuler"
+  },
+  "flashcards": {
+    "save": "Ajouter aux cartes",
+    "remove": "Retirer des cartes",
+    "show_answer": "Afficher la réponse",
+    "i_knew_it": "Je le savais",
+    "i_didnt_know": "Je ne le savais pas",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "empty_title": "Pas encore de cartes",
+    "empty_message": "Appuyez sur les mots allemands pendant l'étude pour les sauvegarder!",
+    "completed_title": "Révision terminée!",
+    "completed_message": "Vous avez révisé {{count}} cartes.",
+    "continue": "Continuer",
+    "review_again": "Réviser à nouveau",
+    "remove_confirm_title": "Retirer la carte",
+    "remove_confirm": "Êtes-vous sûr de vouloir retirer ce mot de vos cartes?"
   }
 }

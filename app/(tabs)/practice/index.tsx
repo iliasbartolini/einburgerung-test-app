@@ -21,6 +21,12 @@ const MODES = [
     descKey: 'practice.review_desc',
     icon: '\uD83D\uDD04',
   },
+  {
+    id: 'flashcards',
+    titleKey: 'practice.flashcards_mode',
+    descKey: 'practice.flashcards_desc',
+    icon: '\uD83D\uDCC7',
+  },
 ] as const;
 
 export default function PracticeModeScreen() {
@@ -28,7 +34,11 @@ export default function PracticeModeScreen() {
   const { t } = useTranslation();
 
   const handleModeSelect = (mode: string) => {
-    router.push({ pathname: '/practice/question', params: { mode } } as any);
+    if (mode === 'flashcards') {
+      router.push('/practice/flashcards' as any);
+    } else {
+      router.push({ pathname: '/practice/question', params: { mode } } as any);
+    }
   };
 
   return (

@@ -34,6 +34,8 @@
     "exam_desc": "33 questions in 60 minutes",
     "review_mode": "Review Mistakes",
     "review_desc": "Practice questions you got wrong",
+    "flashcards_mode": "Review Difficult Words",
+    "flashcards_desc": "Practice words you saved while studying",
     "question": "Question",
     "of": "of",
     "next": "Next",
@@ -95,5 +97,22 @@
     "error": "Something went wrong",
     "ok": "OK",
     "cancel": "Cancel"
+  },
+  "flashcards": {
+    "save": "Save to Flash Cards",
+    "remove": "Remove from Flash Cards",
+    "show_answer": "Show Answer",
+    "i_knew_it": "I knew it",
+    "i_didnt_know": "I didn't know",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "empty_title": "No Flash Cards Yet",
+    "empty_message": "Tap on German words while studying to save them for review!",
+    "completed_title": "Review Complete!",
+    "completed_message": "You reviewed {{count}} flash cards.",
+    "continue": "Continue Studying",
+    "review_again": "Review Again",
+    "remove_confirm_title": "Remove Flash Card",
+    "remove_confirm": "Are you sure you want to remove this word from your flash cards?"
   }
 }

@@ -41,7 +41,9 @@
     "check": "Cevabı Kontrol Et",
     "correct": "Doğru!",
     "incorrect": "Yanlış",
-    "no_mistakes": "Gözden geçirilecek hata yok. Çalışmaya devam edin!"
+    "no_mistakes": "Gözden geçirilecek hata yok. Çalışmaya devam edin!",
+    "flashcards_mode": "Zor Kelimeleri Gözden Geçir",
+    "flashcards_desc": "Çalışırken kaydettiğiniz kelimeleri pratik yapın"
   },
   "exam": {
     "title": "Sınav Simülasyonu",
@@ -95,5 +97,22 @@
     "error": "Bir şeyler yanlış gitti",
     "ok": "Tamam",
     "cancel": "İptal"
+  },
+  "flashcards": {
+    "save": "Kartlara Kaydet",
+    "remove": "Kartlardan Kaldır",
+    "show_answer": "Cevabı Göster",
+    "i_knew_it": "Biliyordum",
+    "i_didnt_know": "Bilmiyordum",
+    "correct": "Doğru",
+    "incorrect": "Yanlış",
+    "empty_title": "Henüz Kart Yok",
+    "empty_message": "Çalışırken Almanca kelimelere tıklayarak inceleme için kaydedin!",
+    "completed_title": "İnceleme Tamamlandı!",
+    "completed_message": "{{count}} kartı incelendi.",
+    "continue": "Çalışmaya Devam Et",
+    "review_again": "Tekrar İncele",
+    "remove_confirm_title": "Kartı Kaldır",
+    "remove_confirm": "Bu kelimeyi kartlarınızdan kaldırmak istediğinizden emin misiniz?"
   }
 }

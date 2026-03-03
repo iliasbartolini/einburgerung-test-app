@@ -34,6 +34,8 @@
     "exam_desc": "33 Fragen in 60 Minuten",
     "review_mode": "Fehler wiederholen",
     "review_desc": "Falsch beantwortete Fragen üben",
+    "flashcards_mode": "Schwierige Wörter wiederholen",
+    "flashcards_desc": "Üben Sie Wörter, die Sie beim Lernen gespeichert haben",
     "question": "Frage",
     "of": "von",
     "next": "Weiter",
@@ -95,5 +97,22 @@
     "error": "Etwas ist schiefgelaufen",
     "ok": "OK",
     "cancel": "Abbrechen"
+  },
+  "flashcards": {
+    "save": "Zu Lernkarten hinzufügen",
+    "remove": "Von Lernkarten entfernen",
+    "show_answer": "Antwort anzeigen",
+    "i_knew_it": "Ich wusste es",
+    "i_didnt_know": "Ich wusste es nicht",
+    "correct": "Richtig",
+    "incorrect": "Falsch",
+    "empty_title": "Noch keine Lernkarten",
+    "empty_message": "Tippen Sie beim Lernen auf deutsche Wörter, um sie für die Wiederholung zu speichern!",
+    "completed_title": "Wiederholung abgeschlossen!",
+    "completed_message": "Sie haben {{count}} Lernkarten wiederholt.",
+    "continue": "Weiter lernen",
+    "review_again": "Erneut wiederholen",
+    "remove_confirm_title": "Lernkarte entfernen",
+    "remove_confirm": "Sind Sie sicher, dass Sie dieses Wort aus Ihren Lernkarten entfernen möchten?"
   }
 }

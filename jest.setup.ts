@@ -6,6 +6,17 @@ jest.mock('expo-sqlite', () => ({
   openDatabaseAsync: jest.fn(),
 }));
 
+// Mock flash cards repository
+jest.mock('./src/db/repositories/flashCardsRepository', () => ({
+  isFlashCardSaved: jest.fn().mockResolvedValue(false),
+  saveFlashCard: jest.fn().mockResolvedValue(undefined),
+  removeFlashCard: jest.fn().mockResolvedValue(undefined),
+  getFlashCardByWord: jest.fn().mockResolvedValue(null),
+  getFlashCardsForReview: jest.fn().mockResolvedValue([]),
+  recordFlashCardReview: jest.fn().mockResolvedValue(undefined),
+  getFlashCardCount: jest.fn().mockResolvedValue(0),
+}));
+
 // Mock react-i18next
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({

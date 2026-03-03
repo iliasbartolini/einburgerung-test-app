@@ -56,7 +56,18 @@ export interface TranslationCacheEntry {
   created_at: string;
 }
 
-export type PracticeMode = 'practice' | 'exam' | 'review';
+export interface FlashCard {
+  id: number;
+  german_word: string;
+  translated_text: string;
+  target_language: string;
+  correct_count: number;
+  wrong_count: number;
+  last_reviewed_at: string | null;
+  created_at: string;
+}
+
+export type PracticeMode = 'practice' | 'exam' | 'review' | 'flashcards';
 
 export interface Bundesland {
   id: number;

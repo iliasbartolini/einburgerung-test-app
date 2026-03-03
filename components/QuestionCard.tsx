@@ -1,7 +1,8 @@
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 import type { Question } from '../src/types';
 import TranslatableText from './TranslatableText';
+import { getQuestionImage } from '../src/utils/questionImages';
 
 interface QuestionCardProps {
   question: Question;
@@ -117,6 +118,19 @@ export default function QuestionCard({
           className="text-lg font-medium text-gray-900 leading-7"
         />
       </View>
+
+      {/* Question Image */}
+      {question.has_image === 1 && getQuestionImage(question.id) && (
+        <View className="mb-6 items-center">
+          <Image
+            source={getQuestionImage(question.id)!}
+            className="w-full rounded-lg"
+            style={{ aspectRatio: 532 / 378 }}
+            resizeMode="contain"
+            accessibilityLabel={`Image for question ${question.id}`}
+          />
+        </View>
+      )}
 
       {/* Options */}
       <View className="gap-3">
