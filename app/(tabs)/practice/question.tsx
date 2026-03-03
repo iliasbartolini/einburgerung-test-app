@@ -178,13 +178,11 @@ export default function QuestionScreen() {
   // Auto-scroll navigator to current question
   const isPractice = mode === 'practice';
   useEffect(() => {
-    if (!isPractice && !isExam) return;
-    const ref = isPractice ? navigatorRef : null;
-    if (!ref?.current) return;
+    if (!isPractice || !navigatorRef.current) return;
     // Each button is 32px wide + 4px gap
     const scrollX = Math.max(0, currentIndex * 36 - 120);
-    ref.current.scrollTo({ x: scrollX, animated: true });
-  }, [currentIndex, isPractice, isExam]);
+    navigatorRef.current.scrollTo({ x: scrollX, animated: true });
+  }, [currentIndex, isPractice]);
 
   const getNavigatorColor = (questionId: number, index: number) => {
     if (index === currentIndex) return 'bg-primary';
