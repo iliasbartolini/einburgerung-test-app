@@ -85,7 +85,9 @@
     "version": "الإصدار",
     "cache": "ذاكرة الترجمة المؤقتة",
     "clear_cache": "مسح الذاكرة المؤقتة",
-    "cache_cleared": "تم مسح الذاكرة المؤقتة"
+    "translations_cached": "{{count}} ترجمة مخزنة مؤقتاً",
+    "cache_cleared": "تم مسح الذاكرة المؤقتة",
+    "license": "الرخصة"
   },
   "translation": {
     "translate": "ترجمة",

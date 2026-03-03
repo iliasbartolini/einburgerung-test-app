@@ -85,7 +85,9 @@
     "version": "Версия",
     "cache": "Кэш переводов",
     "clear_cache": "Очистить кэш",
-    "cache_cleared": "Кэш очищен"
+    "translations_cached": "{{count}} переводов в кэше",
+    "cache_cleared": "Кэш очищен",
+    "license": "Лицензия"
   },
   "translation": {
     "translate": "Перевести",

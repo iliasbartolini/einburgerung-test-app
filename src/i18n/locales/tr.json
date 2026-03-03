@@ -85,7 +85,9 @@
     "version": "Sürüm",
     "cache": "Çeviri Önbelleği",
     "clear_cache": "Önbelleği Temizle",
-    "cache_cleared": "Önbellek temizlendi"
+    "translations_cached": "{{count}} çeviri önbellekte",
+    "cache_cleared": "Önbellek temizlendi",
+    "license": "Lisans"
   },
   "translation": {
     "translate": "Çevir",

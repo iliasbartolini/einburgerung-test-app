@@ -85,7 +85,9 @@
     "version": "Version",
     "cache": "Cache de traduction",
     "clear_cache": "Vider le cache",
-    "cache_cleared": "Cache vidé"
+    "translations_cached": "{{count}} traductions en cache",
+    "cache_cleared": "Cache vidé",
+    "license": "Licence"
   },
   "translation": {
     "translate": "Traduire",

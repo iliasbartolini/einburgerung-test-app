@@ -21,6 +21,11 @@ export async function toggleBookmark(questionId: number): Promise<boolean> {
   }
 }
 
+export async function clearAllBookmarks(): Promise<void> {
+  const db = await getDatabase();
+  await db.runAsync('DELETE FROM bookmarks');
+}
+
 export async function getBookmarkedIds(): Promise<number[]> {
   const db = await getDatabase();
   const rows = await db.getAllAsync<{ question_id: number }>(

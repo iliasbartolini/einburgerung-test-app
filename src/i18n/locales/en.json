@@ -85,7 +85,9 @@
     "version": "Version",
     "cache": "Translation Cache",
     "clear_cache": "Clear Cache",
-    "cache_cleared": "Cache cleared"
+    "translations_cached": "{{count}} translations cached",
+    "cache_cleared": "Cache cleared",
+    "license": "License"
   },
   "translation": {
     "translate": "Translate",

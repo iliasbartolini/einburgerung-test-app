@@ -8,7 +8,7 @@ import { setSetting } from '../../../src/db/repositories/settingsRepository';
 import { clearAllAttempts } from '../../../src/db/repositories/attemptsRepository';
 import { clearExamHistory } from '../../../src/db/repositories/examRepository';
 import { clearTranslationCache, getCacheSize } from '../../../src/db/repositories/translationRepository';
-import { getDatabase } from '../../../src/db/database';
+import { clearAllBookmarks } from '../../../src/db/repositories/bookmarksRepository';
 
 export default function ProfileScreen() {
   const { t, i18n } = useTranslation();
@@ -47,8 +47,7 @@ export default function ProfileScreen() {
   const handleDeleteProgress = async () => {
     await clearAllAttempts();
     await clearExamHistory();
-    const db = await getDatabase();
-    await db.runAsync('DELETE FROM bookmarks');
+    await clearAllBookmarks();
     setShowDeleteModal(false);
   };
 
@@ -152,7 +151,7 @@ export default function ProfileScreen() {
         <View className="flex-row items-center justify-between p-4 bg-gray-50 rounded-xl mb-4">
           <View>
             <Text className="text-base text-gray-800">
-              {cacheSize} translations cached
+              {t('settings.translations_cached', { count: cacheSize })}
             </Text>
           </View>
           <Pressable
@@ -184,7 +183,7 @@ export default function ProfileScreen() {
               <Text className="text-sm text-gray-700">1.0.0</Text>
             </View>
             <View className="flex-row justify-between">
-              <Text className="text-sm text-gray-500">License</Text>
+              <Text className="text-sm text-gray-500">{t('settings.license')}</Text>
               <Text className="text-sm text-gray-700">MIT</Text>
             </View>
           </View>
