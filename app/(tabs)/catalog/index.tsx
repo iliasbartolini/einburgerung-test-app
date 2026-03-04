@@ -1,19 +1,19 @@
-import { View, Text, TextInput, Pressable, SafeAreaView } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { useRouter } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState, useCallback } from 'react';
-import { useAppStore } from '../../../src/stores/useAppStore';
+import { Pressable, SafeAreaView, Text, TextInput, View } from 'react-native';
+import { getBookmarkedIds } from '../../../src/db/repositories/bookmarksRepository';
 import {
-  getQuestionsByBundesland,
-  getQuestionsByTopic,
-  searchQuestions,
+  getAllQuestionStats,
   getBookmarkedQuestions,
   getIncorrectQuestions,
+  getQuestionsByBundesland,
+  getQuestionsByTopic,
   getUnansweredQuestions,
-  getAllQuestionStats,
+  searchQuestions,
 } from '../../../src/db/repositories/questionsRepository';
-import { getBookmarkedIds } from '../../../src/db/repositories/bookmarksRepository';
+import { useAppStore } from '../../../src/stores/useAppStore';
 import type { Question, QuestionStats } from '../../../src/types';
 
 type Filter = 'all' | 'politik' | 'geschichte' | 'gesellschaft' | 'bundesland' | 'bookmarked' | 'incorrect' | 'unanswered';
