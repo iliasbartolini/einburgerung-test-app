@@ -1,13 +1,13 @@
-import { View, Text, Pressable, Modal } from 'react-native';
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { translateWord } from '../src/services/translationService';
+import { Modal, Pressable, Text, View } from 'react-native';
 import {
-  isFlashCardSaved,
-  saveFlashCard,
-  removeFlashCard,
   getFlashCardByWord,
+  isFlashCardSaved,
+  removeFlashCard,
+  saveFlashCard,
 } from '../src/db/repositories/flashCardsRepository';
+import { translateWord } from '../src/services/translationService';
 
 interface TranslatableTextProps {
   text: string;
@@ -157,11 +157,11 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
                     <Pressable
                       onPress={handleSaveFlashCard}
                       disabled={saving}
-                      className={`flex-1 py-2 rounded-lg items-center ${
+                      className={`flex-1 py-2 rounded-lg items-center justify-center ${
                         saving ? 'bg-primary/50' : 'bg-primary active:bg-primary/80'
                       }`}
                     >
-                      <Text className="text-white font-medium">
+                      <Text className="text-white text-center font-medium">
                         {t('flashcards.save')}
                       </Text>
                     </Pressable>
@@ -170,20 +170,20 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
                     <Pressable
                       onPress={handleRemoveFlashCard}
                       disabled={saving}
-                      className={`flex-1 py-2 rounded-lg items-center ${
+                      className={`flex-1 py-2 rounded-lg items-center justify-center ${
                         saving ? 'bg-gray-300' : 'bg-gray-200 active:bg-gray-300'
                       }`}
                     >
-                      <Text className="text-gray-700 font-medium">
+                      <Text className="text-gray-700 text-center font-medium">
                         {t('flashcards.remove')}
                       </Text>
                     </Pressable>
                   )}
                   <Pressable
                     onPress={dismissPopover}
-                    className="flex-1 py-2 rounded-lg bg-gray-100 items-center active:bg-gray-200"
+                    className="flex-1 py-2 rounded-lg bg-gray-100 items-center justify-center active:bg-gray-200"
                   >
-                    <Text className="text-gray-600 font-medium">{t('common.ok')}</Text>
+                    <Text className="text-gray-600 font-medium">{t('common.close')}</Text>
                   </Pressable>
                 </View>
               </>

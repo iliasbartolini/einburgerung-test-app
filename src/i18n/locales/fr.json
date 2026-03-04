@@ -98,6 +98,7 @@
     "loading": "Chargement...",
     "error": "Quelque chose s'est mal passé",
     "ok": "OK",
+    "close": "Fermer",
     "cancel": "Annuler"
   },
   "flashcards": {
