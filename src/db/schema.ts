@@ -1,4 +1,4 @@
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 4;
 
 export const CREATE_TABLES_SQL = [
   `CREATE TABLE IF NOT EXISTS questions (
@@ -67,7 +67,9 @@ export const CREATE_TABLES_SQL = [
     created_at TEXT DEFAULT (datetime('now'))
   )`,
 
-  `CREATE VIEW IF NOT EXISTS question_stats AS
+  `DROP VIEW IF EXISTS question_stats`,
+
+  `CREATE VIEW question_stats AS
   SELECT q.id AS question_id,
     COUNT(qa.id) AS total_attempts,
     COALESCE(SUM(qa.is_correct), 0) AS correct_count,
@@ -75,10 +77,9 @@ export const CREATE_TABLES_SQL = [
          ELSE ROUND(CAST(SUM(qa.is_correct) AS REAL) / COUNT(qa.id) * 100, 1)
     END AS accuracy,
     CASE WHEN COUNT(qa.id) = 0 THEN 'unseen'
-         WHEN COUNT(qa.id) >= 3 AND CAST(SUM(qa.is_correct) AS REAL)/COUNT(qa.id) >= 0.9 THEN 'mastered'
-         WHEN COUNT(qa.id) >= 2 AND CAST(SUM(qa.is_correct) AS REAL)/COUNT(qa.id) >= 0.7 THEN 'comfortable'
-         WHEN COUNT(qa.id) >= 2 AND CAST(SUM(qa.is_correct) AS REAL)/COUNT(qa.id) >= 0.4 THEN 'struggling'
-         WHEN COUNT(qa.id) >= 2 THEN 'difficult'
+         WHEN COUNT(qa.id) >= 1 AND CAST(SUM(qa.is_correct) AS REAL)/COUNT(qa.id) >= 0.9 THEN 'mastered'
+         WHEN COUNT(qa.id) >= 1 AND CAST(SUM(qa.is_correct) AS REAL)/COUNT(qa.id) >= 0.7 THEN 'comfortable'
+         WHEN COUNT(qa.id) >= 1 THEN 'struggling'
          ELSE 'unseen'
     END AS difficulty_tier,
     MAX(qa.attempted_at) AS last_attempted_at

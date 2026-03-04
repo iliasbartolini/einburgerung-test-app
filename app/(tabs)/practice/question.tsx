@@ -191,8 +191,7 @@ export default function QuestionScreen() {
     switch (stats.difficulty_tier) {
       case 'mastered': return 'bg-green-200';
       case 'comfortable': return 'bg-amber-200';
-      case 'struggling': return 'bg-orange-200';
-      case 'difficult': return 'bg-red-200';
+      case 'struggling': return 'bg-red-200';
       default: return 'bg-gray-100';
     }
   };

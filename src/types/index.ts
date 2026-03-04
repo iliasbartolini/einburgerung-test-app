@@ -17,7 +17,7 @@ export interface QuestionStats {
   total_attempts: number;
   correct_count: number;
   accuracy: number;
-  difficulty_tier: 'unseen' | 'mastered' | 'comfortable' | 'struggling' | 'difficult';
+  difficulty_tier: 'unseen' | 'mastered' | 'comfortable' | 'struggling';
   last_attempted_at: string | null;
 }
 

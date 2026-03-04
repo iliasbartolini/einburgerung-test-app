@@ -102,7 +102,7 @@ export default function CatalogScreen() {
     const stat = stats[questionId];
     if (!stat || stat.total_attempts === 0) return '\u2014'; // —
     if (stat.difficulty_tier === 'mastered') return '\u2713';
-    if (stat.difficulty_tier === 'difficult' || stat.difficulty_tier === 'struggling') return '\u2717';
+    if (stat.difficulty_tier === 'struggling') return '\u2717';
     return '\u00B7'; // middle dot
   };
 
@@ -110,7 +110,7 @@ export default function CatalogScreen() {
     const stat = stats[questionId];
     if (!stat || stat.total_attempts === 0) return 'text-gray-300';
     if (stat.difficulty_tier === 'mastered') return 'text-green-500';
-    if (stat.difficulty_tier === 'difficult' || stat.difficulty_tier === 'struggling') return 'text-red-500';
+    if (stat.difficulty_tier === 'struggling') return 'text-red-500';
     return 'text-yellow-500';
   };
 
