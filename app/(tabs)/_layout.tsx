@@ -1,12 +1,13 @@
-import React from 'react';
 import { Tabs } from 'expo-router';
 import { SymbolView } from 'expo-symbols';
+import React from 'react';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: '#1D3557',
+        tabBarStyle: { marginBottom: 4 },
       }}
     >
       <Tabs.Screen
