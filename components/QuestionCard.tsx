@@ -1,6 +1,6 @@
 import { View, Text, Pressable, Image } from 'react-native';
 import { useState, useEffect } from 'react';
-import type { Question } from '../src/types';
+import type { Question, QuestionStats } from '../src/types';
 import TranslatableText from './TranslatableText';
 import { getQuestionImage } from '../src/utils/questionImages';
 
@@ -14,6 +14,7 @@ interface QuestionCardProps {
   onToggleBookmark?: () => void;
   disabled?: boolean;
   selectedOption?: string | null;
+  questionStats?: QuestionStats | null;
 }
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
@@ -50,6 +51,7 @@ export default function QuestionCard({
   onToggleBookmark,
   disabled = false,
   selectedOption: externalSelectedOption,
+  questionStats,
 }: QuestionCardProps) {
   const [internalSelected, setInternalSelected] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
@@ -62,6 +64,20 @@ export default function QuestionCard({
 
   const selectedOption = externalSelectedOption !== undefined ? externalSelectedOption : internalSelected;
   const isAnswered = externalSelectedOption !== undefined ? !!externalSelectedOption : answered;
+
+  const getStatusIcon = () => {
+    if (!questionStats || questionStats.total_attempts === 0) return '\u2014'; // —
+    if (questionStats.difficulty_tier === 'mastered') return '\u2713';
+    if (questionStats.difficulty_tier === 'struggling') return '\u2717';
+    return '\u23FA'; // middle dot
+  };
+
+  const getStatusColor = () => {
+    if (!questionStats || questionStats.total_attempts === 0) return 'text-gray-300';
+    if (questionStats.difficulty_tier === 'mastered') return 'text-green-500';
+    if (questionStats.difficulty_tier === 'struggling') return 'text-red-500';
+    return 'text-yellow-500';
+  };
 
   const options = [
     question.option_a,
@@ -119,6 +135,11 @@ export default function QuestionCard({
               {question.topic}
             </Text>
           </View>
+          {questionStats && (
+            <Text className={`text-lg font-bold ${getStatusColor()}`}>
+              {getStatusIcon()}
+            </Text>
+          )}
           {onToggleBookmark && (
             <Pressable
               onPress={onToggleBookmark}

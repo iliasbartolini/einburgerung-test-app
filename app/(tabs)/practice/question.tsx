@@ -336,6 +336,7 @@ export default function QuestionScreen() {
             isBookmarked={bookmarked}
             onToggleBookmark={!isExam ? handleToggleBookmark : undefined}
             selectedOption={answers[currentQuestion.id] ?? null}
+            questionStats={isPractice ? statsMap[currentQuestion.id] : undefined}
           />
         )}
       </ScrollView>
