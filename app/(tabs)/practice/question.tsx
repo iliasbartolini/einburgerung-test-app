@@ -113,6 +113,30 @@ export default function QuestionScreen() {
       mode || 'practice',
       isExam ? examSessionRef.current ?? undefined : undefined
     );
+    // Update statsMap immediately so navigator pill colors refresh
+    if (isPractice) {
+      setStatsMap((prev) => {
+        const old = prev[currentQuestion.id];
+        const totalAttempts = (old?.total_attempts ?? 0) + 1;
+        const correctCount = (old?.correct_count ?? 0) + (isCorrect ? 1 : 0);
+        const accuracy = correctCount / totalAttempts;
+        const difficulty_tier: QuestionStats['difficulty_tier'] =
+          accuracy >= 0.9 ? 'mastered' :
+          accuracy >= 0.7 ? 'comfortable' :
+          'struggling';
+        return {
+          ...prev,
+          [currentQuestion.id]: {
+            question_id: currentQuestion.id,
+            total_attempts: totalAttempts,
+            correct_count: correctCount,
+            accuracy,
+            difficulty_tier,
+            last_attempted_at: new Date().toISOString(),
+          },
+        };
+      });
+    }
   };
 
   const handleToggleBookmark = async () => {
