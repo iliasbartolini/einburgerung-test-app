@@ -70,7 +70,9 @@
     "bundesland": "Eyalet",
     "bookmarked": "İşaretli",
     "incorrect": "Yanlış",
-    "unanswered": "Cevaplanmamış"
+    "unanswered": "Cevaplanmamış",
+    "struggling": "Zorlanılan",
+    "comfortable": "Rahat"
   },
   "settings": {
     "title": "Ayarlar",

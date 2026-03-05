@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, SafeAreaView, Text, TextInput, View } from 'react-native';
+import { Pressable, SafeAreaView, Text, TextInput, View, ScrollView } from 'react-native';
 import { getBookmarkedIds } from '../../../src/db/repositories/bookmarksRepository';
 import {
   getAllQuestionStats,
@@ -12,21 +12,27 @@ import {
   getQuestionsByTopic,
   getUnansweredQuestions,
   searchQuestions,
+  getQuestionsByDifficultyTier,
 } from '../../../src/db/repositories/questionsRepository';
 import { useAppStore } from '../../../src/stores/useAppStore';
 import type { Question, QuestionStats } from '../../../src/types';
 
-type Filter = 'all' | 'politik' | 'geschichte' | 'gesellschaft' | 'bundesland' | 'bookmarked' | 'incorrect' | 'unanswered';
+type Filter = 'all' | 'politik' | 'geschichte' | 'gesellschaft' | 'bundesland' | 'bookmarked' | 'incorrect' | 'unanswered' | 'struggling' | 'comfortable';
 
-const FILTERS: { key: Filter; labelKey: string }[] = [
+const STATUS_FILTERS: { key: Filter; labelKey: string }[] = [
+  { key: 'bookmarked', labelKey: 'catalog.bookmarked' },
+  { key: 'unanswered', labelKey: 'catalog.unanswered' },
+  { key: 'incorrect', labelKey: 'catalog.incorrect' },
+  { key: 'struggling', labelKey: 'catalog.struggling' },
+  { key: 'comfortable', labelKey: 'catalog.comfortable' },
+];
+
+const TOPIC_FILTERS: { key: Filter; labelKey: string }[] = [
   { key: 'all', labelKey: 'catalog.all' },
   { key: 'politik', labelKey: 'catalog.politik' },
   { key: 'geschichte', labelKey: 'catalog.geschichte' },
   { key: 'gesellschaft', labelKey: 'catalog.gesellschaft' },
   { key: 'bundesland', labelKey: 'catalog.bundesland' },
-  { key: 'bookmarked', labelKey: 'catalog.bookmarked' },
-  { key: 'incorrect', labelKey: 'catalog.incorrect' },
-  { key: 'unanswered', labelKey: 'catalog.unanswered' },
 ];
 
 export default function CatalogScreen() {
@@ -68,6 +74,10 @@ export default function CatalogScreen() {
           break;
         case 'unanswered':
           loaded = await getUnansweredQuestions(bundeslandId);
+          break;
+        case 'struggling':
+        case 'comfortable':
+          loaded = await getQuestionsByDifficultyTier(filter, bundeslandId);
           break;
         default:
           loaded = await getQuestionsByBundesland(bundeslandId);
@@ -151,30 +161,60 @@ export default function CatalogScreen() {
         />
       </View>
 
-      {/* Filter chips */}
+      {/* Filter chips - two rows */}
       <View className="px-4 pb-2">
-        <FlashList
-          data={FILTERS}
+        {/* Row 1: Status filters */}
+        <ScrollView
           horizontal
-
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item: f }) => (
-            <Pressable
-              onPress={() => { setFilter(f.key); setSearchQuery(''); }}
-              className={`px-4 py-2 rounded-full mr-2 ${
-                filter === f.key ? 'bg-primary' : 'bg-gray-100'
-              }`}
-            >
-              <Text
-                className={`text-sm font-medium ${
-                  filter === f.key ? 'text-white' : 'text-gray-600'
+          className="mb-2"
+        >
+          <View className="flex-row">
+            {STATUS_FILTERS.map((f) => (
+              <Pressable
+                key={f.key}
+                onPress={() => { setFilter(f.key); setSearchQuery(''); }}
+                className={`px-4 py-2 rounded-full mr-2 ${
+                  filter === f.key ? 'bg-primary' : 'bg-gray-100'
                 }`}
               >
-                {t(f.labelKey)}
-              </Text>
-            </Pressable>
-          )}
-        />
+                <Text
+                  className={`text-sm font-medium ${
+                    filter === f.key ? 'text-white' : 'text-gray-600'
+                  }`}
+                >
+                  {t(f.labelKey)}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        </ScrollView>
+
+        {/* Row 2: Topic filters */}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          <View className="flex-row">
+            {TOPIC_FILTERS.map((f) => (
+              <Pressable
+                key={f.key}
+                onPress={() => { setFilter(f.key); setSearchQuery(''); }}
+                className={`px-4 py-2 rounded-full mr-2 ${
+                  filter === f.key ? 'bg-primary' : 'bg-gray-100'
+                }`}
+              >
+                <Text
+                  className={`text-sm font-medium ${
+                    filter === f.key ? 'text-white' : 'text-gray-600'
+                  }`}
+                >
+                  {t(f.labelKey)}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        </ScrollView>
       </View>
 
       {/* Count */}

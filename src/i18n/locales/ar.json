@@ -70,7 +70,9 @@
     "bundesland": "الولاية",
     "bookmarked": "محفوظة",
     "incorrect": "خاطئة",
-    "unanswered": "بدون إجابة"
+    "unanswered": "بدون إجابة",
+    "struggling": "صعبة",
+    "comfortable": "مريحة"
   },
   "settings": {
     "title": "الإعدادات",

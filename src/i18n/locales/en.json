@@ -70,7 +70,9 @@
     "bundesland": "State",
     "bookmarked": "Bookmarked",
     "incorrect": "Incorrect",
-    "unanswered": "Unanswered"
+    "unanswered": "Unanswered",
+    "struggling": "Struggling",
+    "comfortable": "Comfortable"
   },
   "settings": {
     "title": "Settings",

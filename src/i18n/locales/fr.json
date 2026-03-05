@@ -70,7 +70,9 @@
     "bundesland": "Land",
     "bookmarked": "Favoris",
     "incorrect": "Incorrectes",
-    "unanswered": "Non répondues"
+    "unanswered": "Non répondues",
+    "struggling": "Difficiles",
+    "comfortable": "Confortables"
   },
   "settings": {
     "title": "Paramètres",

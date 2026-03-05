@@ -70,7 +70,9 @@
     "bundesland": "Федеральная земля",
     "bookmarked": "Закладки",
     "incorrect": "Неправильные",
-    "unanswered": "Без ответа"
+    "unanswered": "Без ответа",
+    "struggling": "Сложные",
+    "comfortable": "Удобные"
   },
   "settings": {
     "title": "Настройки",

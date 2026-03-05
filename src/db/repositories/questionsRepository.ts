@@ -111,6 +111,21 @@ export async function getSmartStartQuestionId(bundeslandId: number): Promise<num
   return result?.id ?? null;
 }
 
+export async function getQuestionsByDifficultyTier(
+  tier: 'struggling' | 'comfortable' | 'mastered',
+  bundeslandId: number
+): Promise<Question[]> {
+  const db = await getDatabase();
+  return db.getAllAsync<Question>(
+    `SELECT q.* FROM questions q
+     INNER JOIN question_stats qs ON q.id = qs.question_id
+     WHERE qs.difficulty_tier = ?
+     AND (q.bundesland_id IS NULL OR q.bundesland_id = ?)
+     ORDER BY q.id`,
+    [tier, bundeslandId]
+  );
+}
+
 export async function getQuestionCount(): Promise<number> {
   const db = await getDatabase();
   const result = await db.getFirstAsync<{ count: number }>(
