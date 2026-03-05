@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import type { Question, QuestionStats } from '../src/types';
 import TranslatableText from './TranslatableText';
 import { getQuestionImage } from '../src/utils/questionImages';
+import { getStatusIcon, getStatusColor } from '../src/utils/difficultyTier';
 
 interface QuestionCardProps {
   question: Question;
@@ -65,20 +66,6 @@ export default function QuestionCard({
   const selectedOption = externalSelectedOption !== undefined ? externalSelectedOption : internalSelected;
   const isAnswered = externalSelectedOption !== undefined ? !!externalSelectedOption : answered;
 
-  const getStatusIcon = () => {
-    if (!questionStats || questionStats.total_attempts === 0) return '\u2014'; // —
-    if (questionStats.difficulty_tier === 'mastered') return '\u2713';
-    if (questionStats.difficulty_tier === 'struggling') return '\u2717';
-    return '\u23FA'; // middle dot
-  };
-
-  const getStatusColor = () => {
-    if (!questionStats || questionStats.total_attempts === 0) return 'text-gray-300';
-    if (questionStats.difficulty_tier === 'mastered') return 'text-green-500';
-    if (questionStats.difficulty_tier === 'struggling') return 'text-red-500';
-    return 'text-yellow-500';
-  };
-
   const options = [
     question.option_a,
     question.option_b,
@@ -136,8 +123,8 @@ export default function QuestionCard({
             </Text>
           </View>
           {questionStats && (
-            <Text className={`text-lg font-bold ${getStatusColor()}`}>
-              {getStatusIcon()}
+            <Text className={`text-lg font-bold ${getStatusColor(questionStats)}`}>
+              {getStatusIcon(questionStats)}
             </Text>
           )}
           {onToggleBookmark && (

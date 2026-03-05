@@ -2,20 +2,21 @@ import { FlashList } from '@shopify/flash-list';
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, SafeAreaView, Text, TextInput, View, ScrollView } from 'react-native';
+import { Pressable, SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 import { getBookmarkedIds } from '../../../src/db/repositories/bookmarksRepository';
 import {
   getAllQuestionStats,
   getBookmarkedQuestions,
   getIncorrectQuestions,
   getQuestionsByBundesland,
+  getQuestionsByDifficultyTier,
   getQuestionsByTopic,
   getUnansweredQuestions,
   searchQuestions,
-  getQuestionsByDifficultyTier,
 } from '../../../src/db/repositories/questionsRepository';
 import { useAppStore } from '../../../src/stores/useAppStore';
 import type { Question, QuestionStats } from '../../../src/types';
+import { getStatusIcon, getStatusColor } from '../../../src/utils/difficultyTier';
 
 type Filter = 'all' | 'politik' | 'geschichte' | 'gesellschaft' | 'bundesland' | 'bookmarked' | 'incorrect' | 'unanswered' | 'struggling' | 'comfortable';
 
@@ -108,23 +109,9 @@ export default function CatalogScreen() {
     loadStats();
   }, [loadQuestions, loadStats]);
 
-  const getStatusIcon = (questionId: number) => {
-    const stat = stats[questionId];
-    if (!stat || stat.total_attempts === 0) return '\u2014'; // —
-    if (stat.difficulty_tier === 'mastered') return '\u2713';
-    if (stat.difficulty_tier === 'struggling') return '\u2717';
-    return '\u00B7'; // middle dot
-  };
-
-  const getStatusColor = (questionId: number) => {
-    const stat = stats[questionId];
-    if (!stat || stat.total_attempts === 0) return 'text-gray-300';
-    if (stat.difficulty_tier === 'mastered') return 'text-green-500';
-    if (stat.difficulty_tier === 'struggling') return 'text-red-500';
-    return 'text-yellow-500';
-  };
-
-  const renderItem = ({ item }: { item: Question }) => (
+  const renderItem = ({ item }: { item: Question }) => {
+    const stat = stats[item.id];
+    return (
     <Pressable
       onPress={() => router.push(`/catalog/${item.id}` as any)}
       className="flex-row items-center px-4 py-3 border-b border-gray-100 active:bg-gray-50"
@@ -137,14 +124,15 @@ export default function CatalogScreen() {
         </Text>
         <Text className="text-xs text-secondary mt-1 capitalize">{item.topic}</Text>
       </View>
-      <Text className={`text-lg font-bold mr-2 ${getStatusColor(item.id)}`}>
-        {getStatusIcon(item.id)}
+      <Text className={`text-lg font-bold mr-2 ${getStatusColor(stat)}`}>
+        {getStatusIcon(stat)}
       </Text>
       <Text className="text-lg">
         {bookmarkedIds.has(item.id) ? '\u2605' : ''}
       </Text>
     </Pressable>
   );
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -163,11 +151,38 @@ export default function CatalogScreen() {
 
       {/* Filter chips - two rows */}
       <View className="px-4 pb-2">
-        {/* Row 1: Status filters */}
+
+        {/* Row 1: Topic filters */}
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
           className="mb-2"
+        >
+          <View className="flex-row">
+            {TOPIC_FILTERS.map((f) => (
+              <Pressable
+                key={f.key}
+                onPress={() => { setFilter(f.key); setSearchQuery(''); }}
+                className={`px-4 py-2 rounded-full mr-2 ${
+                  filter === f.key ? 'bg-primary' : 'bg-gray-100'
+                }`}
+              >
+                <Text
+                  className={`text-sm font-medium ${
+                    filter === f.key ? 'text-white' : 'text-gray-600'
+                  }`}
+                >
+                  {t(f.labelKey)}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        </ScrollView>
+
+        {/* Row 2: Status filters */}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
         >
           <View className="flex-row">
             {STATUS_FILTERS.map((f) => (
@@ -190,31 +205,7 @@ export default function CatalogScreen() {
           </View>
         </ScrollView>
 
-        {/* Row 2: Topic filters */}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        >
-          <View className="flex-row">
-            {TOPIC_FILTERS.map((f) => (
-              <Pressable
-                key={f.key}
-                onPress={() => { setFilter(f.key); setSearchQuery(''); }}
-                className={`px-4 py-2 rounded-full mr-2 ${
-                  filter === f.key ? 'bg-primary' : 'bg-gray-100'
-                }`}
-              >
-                <Text
-                  className={`text-sm font-medium ${
-                    filter === f.key ? 'text-white' : 'text-gray-600'
-                  }`}
-                >
-                  {t(f.labelKey)}
-                </Text>
-              </Pressable>
-            ))}
-          </View>
-        </ScrollView>
+
       </View>
 
       {/* Count */}

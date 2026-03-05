@@ -23,6 +23,7 @@ import {
 } from '../../../src/db/repositories/bookmarksRepository';
 import QuestionCard from '../../../components/QuestionCard';
 import type { Question, QuestionStats } from '../../../src/types';
+import { calculateDifficultyTier, getNavigatorColor as getNavigatorColorUtil } from '../../../src/utils/difficultyTier';
 
 function formatTime(seconds: number) {
   const mins = Math.floor(seconds / 60);
@@ -120,10 +121,7 @@ export default function QuestionScreen() {
         const totalAttempts = (old?.total_attempts ?? 0) + 1;
         const correctCount = (old?.correct_count ?? 0) + (isCorrect ? 1 : 0);
         const accuracy = correctCount / totalAttempts;
-        const difficulty_tier: QuestionStats['difficulty_tier'] =
-          accuracy >= 0.9 ? 'mastered' :
-          accuracy >= 0.7 ? 'comfortable' :
-          'struggling';
+        const difficulty_tier = calculateDifficultyTier(correctCount, totalAttempts);
         return {
           ...prev,
           [currentQuestion.id]: {
@@ -210,14 +208,7 @@ export default function QuestionScreen() {
 
   const getNavigatorColor = (questionId: number, index: number) => {
     if (index === currentIndex) return 'bg-primary';
-    const stats = statsMap[questionId];
-    if (!stats || stats.difficulty_tier === 'unseen') return 'bg-gray-100';
-    switch (stats.difficulty_tier) {
-      case 'mastered': return 'bg-green-200';
-      case 'comfortable': return 'bg-amber-200';
-      case 'struggling': return 'bg-red-200';
-      default: return 'bg-gray-100';
-    }
+    return getNavigatorColorUtil(statsMap[questionId]);
   };
 
   if (loading) {
