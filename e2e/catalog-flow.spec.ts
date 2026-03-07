@@ -59,8 +59,20 @@ test('catalog: filter, search, and answer question', async ({ page }) => {
   await page.getByRole('radio').first().click();
   await expect(page.getByText(/[✓✗] (?:Correct!|Incorrect)/)).toBeVisible();
 
+  // --- Bookmark the question ---
+  await page.getByRole('button', { name: 'Add bookmark' }).click();
+  // Verify bookmark toggled (button label changes)
+  await expect(page.getByRole('button', { name: 'Remove bookmark' })).toBeVisible();
+
   // Navigate back to catalog
   await goToTab(page, 'Catalog');
+
+  // --- Verify bookmarked filter shows the bookmarked question ---
+  await page.getByText('Bookmarked', { exact: true }).click();
+  await expect(page.getByText(/Showing 1 of 310 questions/)).toBeVisible();
+
+  // Reset to All before checking unanswered
+  await page.getByText('All', { exact: true }).click();
 
   // --- Verify answered question reflected in filters ---
   await page.getByText('Unanswered', { exact: true }).click();
