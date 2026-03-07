@@ -4,30 +4,53 @@ import { onboard, goToTab, resetProgress } from './helpers';
 test('practice mode, review mistakes, and flashcards', async ({ page }) => {
   await onboard(page);
 
-  // --- Practice Mode ---
+  // --- Practice Mode: answer 10 questions ---
   await page.getByRole('button', { name: /Practice Mode/i }).click();
 
-  // Wait for question to load
+  // Wait for first question to load
   await expect(page.getByRole('radio').first()).toBeVisible();
 
-  // Answer question 1: select first option (may or may not be correct)
-  await page.getByRole('radio').first().click();
-  // Verify feedback is shown
-  await expect(page.getByText(/Correct!|Incorrect/)).toBeVisible();
+  let correctCount = 0;
 
-  // Move to question 2
-  await page.getByText('Next', { exact: true }).click();
+  for (let i = 0; i < 10; i++) {
+    // Answer by selecting first option
+    await page.getByRole('radio').first().click();
+    // Check feedback
+    const feedback = page.getByText(/[✓✗] (?:Correct!|Incorrect)/);
+    await expect(feedback).toBeVisible();
+    const text = await feedback.textContent();
+    if (text?.includes('Correct')) correctCount++;
 
-  // Answer question 2: select second option (different from first to get variety)
-  await page.getByRole('radio').nth(1).click();
-  await expect(page.getByText(/Correct!|Incorrect/)).toBeVisible();
+    // Move to next question
+    if (i < 9) {
+      await page.getByText('Next', { exact: true }).click();
+    }
+  }
 
-  // Navigate back to Home using page.goto to avoid route conflicts
+  // Navigate back to Home
   await page.goto('/');
   await expect(page.getByText('Questions Practiced')).toBeVisible();
 
-  // --- Verify Readiness Dashboard ---
-  // Questions Practiced should show a non-zero value (we answered 2 questions)
+  // --- Verify Home Dashboard values ---
+  const accuracy = Math.round((correctCount / 10) * 100);
+  const coverage = Math.round((10 / 310) * 100);
+  const readiness = Math.round((correctCount / 10) * (10 / 310) * 100);
+
+  // Readiness is shown inside the big circle
+  await expect(page.getByText(`${readiness}%`).first()).toBeVisible();
+  await expect(page.getByText('Readiness')).toBeVisible();
+
+  // Accuracy stat
+  await expect(page.getByText(`${accuracy}%`).first()).toBeVisible();
+  await expect(page.getByText('Accuracy')).toBeVisible();
+
+  // Questions Practiced
+  await expect(page.getByText('10', { exact: true })).toBeVisible();
+  await expect(page.getByText('Questions Practiced')).toBeVisible();
+
+  // Coverage
+  await expect(page.getByText(`${coverage}%`).first()).toBeVisible();
+  await expect(page.getByText('Coverage')).toBeVisible();
 
   // --- Review Mistakes ---
   await page.getByRole('button', { name: /Review Mistakes/i }).click();
