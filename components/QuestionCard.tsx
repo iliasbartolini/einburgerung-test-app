@@ -33,7 +33,7 @@ function QuestionImage({ questionId }: { questionId: number }) {
     <View className="mb-6">
       <Image
         source={source}
-        style={{ width: '100%', aspectRatio }}
+        style={{ width: '100%' }}
         resizeMode="contain"
         onLoad={(e) => {
           const src = e.nativeEvent.source ?? e.nativeEvent;
