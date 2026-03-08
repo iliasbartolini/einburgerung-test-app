@@ -12,6 +12,7 @@ import {
   getEcosiaSearchUrl,
   getKeywordInfo,
   getWikipediaUrl,
+  hasWikipedia,
 } from '../../../src/services/keywordService';
 import type { FlashCard } from '../../../src/types';
 
@@ -158,15 +159,15 @@ export default function FlashCardsScreen() {
               {(() => {
                 const kwInfo = getKeywordInfo(currentCard.german_word);
                 if (!kwInfo) return null;
-                const wikiSlug = kwInfo.wikipedia;
+                const hasWiki = hasWikipedia(kwInfo);
                 const openLink = async (url: string) => {
                   try { await Linking.openURL(url); } catch (e) { console.error('Failed to open URL:', e); }
                 };
                 return (
                   <View className="flex-row items-center justify-center gap-3 mb-4 flex-wrap">
-                    {wikiSlug && (
+                    {hasWiki && (
                       <Pressable
-                        onPress={() => openLink(getWikipediaUrl(wikiSlug, 'de'))}
+                        onPress={() => openLink(getWikipediaUrl(kwInfo.wikipedia_slugs, 'de'))}
                         className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
                       >
                         <Ionicons name="book-outline" size={14} color="#457B9D" />
@@ -174,9 +175,9 @@ export default function FlashCardsScreen() {
                         <Ionicons name="open-outline" size={10} color="#9ca3af" />
                       </Pressable>
                     )}
-                    {wikiSlug && targetLanguage !== 'de' && (
+                    {hasWiki && targetLanguage !== 'de' && (
                       <Pressable
-                        onPress={() => openLink(getWikipediaUrl(wikiSlug, targetLanguage))}
+                        onPress={() => openLink(getWikipediaUrl(kwInfo.wikipedia_slugs, targetLanguage))}
                         className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
                       >
                         <Ionicons name="book-outline" size={14} color="#457B9D" />

@@ -13,6 +13,7 @@ import {
   getEcosiaSearchUrl,
   getKeywordInfo,
   getWikipediaUrl,
+  hasWikipedia,
   type KeywordEntry,
 } from '../src/services/keywordService';
 import { translateWord } from '../src/services/translationService';
@@ -249,12 +250,12 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
                     <Text className="text-xs text-gray-400 mb-2 uppercase tracking-wide">
                       {t('translation.learn_more')}
                     </Text>
-                    {popover.keywordInfo.wikipedia && (
+                    {hasWikipedia(popover.keywordInfo) && (
                       <>
                         <Pressable
                           onPress={() =>
                             handleOpenLink(
-                              getWikipediaUrl(popover.keywordInfo!.wikipedia!, 'de')
+                              getWikipediaUrl(popover.keywordInfo!.wikipedia_slugs, 'de')
                             )
                           }
                           className="flex-row items-center gap-2 py-1.5"
@@ -270,7 +271,7 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
                             onPress={() =>
                               handleOpenLink(
                                 getWikipediaUrl(
-                                  popover.keywordInfo!.wikipedia!,
+                                  popover.keywordInfo!.wikipedia_slugs,
                                   targetLanguage
                                 )
                               )

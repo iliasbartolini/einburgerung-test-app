@@ -2,8 +2,8 @@ import keywordsData from '../../assets/data/keywords.json';
 
 export interface KeywordEntry {
   term: string;
-  category: 'institution' | 'place' | 'person' | 'event' | 'concept';
-  wikipedia: string | null;
+  category: 'institution' | 'place' | 'person' | 'event' | 'concept' | 'party';
+  wikipedia_slugs: Record<string, string>;
 }
 
 export interface KeywordMatch {
@@ -81,20 +81,21 @@ export function findKeywordsInText(text: string): KeywordMatch[] {
   return matches;
 }
 
-const WIKIPEDIA_LANG_MAP: Record<string, string> = {
-  en: 'en',
-  de: 'de',
-  tr: 'tr',
-  ar: 'ar',
-  ru: 'ru',
-  fr: 'fr',
-  it: 'it',
-  es: 'es',
-};
-
-export function getWikipediaUrl(slug: string, lang: string): string {
-  const wikiLang = WIKIPEDIA_LANG_MAP[lang] ?? 'de';
+/**
+ * Get the Wikipedia URL for a keyword in a specific language.
+ * Uses the language-specific slug if available, falls back to the German slug.
+ */
+export function getWikipediaUrl(slugs: Record<string, string>, lang: string): string {
+  const slug = slugs[lang] ?? slugs.de;
+  const wikiLang = slug === slugs.de ? 'de' : lang;
   return `https://${wikiLang}.wikipedia.org/wiki/${slug}`;
+}
+
+/**
+ * Check if a keyword has a Wikipedia slug for the given language (or German fallback).
+ */
+export function hasWikipedia(entry: KeywordEntry): boolean {
+  return Object.keys(entry.wikipedia_slugs).length > 0;
 }
 
 export function getEcosiaSearchUrl(term: string): string {

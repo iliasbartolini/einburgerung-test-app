@@ -1,596 +1,910 @@
 {
-  "version": 1,
-  "generated_at": "2026-03-08T22:44:35.034Z",
+  "version": 2,
+  "generated_at": "2026-03-08T23:40:49.598Z",
   "keywords": [
     {
       "term": "Deutsche Demokratische Republik",
       "category": "concept",
-      "wikipedia": "Deutsche_Demokratische_Republik"
+      "wikipedia_slugs": {
+        "de": "Deutsche_Demokratische_Republik",
+        "en": "East_Germany"
+      }
     },
     {
       "term": "Bundesrepublik Deutschland",
       "category": "concept",
-      "wikipedia": "Deutschland"
+      "wikipedia_slugs": {
+        "de": "Deutschland",
+        "en": "Germany"
+      }
     },
     {
       "term": "Bundesverfassungsgericht",
       "category": "institution",
-      "wikipedia": "Bundesverfassungsgericht"
+      "wikipedia_slugs": {
+        "de": "Bundesverfassungsgericht",
+        "en": "Federal_Constitutional_Court"
+      }
     },
     {
       "term": "Arbeitslosenversicherung",
       "category": "concept",
-      "wikipedia": "Arbeitslosenversicherung"
+      "wikipedia_slugs": {
+        "de": "Arbeitslosenversicherung",
+        "en": "Unemployment_insurance"
+      }
     },
     {
       "term": "Frank-Walter Steinmeier",
       "category": "person",
-      "wikipedia": "Frank-Walter_Steinmeier"
+      "wikipedia_slugs": {
+        "de": "Frank-Walter_Steinmeier"
+      }
     },
     {
       "term": "Soziale Marktwirtschaft",
       "category": "concept",
-      "wikipedia": "Soziale_Marktwirtschaft"
+      "wikipedia_slugs": {
+        "de": "Soziale_Marktwirtschaft",
+        "en": "Social_market_economy"
+      }
     },
     {
       "term": "Mecklenburg-Vorpommern",
       "category": "place",
-      "wikipedia": "Mecklenburg-Vorpommern"
+      "wikipedia_slugs": {
+        "de": "Mecklenburg-Vorpommern"
+      }
     },
     {
       "term": "Montagsdemonstrationen",
       "category": "event",
-      "wikipedia": "Montagsdemonstrationen_1989/1990"
+      "wikipedia_slugs": {
+        "de": "Montagsdemonstrationen_1989/1990",
+        "en": "Monday_demonstrations_in_East_Germany"
+      }
     },
     {
       "term": "Bündnis 90/Die Grünen",
-      "category": "institution",
-      "wikipedia": "Bündnis_90/Die_Grünen"
+      "category": "party",
+      "wikipedia_slugs": {
+        "de": "Bündnis_90/Die_Grünen",
+        "en": "Alliance_90/The_Greens"
+      }
     },
     {
       "term": "Montagsdemonstration",
       "category": "event",
-      "wikipedia": "Montagsdemonstrationen_1989/1990"
+      "wikipedia_slugs": {
+        "de": "Montagsdemonstrationen_1989/1990",
+        "en": "Monday_demonstrations_in_East_Germany"
+      }
     },
     {
       "term": "Versammlungsfreiheit",
       "category": "concept",
-      "wikipedia": "Versammlungsfreiheit"
+      "wikipedia_slugs": {
+        "de": "Versammlungsfreiheit",
+        "en": "Freedom_of_assembly"
+      }
     },
     {
       "term": "Nordrhein-Westfalen",
       "category": "place",
-      "wikipedia": "Nordrhein-Westfalen"
+      "wikipedia_slugs": {
+        "de": "Nordrhein-Westfalen",
+        "en": "North_Rhine-Westphalia"
+      }
     },
     {
       "term": "Nationalsozialismus",
       "category": "event",
-      "wikipedia": "Nationalsozialismus"
+      "wikipedia_slugs": {
+        "de": "Nationalsozialismus",
+        "en": "Nazism"
+      }
     },
     {
       "term": "Krankenversicherung",
       "category": "concept",
-      "wikipedia": "Krankenversicherung_in_Deutschland"
+      "wikipedia_slugs": {
+        "de": "Krankenversicherung_in_Deutschland",
+        "en": "Healthcare_in_Germany"
+      }
     },
     {
       "term": "Europäischen Union",
       "category": "institution",
-      "wikipedia": "Europäische_Union"
+      "wikipedia_slugs": {
+        "de": "Europäische_Union",
+        "en": "European_Union"
+      }
     },
     {
       "term": "Vereinten Nationen",
       "category": "institution",
-      "wikipedia": "Vereinte_Nationen"
+      "wikipedia_slugs": {
+        "de": "Vereinte_Nationen",
+        "en": "United_Nations"
+      }
     },
     {
       "term": "Schleswig-Holstein",
       "category": "place",
-      "wikipedia": "Schleswig-Holstein"
+      "wikipedia_slugs": {
+        "de": "Schleswig-Holstein"
+      }
     },
     {
       "term": "Rentenversicherung",
       "category": "concept",
-      "wikipedia": "Gesetzliche_Rentenversicherung_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Gesetzliche_Rentenversicherung_(Deutschland)",
+        "en": "Pensions_in_Germany"
+      }
     },
     {
       "term": "Pflegeversicherung",
       "category": "concept",
-      "wikipedia": "Pflegeversicherung_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Pflegeversicherung_(Deutschland)",
+        "en": "Long-term_care_insurance"
+      }
     },
     {
       "term": "Unfallversicherung",
       "category": "concept",
-      "wikipedia": "Gesetzliche_Unfallversicherung"
+      "wikipedia_slugs": {
+        "de": "Gesetzliche_Unfallversicherung",
+        "en": "Accident_insurance"
+      }
     },
     {
       "term": "Sozialversicherung",
       "category": "concept",
-      "wikipedia": "Sozialversicherung_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Sozialversicherung_(Deutschland)",
+        "en": "Social_security_in_Germany"
+      }
     },
     {
       "term": "Bundesversammlung",
       "category": "institution",
-      "wikipedia": "Bundesversammlung_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Bundesversammlung_(Deutschland)",
+        "en": "Federal_Convention_(Germany)"
+      }
     },
     {
       "term": "Europäische Union",
       "category": "institution",
-      "wikipedia": "Europäische_Union"
+      "wikipedia_slugs": {
+        "de": "Europäische_Union",
+        "en": "European_Union"
+      }
     },
     {
       "term": "Baden-Württemberg",
       "category": "place",
-      "wikipedia": "Baden-Württemberg"
+      "wikipedia_slugs": {
+        "de": "Baden-Württemberg"
+      }
     },
     {
       "term": "Wiedervereinigung",
       "category": "event",
-      "wikipedia": "Deutsche_Wiedervereinigung"
+      "wikipedia_slugs": {
+        "de": "Deutsche_Wiedervereinigung",
+        "en": "German_reunification"
+      }
     },
     {
       "term": "Wirtschaftswunder",
       "category": "event",
-      "wikipedia": "Wirtschaftswunder"
+      "wikipedia_slugs": {
+        "de": "Wirtschaftswunder"
+      }
     },
     {
       "term": "Religionsfreiheit",
       "category": "concept",
-      "wikipedia": "Religionsfreiheit"
+      "wikipedia_slugs": {
+        "de": "Religionsfreiheit",
+        "en": "Freedom_of_religion"
+      }
     },
     {
       "term": "Volkssouveränität",
       "category": "concept",
-      "wikipedia": "Volkssouveränität"
+      "wikipedia_slugs": {
+        "de": "Volkssouveränität",
+        "en": "Popular_sovereignty"
+      }
     },
     {
       "term": "Gerhard Schröder",
       "category": "person",
-      "wikipedia": "Gerhard_Schröder"
+      "wikipedia_slugs": {
+        "de": "Gerhard_Schröder"
+      }
     },
     {
       "term": "Gustav Heinemann",
       "category": "person",
-      "wikipedia": "Gustav_Heinemann"
+      "wikipedia_slugs": {
+        "de": "Gustav_Heinemann"
+      }
     },
     {
       "term": "Meinungsfreiheit",
       "category": "concept",
-      "wikipedia": "Meinungsfreiheit"
+      "wikipedia_slugs": {
+        "de": "Meinungsfreiheit",
+        "en": "Freedom_of_speech"
+      }
     },
     {
       "term": "Bundesregierung",
       "category": "institution",
-      "wikipedia": "Bundesregierung_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Bundesregierung_(Deutschland)",
+        "en": "Government_of_Germany"
+      }
     },
     {
       "term": "Bundespräsident",
       "category": "institution",
-      "wikipedia": "Bundespräsident_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Bundespräsident_(Deutschland)",
+        "en": "President_of_Germany"
+      }
     },
     {
       "term": "Bundeskanzlerin",
       "category": "institution",
-      "wikipedia": "Bundeskanzler_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Bundeskanzler_(Deutschland)",
+        "en": "Chancellor_of_Germany"
+      }
     },
     {
       "term": "Warschauer Pakt",
       "category": "institution",
-      "wikipedia": "Warschauer_Pakt"
+      "wikipedia_slugs": {
+        "de": "Warschauer_Pakt",
+        "en": "Warsaw_Pact"
+      }
     },
     {
       "term": "Rheinland-Pfalz",
       "category": "place",
-      "wikipedia": "Rheinland-Pfalz"
+      "wikipedia_slugs": {
+        "de": "Rheinland-Pfalz",
+        "en": "Rhineland-Palatinate"
+      }
     },
     {
       "term": "Konrad Adenauer",
       "category": "person",
-      "wikipedia": "Konrad_Adenauer"
+      "wikipedia_slugs": {
+        "de": "Konrad_Adenauer"
+      }
     },
     {
       "term": "Marktwirtschaft",
       "category": "concept",
-      "wikipedia": "Marktwirtschaft"
+      "wikipedia_slugs": {
+        "de": "Marktwirtschaft",
+        "en": "Market_economy"
+      }
     },
     {
       "term": "Sachsen-Anhalt",
       "category": "place",
-      "wikipedia": "Sachsen-Anhalt"
+      "wikipedia_slugs": {
+        "de": "Sachsen-Anhalt",
+        "en": "Saxony-Anhalt"
+      }
     },
     {
       "term": "Helmut Schmidt",
       "category": "person",
-      "wikipedia": "Helmut_Schmidt"
+      "wikipedia_slugs": {
+        "de": "Helmut_Schmidt"
+      }
     },
     {
       "term": "Berliner Mauer",
       "category": "event",
-      "wikipedia": "Berliner_Mauer"
+      "wikipedia_slugs": {
+        "de": "Berliner_Mauer",
+        "en": "Berlin_Wall"
+      }
     },
     {
       "term": "Pressefreiheit",
       "category": "concept",
-      "wikipedia": "Pressefreiheit"
+      "wikipedia_slugs": {
+        "de": "Pressefreiheit",
+        "en": "Freedom_of_the_press"
+      }
     },
     {
       "term": "Planwirtschaft",
       "category": "concept",
-      "wikipedia": "Planwirtschaft"
+      "wikipedia_slugs": {
+        "de": "Planwirtschaft",
+        "en": "Planned_economy"
+      }
     },
     {
       "term": "Gewerkschaften",
       "category": "concept",
-      "wikipedia": "Gewerkschaft"
+      "wikipedia_slugs": {
+        "de": "Gewerkschaft",
+        "en": "Trade_union"
+      }
     },
     {
       "term": "Bundeskanzler",
       "category": "institution",
-      "wikipedia": "Bundeskanzler_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Bundeskanzler_(Deutschland)",
+        "en": "Chancellor_of_Germany"
+      }
     },
     {
       "term": "Niedersachsen",
       "category": "place",
-      "wikipedia": "Niedersachsen"
+      "wikipedia_slugs": {
+        "de": "Niedersachsen",
+        "en": "Lower_Saxony"
+      }
     },
     {
       "term": "Angela Merkel",
       "category": "person",
-      "wikipedia": "Angela_Merkel"
+      "wikipedia_slugs": {
+        "de": "Angela_Merkel"
+      }
     },
     {
       "term": "Ludwig Erhard",
       "category": "person",
-      "wikipedia": "Ludwig_Erhard"
+      "wikipedia_slugs": {
+        "de": "Ludwig_Erhard"
+      }
     },
     {
       "term": "Volksaufstand",
       "category": "event",
-      "wikipedia": "Aufstand_vom_17._Juni_1953"
+      "wikipedia_slugs": {
+        "de": "Aufstand_vom_17._Juni_1953",
+        "en": "East_German_uprising_of_1953"
+      }
     },
     {
       "term": "Menschenwürde",
       "category": "concept",
-      "wikipedia": "Menschenwürde"
+      "wikipedia_slugs": {
+        "de": "Menschenwürde",
+        "en": "Human_dignity"
+      }
     },
     {
       "term": "Willy Brandt",
       "category": "person",
-      "wikipedia": "Willy_Brandt"
+      "wikipedia_slugs": {
+        "de": "Willy_Brandt"
+      }
     },
     {
       "term": "Adolf Hitler",
       "category": "person",
-      "wikipedia": "Adolf_Hitler"
+      "wikipedia_slugs": {
+        "de": "Adolf_Hitler"
+      }
     },
     {
       "term": "Kalten Krieg",
       "category": "event",
-      "wikipedia": "Kalter_Krieg"
+      "wikipedia_slugs": {
+        "de": "Kalter_Krieg",
+        "en": "Cold_War"
+      }
     },
     {
       "term": "Kapitalismus",
       "category": "concept",
-      "wikipedia": "Kapitalismus"
+      "wikipedia_slugs": {
+        "de": "Kapitalismus",
+        "en": "Capitalism"
+      }
     },
     {
       "term": "Gewerkschaft",
       "category": "concept",
-      "wikipedia": "Gewerkschaft"
+      "wikipedia_slugs": {
+        "de": "Gewerkschaft",
+        "en": "Trade_union"
+      }
     },
     {
       "term": "Volkskammer",
       "category": "institution",
-      "wikipedia": "Volkskammer"
+      "wikipedia_slugs": {
+        "de": "Volkskammer"
+      }
     },
     {
       "term": "Brandenburg",
       "category": "place",
-      "wikipedia": "Brandenburg"
+      "wikipedia_slugs": {
+        "de": "Brandenburg"
+      }
     },
     {
       "term": "Saarbrücken",
       "category": "place",
-      "wikipedia": "Saarbrücken"
+      "wikipedia_slugs": {
+        "de": "Saarbrücken"
+      }
     },
     {
       "term": "Helmut Kohl",
       "category": "person",
-      "wikipedia": "Helmut_Kohl"
+      "wikipedia_slugs": {
+        "de": "Helmut_Kohl"
+      }
     },
     {
       "term": "Grundgesetz",
       "category": "concept",
-      "wikipedia": "Grundgesetz_für_die_Bundesrepublik_Deutschland"
+      "wikipedia_slugs": {
+        "de": "Grundgesetz_für_die_Bundesrepublik_Deutschland",
+        "en": "Basic_Law_for_the_Federal_Republic_of_Germany"
+      }
     },
     {
       "term": "Grundrechte",
       "category": "concept",
-      "wikipedia": "Grundrechte_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Grundrechte_(Deutschland)",
+        "en": "Fundamental_rights_in_Germany"
+      }
     },
     {
       "term": "Rechtsstaat",
       "category": "concept",
-      "wikipedia": "Rechtsstaat"
+      "wikipedia_slugs": {
+        "de": "Rechtsstaat",
+        "en": "Rule_of_law"
+      }
     },
     {
       "term": "Sozialstaat",
       "category": "concept",
-      "wikipedia": "Sozialstaat"
+      "wikipedia_slugs": {
+        "de": "Sozialstaat",
+        "en": "Welfare_state"
+      }
     },
     {
       "term": "Bundesstaat",
       "category": "concept",
-      "wikipedia": "Föderalismus_in_Deutschland"
+      "wikipedia_slugs": {
+        "de": "Föderalismus_in_Deutschland",
+        "en": "Federalism_in_Germany"
+      }
     },
     {
       "term": "Sozialismus",
       "category": "concept",
-      "wikipedia": "Sozialismus"
+      "wikipedia_slugs": {
+        "de": "Sozialismus",
+        "en": "Socialism"
+      }
     },
     {
       "term": "Bundesadler",
       "category": "concept",
-      "wikipedia": "Bundesadler"
+      "wikipedia_slugs": {
+        "de": "Bundesadler",
+        "en": "Coat_of_arms_of_Germany"
+      }
     },
     {
       "term": "Bundeswehr",
       "category": "institution",
-      "wikipedia": "Bundeswehr"
+      "wikipedia_slugs": {
+        "de": "Bundeswehr"
+      }
     },
     {
       "term": "Heidelberg",
       "category": "place",
-      "wikipedia": "Heidelberg"
+      "wikipedia_slugs": {
+        "de": "Heidelberg"
+      }
     },
     {
       "term": "Düsseldorf",
       "category": "place",
-      "wikipedia": "Düsseldorf"
+      "wikipedia_slugs": {
+        "de": "Düsseldorf"
+      }
     },
     {
       "term": "Luftbrücke",
       "category": "event",
-      "wikipedia": "Berliner_Luftbrücke"
+      "wikipedia_slugs": {
+        "de": "Berliner_Luftbrücke",
+        "en": "Berlin_Blockade"
+      }
     },
     {
       "term": "Demokratie",
       "category": "concept",
-      "wikipedia": "Demokratie"
+      "wikipedia_slugs": {
+        "de": "Demokratie",
+        "en": "Democracy"
+      }
     },
     {
       "term": "Opposition",
       "category": "concept",
-      "wikipedia": "Opposition_(Politik)"
+      "wikipedia_slugs": {
+        "de": "Opposition_(Politik)",
+        "en": "Opposition_(politics)"
+      }
     },
     {
       "term": "Bundestag",
       "category": "institution",
-      "wikipedia": "Deutscher_Bundestag"
+      "wikipedia_slugs": {
+        "de": "Deutscher_Bundestag",
+        "en": "Bundestag"
+      }
     },
     {
       "term": "Bundesrat",
       "category": "institution",
-      "wikipedia": "Bundesrat_(Deutschland)"
+      "wikipedia_slugs": {
+        "de": "Bundesrat_(Deutschland)",
+        "en": "German_Bundesrat"
+      }
     },
     {
       "term": "Die Linke",
-      "category": "institution",
-      "wikipedia": "Die_Linke"
+      "category": "party",
+      "wikipedia_slugs": {
+        "de": "Die_Linke",
+        "en": "The_Left_(Germany)"
+      }
     },
     {
       "term": "Thüringen",
       "category": "place",
-      "wikipedia": "Thüringen"
+      "wikipedia_slugs": {
+        "de": "Thüringen",
+        "en": "Thuringia"
+      }
     },
     {
       "term": "Stuttgart",
       "category": "place",
-      "wikipedia": "Stuttgart"
+      "wikipedia_slugs": {
+        "de": "Stuttgart"
+      }
     },
     {
       "term": "Karlsruhe",
       "category": "place",
-      "wikipedia": "Karlsruhe"
+      "wikipedia_slugs": {
+        "de": "Karlsruhe"
+      }
     },
     {
       "term": "Frankfurt",
       "category": "place",
-      "wikipedia": "Frankfurt_am_Main"
+      "wikipedia_slugs": {
+        "de": "Frankfurt_am_Main"
+      }
     },
     {
       "term": "Wiesbaden",
       "category": "place",
-      "wikipedia": "Wiesbaden"
+      "wikipedia_slugs": {
+        "de": "Wiesbaden"
+      }
     },
     {
       "term": "Magdeburg",
       "category": "place",
-      "wikipedia": "Magdeburg"
+      "wikipedia_slugs": {
+        "de": "Magdeburg"
+      }
     },
     {
       "term": "Koalition",
       "category": "concept",
-      "wikipedia": "Koalition_(Politik)"
+      "wikipedia_slugs": {
+        "de": "Koalition_(Politik)",
+        "en": "Coalition_government"
+      }
     },
     {
       "term": "Wahlrecht",
       "category": "concept",
-      "wikipedia": "Wahlrecht"
+      "wikipedia_slugs": {
+        "de": "Wahlrecht",
+        "en": "Suffrage"
+      }
     },
     {
       "term": "Monarchie",
       "category": "concept",
-      "wikipedia": "Monarchie"
+      "wikipedia_slugs": {
+        "de": "Monarchie",
+        "en": "Monarchy"
+      }
     },
     {
       "term": "Saarland",
       "category": "place",
-      "wikipedia": "Saarland"
+      "wikipedia_slugs": {
+        "de": "Saarland"
+      }
     },
     {
       "term": "Mannheim",
       "category": "place",
-      "wikipedia": "Mannheim"
+      "wikipedia_slugs": {
+        "de": "Mannheim"
+      }
     },
     {
       "term": "Hannover",
       "category": "place",
-      "wikipedia": "Hannover"
+      "wikipedia_slugs": {
+        "de": "Hannover",
+        "en": "Hanover"
+      }
     },
     {
       "term": "Nürnberg",
       "category": "place",
-      "wikipedia": "Nürnberg"
+      "wikipedia_slugs": {
+        "de": "Nürnberg",
+        "en": "Nuremberg"
+      }
     },
     {
       "term": "Schwerin",
       "category": "place",
-      "wikipedia": "Schwerin"
+      "wikipedia_slugs": {
+        "de": "Schwerin"
+      }
     },
     {
       "term": "Fraktion",
       "category": "concept",
-      "wikipedia": "Fraktion_(Politik)"
+      "wikipedia_slugs": {
+        "de": "Fraktion_(Politik)",
+        "en": "Parliamentary_group"
+      }
     },
     {
       "term": "Republik",
       "category": "concept",
-      "wikipedia": "Republik"
+      "wikipedia_slugs": {
+        "de": "Republik",
+        "en": "Republic"
+      }
     },
     {
       "term": "Diktatur",
       "category": "concept",
-      "wikipedia": "Diktatur"
+      "wikipedia_slugs": {
+        "de": "Diktatur",
+        "en": "Dictatorship"
+      }
     },
     {
       "term": "Ehrenamt",
       "category": "concept",
-      "wikipedia": "Ehrenamt"
+      "wikipedia_slugs": {
+        "de": "Ehrenamt",
+        "en": "Volunteering"
+      }
     },
     {
       "term": "Landtag",
       "category": "institution",
-      "wikipedia": "Landtag"
+      "wikipedia_slugs": {
+        "de": "Landtag"
+      }
     },
     {
       "term": "Hamburg",
       "category": "place",
-      "wikipedia": "Hamburg"
+      "wikipedia_slugs": {
+        "de": "Hamburg"
+      }
     },
     {
       "term": "Sachsen",
       "category": "place",
-      "wikipedia": "Sachsen"
+      "wikipedia_slugs": {
+        "de": "Sachsen",
+        "en": "Saxony"
+      }
     },
     {
       "term": "München",
       "category": "place",
-      "wikipedia": "München"
+      "wikipedia_slugs": {
+        "de": "München",
+        "en": "Munich"
+      }
     },
     {
       "term": "Dresden",
       "category": "place",
-      "wikipedia": "Dresden"
+      "wikipedia_slugs": {
+        "de": "Dresden"
+      }
     },
     {
       "term": "Leipzig",
       "category": "place",
-      "wikipedia": "Leipzig"
+      "wikipedia_slugs": {
+        "de": "Leipzig"
+      }
     },
     {
       "term": "Potsdam",
       "category": "place",
-      "wikipedia": "Potsdam"
+      "wikipedia_slugs": {
+        "de": "Potsdam"
+      }
     },
     {
       "term": "Rostock",
       "category": "place",
-      "wikipedia": "Rostock"
+      "wikipedia_slugs": {
+        "de": "Rostock"
+      }
     },
     {
       "term": "Bayern",
       "category": "place",
-      "wikipedia": "Bayern"
+      "wikipedia_slugs": {
+        "de": "Bayern",
+        "en": "Bavaria"
+      }
     },
     {
       "term": "Berlin",
       "category": "place",
-      "wikipedia": "Berlin"
+      "wikipedia_slugs": {
+        "de": "Berlin"
+      }
     },
     {
       "term": "Bremen",
       "category": "place",
-      "wikipedia": "Freie_Hansestadt_Bremen"
+      "wikipedia_slugs": {
+        "de": "Freie_Hansestadt_Bremen",
+        "en": "Bremen_(state)"
+      }
     },
     {
       "term": "Hessen",
       "category": "place",
-      "wikipedia": "Hessen"
+      "wikipedia_slugs": {
+        "de": "Hessen",
+        "en": "Hesse"
+      }
     },
     {
       "term": "Erfurt",
       "category": "place",
-      "wikipedia": "Erfurt"
+      "wikipedia_slugs": {
+        "de": "Erfurt"
+      }
     },
     {
       "term": "Wappen",
       "category": "concept",
-      "wikipedia": "Wappen_Deutschlands"
+      "wikipedia_slugs": {
+        "de": "Wappen_Deutschlands",
+        "en": "Coat_of_arms_of_Germany"
+      }
     },
     {
       "term": "Stasi",
       "category": "institution",
-      "wikipedia": "Ministerium_für_Staatssicherheit"
+      "wikipedia_slugs": {
+        "de": "Ministerium_für_Staatssicherheit",
+        "en": "Stasi"
+      }
     },
     {
       "term": "Mainz",
       "category": "place",
-      "wikipedia": "Mainz"
+      "wikipedia_slugs": {
+        "de": "Mainz"
+      }
     },
     {
       "term": "NATO",
       "category": "institution",
-      "wikipedia": "NATO"
+      "wikipedia_slugs": {
+        "de": "NATO"
+      }
     },
     {
       "term": "Bonn",
       "category": "place",
-      "wikipedia": "Bonn"
+      "wikipedia_slugs": {
+        "de": "Bonn"
+      }
     },
     {
       "term": "Köln",
       "category": "place",
-      "wikipedia": "Köln"
+      "wikipedia_slugs": {
+        "de": "Köln",
+        "en": "Cologne"
+      }
     },
     {
       "term": "Kiel",
       "category": "place",
-      "wikipedia": "Kiel"
+      "wikipedia_slugs": {
+        "de": "Kiel"
+      }
     },
     {
       "term": "CDU",
-      "category": "institution",
-      "wikipedia": "Christlich_Demokratische_Union_Deutschlands"
+      "category": "party",
+      "wikipedia_slugs": {
+        "de": "Christlich_Demokratische_Union_Deutschlands",
+        "en": "Christian_Democratic_Union_of_Germany"
+      }
     },
     {
       "term": "CSU",
-      "category": "institution",
-      "wikipedia": "Christlich-Soziale_Union_in_Bayern"
+      "category": "party",
+      "wikipedia_slugs": {
+        "de": "Christlich-Soziale_Union_in_Bayern",
+        "en": "Christian_Social_Union_in_Bavaria"
+      }
     },
     {
       "term": "SPD",
-      "category": "institution",
-      "wikipedia": "Sozialdemokratische_Partei_Deutschlands"
+      "category": "party",
+      "wikipedia_slugs": {
+        "de": "Sozialdemokratische_Partei_Deutschlands",
+        "en": "Social_Democratic_Party_of_Germany"
+      }
     },
     {
       "term": "FDP",
-      "category": "institution",
-      "wikipedia": "Freie_Demokratische_Partei"
+      "category": "party",
+      "wikipedia_slugs": {
+        "de": "Freie_Demokratische_Partei",
+        "en": "Free_Democratic_Party_(Germany)"
+      }
     },
     {
       "term": "DDR",
       "category": "concept",
-      "wikipedia": "Deutsche_Demokratische_Republik"
+      "wikipedia_slugs": {
+        "de": "Deutsche_Demokratische_Republik",
+        "en": "East_Germany"
+      }
     }
   ]
 }
