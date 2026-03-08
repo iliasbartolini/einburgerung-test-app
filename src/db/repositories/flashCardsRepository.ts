@@ -31,23 +31,24 @@ export async function removeFlashCard(cardId: number): Promise<void> {
 export async function getFlashCardsForReview(targetLanguage: string): Promise<FlashCard[]> {
   const db = await getDatabase();
   const cards = await db.getAllAsync<FlashCard>(
-    `SELECT * FROM flash_cards
+    `SELECT *,
+       CASE WHEN last_reviewed_at IS NULL THEN 0 ELSE 1 END AS has_been_reviewed,
+       CASE WHEN (correct_count + wrong_count) = 0 THEN 1.0
+            ELSE CAST(wrong_count AS REAL) / (correct_count + wrong_count)
+       END AS failure_rate
+     FROM flash_cards
      WHERE target_language = ?
-     ORDER BY wrong_count DESC, last_reviewed_at ASC`,
+     ORDER BY has_been_reviewed ASC, failure_rate DESC`,
     [targetLanguage]
   );
 
   if (cards.length === 0) return [];
 
-  // Weighted shuffle: difficult cards (first 30%) more likely to stay near front
-  const difficultThreshold = Math.ceil(cards.length * 0.3);
-  const difficult = cards.slice(0, difficultThreshold);
-  const rest = cards.slice(difficultThreshold);
+  // Split into unpracticed and practiced, shuffle within each group
+  const unpracticed = cards.filter(c => c.last_reviewed_at == null);
+  const practiced = cards.filter(c => c.last_reviewed_at != null);
 
-  // Fisher-Yates shuffle each segment
-  const shuffled = [...shuffle(difficult), ...shuffle(rest)];
-
-  return shuffled;
+  return [...shuffle(unpracticed), ...shuffle(practiced)];
 }
 
 function shuffle<T>(array: T[]): T[] {
