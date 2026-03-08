@@ -50,6 +50,20 @@ export async function getAttemptedQuestionCount(): Promise<number> {
   return result?.count ?? 0;
 }
 
+export async function recordExamAttempts(
+  answers: { questionId: number; selectedOption: string; isCorrect: boolean }[],
+  examSessionId: number
+): Promise<void> {
+  const db = await getDatabase();
+  for (const a of answers) {
+    await db.runAsync(
+      `INSERT INTO question_attempts (question_id, selected_option, is_correct, mode, exam_session_id)
+       VALUES (?, ?, ?, 'exam', ?)`,
+      [a.questionId, a.selectedOption, a.isCorrect ? 1 : 0, examSessionId]
+    );
+  }
+}
+
 export async function clearAllAttempts(): Promise<void> {
   const db = await getDatabase();
   await db.runAsync('DELETE FROM question_attempts');

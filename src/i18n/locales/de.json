@@ -57,7 +57,8 @@
     "try_again": "Erneut versuchen",
     "review_answers": "Antworten überprüfen",
     "submit_confirm_title": "Prüfung abgeben",
-    "submit_confirm": "Sind Sie sicher, dass Sie abgeben möchten? Sie können Ihre Antworten danach nicht mehr ändern."
+    "submit_confirm": "Sind Sie sicher, dass Sie abgeben möchten? Sie können Ihre Antworten danach nicht mehr ändern.",
+    "unanswered_warning": "Sie haben {{count}} unbeantwortete Frage(n)."
   },
   "catalog": {
     "title": "Fragenkatalog",

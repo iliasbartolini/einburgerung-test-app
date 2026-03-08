@@ -57,7 +57,8 @@
     "try_again": "Intentar de Nuevo",
     "review_answers": "Revisar Respuestas",
     "submit_confirm_title": "Enviar Examen",
-    "submit_confirm": "¿Estás seguro de que quieres enviar? No podrás cambiar tus respuestas después de enviar."
+    "submit_confirm": "¿Estás seguro de que quieres enviar? No podrás cambiar tus respuestas después de enviar.",
+    "unanswered_warning": "Tienes {{count}} pregunta(s) sin responder."
   },
   "catalog": {
     "title": "Catálogo de Preguntas",

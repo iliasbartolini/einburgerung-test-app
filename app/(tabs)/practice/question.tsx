@@ -11,6 +11,7 @@ import {
 } from '../../../src/db/repositories/questionsRepository';
 import {
   recordAttempt,
+  recordExamAttempts,
 } from '../../../src/db/repositories/attemptsRepository';
 import {
   createExamSession,
@@ -108,12 +109,13 @@ export default function QuestionScreen() {
   const handleAnswer = async (selectedOption: string, isCorrect: boolean) => {
     if (!currentQuestion) return;
     setAnswers((prev) => ({ ...prev, [currentQuestion.id]: selectedOption }));
+    // In exam mode, defer DB writes until submit
+    if (isExam) return;
     await recordAttempt(
       currentQuestion.id,
       selectedOption,
       isCorrect,
       mode || 'practice',
-      isExam ? examSessionRef.current ?? undefined : undefined
     );
     // Update statsMap immediately so navigator pill colors refresh
     if (isPractice) {
@@ -164,6 +166,15 @@ export default function QuestionScreen() {
       (q) => answers[q.id] === q.correct_option
     ).length;
     const timeTaken = Math.floor((Date.now() - examStartRef.current) / 1000);
+    // Record all final answers to DB
+    const attempts = questions
+      .filter((q) => answers[q.id])
+      .map((q) => ({
+        questionId: q.id,
+        selectedOption: answers[q.id],
+        isCorrect: answers[q.id] === q.correct_option,
+      }));
+    await recordExamAttempts(attempts, examSessionRef.current);
     await completeExamSession(examSessionRef.current, correctCount, timeTaken);
     router.replace({
       pathname: '/practice/results',
@@ -324,6 +335,7 @@ export default function QuestionScreen() {
             selectedOption={answers[currentQuestion.id] ?? null}
             questionStats={isPractice ? statsMap[currentQuestion.id] : undefined}
             enableTranslate={!isExam}
+            allowChange={isExam}
           />
         )}
       </ScrollView>
@@ -397,6 +409,11 @@ export default function QuestionScreen() {
             <Text className="text-base text-gray-700 mb-4">
               {t('exam.submit_confirm')}
             </Text>
+            {questions.length - Object.keys(answers).length > 0 && (
+              <Text className="text-sm text-accent font-medium mb-4">
+                {t('exam.unanswered_warning', { count: questions.length - Object.keys(answers).length })}
+              </Text>
+            )}
             <View className="flex-row gap-3">
               <Pressable
                 onPress={() => setShowConfirm(false)}

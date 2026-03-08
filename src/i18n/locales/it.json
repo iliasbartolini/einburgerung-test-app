@@ -57,7 +57,8 @@
     "try_again": "Riprova",
     "review_answers": "Rivedi Risposte",
     "submit_confirm_title": "Invia Esame",
-    "submit_confirm": "Sei sicuro di voler inviare? Non potrai modificare le tue risposte dopo l'invio."
+    "submit_confirm": "Sei sicuro di voler inviare? Non potrai modificare le tue risposte dopo l'invio.",
+    "unanswered_warning": "Hai {{count}} domanda/e senza risposta."
   },
   "catalog": {
     "title": "Catalogo Domande",

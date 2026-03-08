@@ -57,7 +57,8 @@
     "try_again": "Tekrar Dene",
     "review_answers": "Cevapları Gözden Geçir",
     "submit_confirm_title": "Sınavı Gönder",
-    "submit_confirm": "Göndermek istediğinizden emin misiniz? Gönderdikten sonra cevaplarınızı değiştiremezsiniz."
+    "submit_confirm": "Göndermek istediğinizden emin misiniz? Gönderdikten sonra cevaplarınızı değiştiremezsiniz.",
+    "unanswered_warning": "{{count}} cevaplanmamış sorunuz var."
   },
   "catalog": {
     "title": "Soru Kataloğu",

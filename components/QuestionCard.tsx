@@ -20,6 +20,7 @@ interface QuestionCardProps {
   selectedOption?: string | null;
   questionStats?: QuestionStats | null;
   enableTranslate?: boolean;
+  allowChange?: boolean;
 }
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
@@ -58,6 +59,7 @@ export default function QuestionCard({
   selectedOption: externalSelectedOption,
   questionStats,
   enableTranslate = true,
+  allowChange = false,
 }: QuestionCardProps) {
   const { t, i18n } = useTranslation();
   const [internalSelected, setInternalSelected] = useState<string | null>(null);
@@ -88,7 +90,8 @@ export default function QuestionCard({
   ];
 
   const handleOptionPress = (optionKey: string) => {
-    if (isAnswered || disabled) return;
+    if (disabled) return;
+    if (isAnswered && !allowChange) return;
     setInternalSelected(optionKey);
     setAnswered(true);
     const isCorrect = optionKey === question.correct_option;
@@ -229,7 +232,7 @@ export default function QuestionCard({
             <Pressable
               key={optionKey}
               onPress={() => handleOptionPress(optionKey)}
-              disabled={isAnswered || disabled}
+              disabled={(isAnswered && !allowChange) || disabled}
               className={`flex-row items-center px-4 py-4 rounded-xl border-2 ${getOptionStyle(optionKey)}`}
               accessibilityRole="radio"
               accessibilityState={{ selected: selectedOption === optionKey }}

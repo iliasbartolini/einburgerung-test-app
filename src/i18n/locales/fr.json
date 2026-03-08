@@ -57,7 +57,8 @@
     "try_again": "Réessayer",
     "review_answers": "Réviser les réponses",
     "submit_confirm_title": "Soumettre l'examen",
-    "submit_confirm": "Êtes-vous sûr de vouloir soumettre ? Vous ne pourrez pas modifier vos réponses après."
+    "submit_confirm": "Êtes-vous sûr de vouloir soumettre ? Vous ne pourrez pas modifier vos réponses après.",
+    "unanswered_warning": "Vous avez {{count}} question(s) sans réponse."
   },
   "catalog": {
     "title": "Catalogue de questions",
