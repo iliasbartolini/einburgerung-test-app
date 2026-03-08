@@ -1,11 +1,11 @@
-import { View, Text, Pressable, Image } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { Question, QuestionStats } from '../src/types';
-import TranslatableText from './TranslatableText';
-import { getQuestionImage } from '../src/utils/questionImages';
-import { getStatusIcon, getStatusColor } from '../src/utils/difficultyTier';
+import { Image, Pressable, Text, View } from 'react-native';
 import { translateBatch } from '../src/services/translationService';
+import type { Question, QuestionStats } from '../src/types';
+import { getStatusColor, getStatusIcon } from '../src/utils/difficultyTier';
+import { getQuestionImage } from '../src/utils/questionImages';
+import TranslatableText from './TranslatableText';
 import TranslateIcon from './TranslateIcon';
 
 interface QuestionCardProps {
@@ -209,7 +209,7 @@ export default function QuestionCard({
             ) : (
               <TranslateIcon
                 size={22}
-                color={isGerman ? '#d1d5db' : showTranslation ? '#457B9D' : '#6b7280'}
+                color={isGerman ? '#d1d5db' : showTranslation ? '#6b7281' : '#3ea5e6'}
               />
             )}
           </Pressable>

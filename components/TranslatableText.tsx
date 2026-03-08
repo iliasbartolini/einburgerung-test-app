@@ -114,7 +114,7 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
               key={index}
               onPress={() => handleWordPress(part)}
               className="underline-offset-2"
-              style={!isGerman ? { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: '#ccc' } : undefined}
+              style={!isGerman ? { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: '#3ea5e6'} : undefined}
               accessibilityRole="button"
               accessibilityLabel={`Translate: ${part}`}
             >
@@ -142,10 +142,10 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
             {popover && (
               <>
                 <View className="flex-row items-center gap-2 mb-1">
-                  <TranslateIcon size={18} color="#1D3557" />
                   <Text className="text-lg font-bold text-primary">
                     {popover.word}
                   </Text>
+                  <TranslateIcon size={18} color="#1D3557" />
                 </View>
                 {popover.loading ? (
                   <Text className="text-gray-500">{t('common.loading')}</Text>
