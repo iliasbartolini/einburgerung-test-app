@@ -98,7 +98,8 @@
     "translate_question": "Traduire la question",
     "show_original": "Afficher l'original",
     "translation_unavailable": "Traduction indisponible hors ligne",
-    "retry": "Réessayer"
+    "retry": "Réessayer",
+    "learn_more": "En savoir plus"
   },
   "common": {
     "loading": "Chargement...",

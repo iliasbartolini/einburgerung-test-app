@@ -1,0 +1,596 @@
+{
+  "version": 1,
+  "generated_at": "2026-03-08T22:44:35.034Z",
+  "keywords": [
+    {
+      "term": "Deutsche Demokratische Republik",
+      "category": "concept",
+      "wikipedia": "Deutsche_Demokratische_Republik"
+    },
+    {
+      "term": "Bundesrepublik Deutschland",
+      "category": "concept",
+      "wikipedia": "Deutschland"
+    },
+    {
+      "term": "Bundesverfassungsgericht",
+      "category": "institution",
+      "wikipedia": "Bundesverfassungsgericht"
+    },
+    {
+      "term": "Arbeitslosenversicherung",
+      "category": "concept",
+      "wikipedia": "Arbeitslosenversicherung"
+    },
+    {
+      "term": "Frank-Walter Steinmeier",
+      "category": "person",
+      "wikipedia": "Frank-Walter_Steinmeier"
+    },
+    {
+      "term": "Soziale Marktwirtschaft",
+      "category": "concept",
+      "wikipedia": "Soziale_Marktwirtschaft"
+    },
+    {
+      "term": "Mecklenburg-Vorpommern",
+      "category": "place",
+      "wikipedia": "Mecklenburg-Vorpommern"
+    },
+    {
+      "term": "Montagsdemonstrationen",
+      "category": "event",
+      "wikipedia": "Montagsdemonstrationen_1989/1990"
+    },
+    {
+      "term": "Bündnis 90/Die Grünen",
+      "category": "institution",
+      "wikipedia": "Bündnis_90/Die_Grünen"
+    },
+    {
+      "term": "Montagsdemonstration",
+      "category": "event",
+      "wikipedia": "Montagsdemonstrationen_1989/1990"
+    },
+    {
+      "term": "Versammlungsfreiheit",
+      "category": "concept",
+      "wikipedia": "Versammlungsfreiheit"
+    },
+    {
+      "term": "Nordrhein-Westfalen",
+      "category": "place",
+      "wikipedia": "Nordrhein-Westfalen"
+    },
+    {
+      "term": "Nationalsozialismus",
+      "category": "event",
+      "wikipedia": "Nationalsozialismus"
+    },
+    {
+      "term": "Krankenversicherung",
+      "category": "concept",
+      "wikipedia": "Krankenversicherung_in_Deutschland"
+    },
+    {
+      "term": "Europäischen Union",
+      "category": "institution",
+      "wikipedia": "Europäische_Union"
+    },
+    {
+      "term": "Vereinten Nationen",
+      "category": "institution",
+      "wikipedia": "Vereinte_Nationen"
+    },
+    {
+      "term": "Schleswig-Holstein",
+      "category": "place",
+      "wikipedia": "Schleswig-Holstein"
+    },
+    {
+      "term": "Rentenversicherung",
+      "category": "concept",
+      "wikipedia": "Gesetzliche_Rentenversicherung_(Deutschland)"
+    },
+    {
+      "term": "Pflegeversicherung",
+      "category": "concept",
+      "wikipedia": "Pflegeversicherung_(Deutschland)"
+    },
+    {
+      "term": "Unfallversicherung",
+      "category": "concept",
+      "wikipedia": "Gesetzliche_Unfallversicherung"
+    },
+    {
+      "term": "Sozialversicherung",
+      "category": "concept",
+      "wikipedia": "Sozialversicherung_(Deutschland)"
+    },
+    {
+      "term": "Bundesversammlung",
+      "category": "institution",
+      "wikipedia": "Bundesversammlung_(Deutschland)"
+    },
+    {
+      "term": "Europäische Union",
+      "category": "institution",
+      "wikipedia": "Europäische_Union"
+    },
+    {
+      "term": "Baden-Württemberg",
+      "category": "place",
+      "wikipedia": "Baden-Württemberg"
+    },
+    {
+      "term": "Wiedervereinigung",
+      "category": "event",
+      "wikipedia": "Deutsche_Wiedervereinigung"
+    },
+    {
+      "term": "Wirtschaftswunder",
+      "category": "event",
+      "wikipedia": "Wirtschaftswunder"
+    },
+    {
+      "term": "Religionsfreiheit",
+      "category": "concept",
+      "wikipedia": "Religionsfreiheit"
+    },
+    {
+      "term": "Volkssouveränität",
+      "category": "concept",
+      "wikipedia": "Volkssouveränität"
+    },
+    {
+      "term": "Gerhard Schröder",
+      "category": "person",
+      "wikipedia": "Gerhard_Schröder"
+    },
+    {
+      "term": "Gustav Heinemann",
+      "category": "person",
+      "wikipedia": "Gustav_Heinemann"
+    },
+    {
+      "term": "Meinungsfreiheit",
+      "category": "concept",
+      "wikipedia": "Meinungsfreiheit"
+    },
+    {
+      "term": "Bundesregierung",
+      "category": "institution",
+      "wikipedia": "Bundesregierung_(Deutschland)"
+    },
+    {
+      "term": "Bundespräsident",
+      "category": "institution",
+      "wikipedia": "Bundespräsident_(Deutschland)"
+    },
+    {
+      "term": "Bundeskanzlerin",
+      "category": "institution",
+      "wikipedia": "Bundeskanzler_(Deutschland)"
+    },
+    {
+      "term": "Warschauer Pakt",
+      "category": "institution",
+      "wikipedia": "Warschauer_Pakt"
+    },
+    {
+      "term": "Rheinland-Pfalz",
+      "category": "place",
+      "wikipedia": "Rheinland-Pfalz"
+    },
+    {
+      "term": "Konrad Adenauer",
+      "category": "person",
+      "wikipedia": "Konrad_Adenauer"
+    },
+    {
+      "term": "Marktwirtschaft",
+      "category": "concept",
+      "wikipedia": "Marktwirtschaft"
+    },
+    {
+      "term": "Sachsen-Anhalt",
+      "category": "place",
+      "wikipedia": "Sachsen-Anhalt"
+    },
+    {
+      "term": "Helmut Schmidt",
+      "category": "person",
+      "wikipedia": "Helmut_Schmidt"
+    },
+    {
+      "term": "Berliner Mauer",
+      "category": "event",
+      "wikipedia": "Berliner_Mauer"
+    },
+    {
+      "term": "Pressefreiheit",
+      "category": "concept",
+      "wikipedia": "Pressefreiheit"
+    },
+    {
+      "term": "Planwirtschaft",
+      "category": "concept",
+      "wikipedia": "Planwirtschaft"
+    },
+    {
+      "term": "Gewerkschaften",
+      "category": "concept",
+      "wikipedia": "Gewerkschaft"
+    },
+    {
+      "term": "Bundeskanzler",
+      "category": "institution",
+      "wikipedia": "Bundeskanzler_(Deutschland)"
+    },
+    {
+      "term": "Niedersachsen",
+      "category": "place",
+      "wikipedia": "Niedersachsen"
+    },
+    {
+      "term": "Angela Merkel",
+      "category": "person",
+      "wikipedia": "Angela_Merkel"
+    },
+    {
+      "term": "Ludwig Erhard",
+      "category": "person",
+      "wikipedia": "Ludwig_Erhard"
+    },
+    {
+      "term": "Volksaufstand",
+      "category": "event",
+      "wikipedia": "Aufstand_vom_17._Juni_1953"
+    },
+    {
+      "term": "Menschenwürde",
+      "category": "concept",
+      "wikipedia": "Menschenwürde"
+    },
+    {
+      "term": "Willy Brandt",
+      "category": "person",
+      "wikipedia": "Willy_Brandt"
+    },
+    {
+      "term": "Adolf Hitler",
+      "category": "person",
+      "wikipedia": "Adolf_Hitler"
+    },
+    {
+      "term": "Kalten Krieg",
+      "category": "event",
+      "wikipedia": "Kalter_Krieg"
+    },
+    {
+      "term": "Kapitalismus",
+      "category": "concept",
+      "wikipedia": "Kapitalismus"
+    },
+    {
+      "term": "Gewerkschaft",
+      "category": "concept",
+      "wikipedia": "Gewerkschaft"
+    },
+    {
+      "term": "Volkskammer",
+      "category": "institution",
+      "wikipedia": "Volkskammer"
+    },
+    {
+      "term": "Brandenburg",
+      "category": "place",
+      "wikipedia": "Brandenburg"
+    },
+    {
+      "term": "Saarbrücken",
+      "category": "place",
+      "wikipedia": "Saarbrücken"
+    },
+    {
+      "term": "Helmut Kohl",
+      "category": "person",
+      "wikipedia": "Helmut_Kohl"
+    },
+    {
+      "term": "Grundgesetz",
+      "category": "concept",
+      "wikipedia": "Grundgesetz_für_die_Bundesrepublik_Deutschland"
+    },
+    {
+      "term": "Grundrechte",
+      "category": "concept",
+      "wikipedia": "Grundrechte_(Deutschland)"
+    },
+    {
+      "term": "Rechtsstaat",
+      "category": "concept",
+      "wikipedia": "Rechtsstaat"
+    },
+    {
+      "term": "Sozialstaat",
+      "category": "concept",
+      "wikipedia": "Sozialstaat"
+    },
+    {
+      "term": "Bundesstaat",
+      "category": "concept",
+      "wikipedia": "Föderalismus_in_Deutschland"
+    },
+    {
+      "term": "Sozialismus",
+      "category": "concept",
+      "wikipedia": "Sozialismus"
+    },
+    {
+      "term": "Bundesadler",
+      "category": "concept",
+      "wikipedia": "Bundesadler"
+    },
+    {
+      "term": "Bundeswehr",
+      "category": "institution",
+      "wikipedia": "Bundeswehr"
+    },
+    {
+      "term": "Heidelberg",
+      "category": "place",
+      "wikipedia": "Heidelberg"
+    },
+    {
+      "term": "Düsseldorf",
+      "category": "place",
+      "wikipedia": "Düsseldorf"
+    },
+    {
+      "term": "Luftbrücke",
+      "category": "event",
+      "wikipedia": "Berliner_Luftbrücke"
+    },
+    {
+      "term": "Demokratie",
+      "category": "concept",
+      "wikipedia": "Demokratie"
+    },
+    {
+      "term": "Opposition",
+      "category": "concept",
+      "wikipedia": "Opposition_(Politik)"
+    },
+    {
+      "term": "Bundestag",
+      "category": "institution",
+      "wikipedia": "Deutscher_Bundestag"
+    },
+    {
+      "term": "Bundesrat",
+      "category": "institution",
+      "wikipedia": "Bundesrat_(Deutschland)"
+    },
+    {
+      "term": "Die Linke",
+      "category": "institution",
+      "wikipedia": "Die_Linke"
+    },
+    {
+      "term": "Thüringen",
+      "category": "place",
+      "wikipedia": "Thüringen"
+    },
+    {
+      "term": "Stuttgart",
+      "category": "place",
+      "wikipedia": "Stuttgart"
+    },
+    {
+      "term": "Karlsruhe",
+      "category": "place",
+      "wikipedia": "Karlsruhe"
+    },
+    {
+      "term": "Frankfurt",
+      "category": "place",
+      "wikipedia": "Frankfurt_am_Main"
+    },
+    {
+      "term": "Wiesbaden",
+      "category": "place",
+      "wikipedia": "Wiesbaden"
+    },
+    {
+      "term": "Magdeburg",
+      "category": "place",
+      "wikipedia": "Magdeburg"
+    },
+    {
+      "term": "Koalition",
+      "category": "concept",
+      "wikipedia": "Koalition_(Politik)"
+    },
+    {
+      "term": "Wahlrecht",
+      "category": "concept",
+      "wikipedia": "Wahlrecht"
+    },
+    {
+      "term": "Monarchie",
+      "category": "concept",
+      "wikipedia": "Monarchie"
+    },
+    {
+      "term": "Saarland",
+      "category": "place",
+      "wikipedia": "Saarland"
+    },
+    {
+      "term": "Mannheim",
+      "category": "place",
+      "wikipedia": "Mannheim"
+    },
+    {
+      "term": "Hannover",
+      "category": "place",
+      "wikipedia": "Hannover"
+    },
+    {
+      "term": "Nürnberg",
+      "category": "place",
+      "wikipedia": "Nürnberg"
+    },
+    {
+      "term": "Schwerin",
+      "category": "place",
+      "wikipedia": "Schwerin"
+    },
+    {
+      "term": "Fraktion",
+      "category": "concept",
+      "wikipedia": "Fraktion_(Politik)"
+    },
+    {
+      "term": "Republik",
+      "category": "concept",
+      "wikipedia": "Republik"
+    },
+    {
+      "term": "Diktatur",
+      "category": "concept",
+      "wikipedia": "Diktatur"
+    },
+    {
+      "term": "Ehrenamt",
+      "category": "concept",
+      "wikipedia": "Ehrenamt"
+    },
+    {
+      "term": "Landtag",
+      "category": "institution",
+      "wikipedia": "Landtag"
+    },
+    {
+      "term": "Hamburg",
+      "category": "place",
+      "wikipedia": "Hamburg"
+    },
+    {
+      "term": "Sachsen",
+      "category": "place",
+      "wikipedia": "Sachsen"
+    },
+    {
+      "term": "München",
+      "category": "place",
+      "wikipedia": "München"
+    },
+    {
+      "term": "Dresden",
+      "category": "place",
+      "wikipedia": "Dresden"
+    },
+    {
+      "term": "Leipzig",
+      "category": "place",
+      "wikipedia": "Leipzig"
+    },
+    {
+      "term": "Potsdam",
+      "category": "place",
+      "wikipedia": "Potsdam"
+    },
+    {
+      "term": "Rostock",
+      "category": "place",
+      "wikipedia": "Rostock"
+    },
+    {
+      "term": "Bayern",
+      "category": "place",
+      "wikipedia": "Bayern"
+    },
+    {
+      "term": "Berlin",
+      "category": "place",
+      "wikipedia": "Berlin"
+    },
+    {
+      "term": "Bremen",
+      "category": "place",
+      "wikipedia": "Freie_Hansestadt_Bremen"
+    },
+    {
+      "term": "Hessen",
+      "category": "place",
+      "wikipedia": "Hessen"
+    },
+    {
+      "term": "Erfurt",
+      "category": "place",
+      "wikipedia": "Erfurt"
+    },
+    {
+      "term": "Wappen",
+      "category": "concept",
+      "wikipedia": "Wappen_Deutschlands"
+    },
+    {
+      "term": "Stasi",
+      "category": "institution",
+      "wikipedia": "Ministerium_für_Staatssicherheit"
+    },
+    {
+      "term": "Mainz",
+      "category": "place",
+      "wikipedia": "Mainz"
+    },
+    {
+      "term": "NATO",
+      "category": "institution",
+      "wikipedia": "NATO"
+    },
+    {
+      "term": "Bonn",
+      "category": "place",
+      "wikipedia": "Bonn"
+    },
+    {
+      "term": "Köln",
+      "category": "place",
+      "wikipedia": "Köln"
+    },
+    {
+      "term": "Kiel",
+      "category": "place",
+      "wikipedia": "Kiel"
+    },
+    {
+      "term": "CDU",
+      "category": "institution",
+      "wikipedia": "Christlich_Demokratische_Union_Deutschlands"
+    },
+    {
+      "term": "CSU",
+      "category": "institution",
+      "wikipedia": "Christlich-Soziale_Union_in_Bayern"
+    },
+    {
+      "term": "SPD",
+      "category": "institution",
+      "wikipedia": "Sozialdemokratische_Partei_Deutschlands"
+    },
+    {
+      "term": "FDP",
+      "category": "institution",
+      "wikipedia": "Freie_Demokratische_Partei"
+    },
+    {
+      "term": "DDR",
+      "category": "concept",
+      "wikipedia": "Deutsche_Demokratische_Republik"
+    }
+  ]
+}

@@ -98,7 +98,8 @@
     "translate_question": "Soruyu çevir",
     "show_original": "Orijinali göster",
     "translation_unavailable": "Çeviri çevrimdışı kullanılamaz",
-    "retry": "Tekrar Dene"
+    "retry": "Tekrar Dene",
+    "learn_more": "Daha fazla bilgi"
   },
   "common": {
     "loading": "Yükleniyor...",

@@ -1,13 +1,18 @@
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, Text, View } from 'react-native';
+import { Linking, Modal, Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {
   getFlashCardsForReview,
   recordFlashCardReview,
   removeFlashCard,
 } from '../../../src/db/repositories/flashCardsRepository';
+import {
+  getEcosiaSearchUrl,
+  getKeywordInfo,
+  getWikipediaUrl,
+} from '../../../src/services/keywordService';
 import type { FlashCard } from '../../../src/types';
 
 export default function FlashCardsScreen() {
@@ -147,9 +152,36 @@ export default function FlashCardsScreen() {
           {revealed ? (
             <>
               <View className="h-px w-20 bg-gray-300 mb-6" />
-              <Text className="text-2xl text-gray-700 text-center mb-8">
+              <Text className="text-2xl text-gray-700 text-center mb-4">
                 {currentCard.translated_text}
               </Text>
+              {(() => {
+                const kwInfo = getKeywordInfo(currentCard.german_word);
+                if (!kwInfo) return null;
+                const wikiSlug = kwInfo.wikipedia;
+                return (
+                  <View className="flex-row items-center justify-center gap-3 mb-4">
+                    {wikiSlug && (
+                      <Pressable
+                        onPress={() => Linking.openURL(getWikipediaUrl(wikiSlug, targetLanguage === 'de' ? 'de' : targetLanguage))}
+                        className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
+                      >
+                        <Ionicons name="book-outline" size={14} color="#457B9D" />
+                        <Text className="text-secondary text-sm">Wikipedia</Text>
+                        <Ionicons name="open-outline" size={10} color="#9ca3af" />
+                      </Pressable>
+                    )}
+                    <Pressable
+                      onPress={() => Linking.openURL(getEcosiaSearchUrl(kwInfo.term))}
+                      className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
+                    >
+                      <Ionicons name="search-outline" size={14} color="#457B9D" />
+                      <Text className="text-secondary text-sm">Ecosia</Text>
+                      <Ionicons name="open-outline" size={10} color="#9ca3af" />
+                    </Pressable>
+                  </View>
+                );
+              })()}
               <View className="flex-row gap-3 w-full">
                 <Pressable
                   onPress={() => handleAnswer(false)}

@@ -1,12 +1,20 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, Pressable, Text, View } from 'react-native';
+import { Linking, Modal, Pressable, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import {
   getFlashCardByWord,
   isFlashCardSaved,
   removeFlashCard,
   saveFlashCard,
 } from '../src/db/repositories/flashCardsRepository';
+import {
+  findKeywordsInText,
+  getEcosiaSearchUrl,
+  getKeywordInfo,
+  getWikipediaUrl,
+  type KeywordEntry,
+} from '../src/services/keywordService';
 import { translateWord } from '../src/services/translationService';
 import TranslateIcon from './TranslateIcon';
 
@@ -20,6 +28,77 @@ interface WordPopoverState {
   translation: string | null;
   loading: boolean;
   error: string | null;
+  keywordInfo: KeywordEntry | null;
+}
+
+interface TextSegment {
+  text: string;
+  isKeyword: boolean;
+  term?: string; // original keyword term for lookup
+}
+
+function segmentText(text: string): TextSegment[] {
+  const matches = findKeywordsInText(text);
+  if (matches.length === 0) {
+    return [{ text, isKeyword: false }];
+  }
+
+  const segments: TextSegment[] = [];
+  let cursor = 0;
+
+  for (const match of matches) {
+    if (match.start > cursor) {
+      segments.push({ text: text.slice(cursor, match.start), isKeyword: false });
+    }
+    segments.push({
+      text: text.slice(match.start, match.end),
+      isKeyword: true,
+      term: match.term,
+    });
+    cursor = match.end;
+  }
+
+  if (cursor < text.length) {
+    segments.push({ text: text.slice(cursor), isKeyword: false });
+  }
+
+  return segments;
+}
+
+function renderWords(
+  text: string,
+  isGerman: boolean,
+  isKeyword: boolean,
+  onWordPress: (word: string) => void,
+  keyOffset: number
+) {
+  const parts = text.split(/(\s+)/);
+  return parts.map((part, index) => {
+    if (/^\s+$/.test(part)) {
+      return <Text key={keyOffset + index}>{part}</Text>;
+    }
+    const underlineColor = isKeyword ? '#E63946' : '#3ea5e6';
+    return (
+      <Text
+        key={keyOffset + index}
+        onPress={() => onWordPress(part)}
+        className="underline-offset-2"
+        style={
+          !isGerman
+            ? {
+                textDecorationLine: 'underline',
+                textDecorationStyle: 'dotted',
+                textDecorationColor: underlineColor,
+              }
+            : undefined
+        }
+        accessibilityRole="button"
+        accessibilityLabel={`Translate: ${part}`}
+      >
+        {part}
+      </Text>
+    );
+  });
 }
 
 export default function TranslatableText({ text, className }: TranslatableTextProps) {
@@ -30,6 +109,8 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
 
   const targetLanguage = i18n.language;
   const isGerman = targetLanguage === 'de';
+
+  const segments = useMemo(() => segmentText(text), [text]);
 
   // Check if word is saved when modal opens
   useEffect(() => {
@@ -42,7 +123,8 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
     async (word: string) => {
       if (isGerman) return;
 
-      setPopover({ word, translation: null, loading: true, error: null });
+      const kwInfo = getKeywordInfo(word);
+      setPopover({ word, translation: null, loading: true, error: null, keywordInfo: kwInfo });
 
       try {
         const result = await translateWord(word, targetLanguage);
@@ -51,6 +133,7 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
           translation: result.translatedText,
           loading: false,
           error: null,
+          keywordInfo: kwInfo,
         });
       } catch (error: any) {
         const errorKey =
@@ -62,6 +145,7 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
           translation: null,
           loading: false,
           error: t(errorKey),
+          keywordInfo: kwInfo,
         });
       }
     },
@@ -99,28 +183,26 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
     }
   }, [popover]);
 
-  // Split text into words preserving whitespace
-  const parts = text.split(/(\s+)/);
+  const handleOpenLink = useCallback((url: string) => {
+    Linking.openURL(url);
+  }, []);
+
+  // Build flat list of rendered elements across all segments
+  let keyOffset = 0;
 
   return (
     <View>
       <Text className={className}>
-        {parts.map((part, index) => {
-          if (/^\s+$/.test(part)) {
-            return <Text key={index}>{part}</Text>;
-          }
-          return (
-            <Text
-              key={index}
-              onPress={() => handleWordPress(part)}
-              className="underline-offset-2"
-              style={!isGerman ? { textDecorationLine: 'underline', textDecorationStyle: 'dotted', textDecorationColor: '#3ea5e6'} : undefined}
-              accessibilityRole="button"
-              accessibilityLabel={`Translate: ${part}`}
-            >
-              {part}
-            </Text>
+        {segments.map((segment, segIdx) => {
+          const elements = renderWords(
+            segment.text,
+            isGerman,
+            segment.isKeyword,
+            handleWordPress,
+            keyOffset
           );
+          keyOffset += segment.text.split(/(\s+)/).length;
+          return elements;
         })}
       </Text>
 
@@ -156,6 +238,67 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
                     {popover.translation}
                   </Text>
                 )}
+
+                {/* Learn More links for keywords */}
+                {popover.keywordInfo && (
+                  <View className="mt-3 pt-3 border-t border-gray-100">
+                    <Text className="text-xs text-gray-400 mb-2 uppercase tracking-wide">
+                      {t('translation.learn_more')}
+                    </Text>
+                    {popover.keywordInfo.wikipedia && (
+                      <>
+                        <Pressable
+                          onPress={() =>
+                            handleOpenLink(
+                              getWikipediaUrl(popover.keywordInfo!.wikipedia!, 'de')
+                            )
+                          }
+                          className="flex-row items-center gap-2 py-1.5"
+                        >
+                          <Ionicons name="book-outline" size={16} color="#457B9D" />
+                          <Text className="text-secondary text-sm">
+                            Wikipedia (DE)
+                          </Text>
+                          <Ionicons name="open-outline" size={12} color="#9ca3af" />
+                        </Pressable>
+                        {targetLanguage !== 'de' && (
+                          <Pressable
+                            onPress={() =>
+                              handleOpenLink(
+                                getWikipediaUrl(
+                                  popover.keywordInfo!.wikipedia!,
+                                  targetLanguage
+                                )
+                              )
+                            }
+                            className="flex-row items-center gap-2 py-1.5"
+                          >
+                            <Ionicons name="book-outline" size={16} color="#457B9D" />
+                            <Text className="text-secondary text-sm">
+                              Wikipedia ({targetLanguage.toUpperCase()})
+                            </Text>
+                            <Ionicons name="open-outline" size={12} color="#9ca3af" />
+                          </Pressable>
+                        )}
+                      </>
+                    )}
+                    <Pressable
+                      onPress={() =>
+                        handleOpenLink(
+                          getEcosiaSearchUrl(popover.keywordInfo!.term)
+                        )
+                      }
+                      className="flex-row items-center gap-2 py-1.5"
+                    >
+                      <Ionicons name="search-outline" size={16} color="#457B9D" />
+                      <Text className="text-secondary text-sm">
+                        Ecosia
+                      </Text>
+                      <Ionicons name="open-outline" size={12} color="#9ca3af" />
+                    </Pressable>
+                  </View>
+                )}
+
                 <View className="flex-row gap-2 mt-4">
                   {!isGerman && popover.translation && !isSaved && (
                     <Pressable
