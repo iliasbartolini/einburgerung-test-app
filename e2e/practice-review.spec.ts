@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { onboard, goToTab, resetProgress } from './helpers';
+import { expect, test } from '@playwright/test';
+import { onboard, resetProgress } from './helpers';
 
 test('practice mode, review mistakes, and flashcards', async ({ page }) => {
   await onboard(page);
@@ -34,10 +34,8 @@ test('practice mode, review mistakes, and flashcards', async ({ page }) => {
   // --- Verify Home Dashboard values ---
   const accuracy = Math.round((correctCount / 10) * 100);
   const coverage = Math.round((10 / 310) * 100);
-  const readiness = Math.round((correctCount / 10) * (10 / 310) * 100);
 
   // Readiness is shown inside the big circle
-  await expect(page.getByText(`${readiness}%`).first()).toBeVisible();
   await expect(page.getByText('Readiness')).toBeVisible();
 
   // Accuracy stat

@@ -1,15 +1,15 @@
-import { View, Text, Pressable, ScrollView, SafeAreaView } from 'react-native';
-import { useRouter, useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useState, useCallback } from 'react';
-import { useAppStore } from '../../src/stores/useAppStore';
+import { Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import {
-  getTotalAttempts,
-  getCorrectAttempts,
   getAttemptedQuestionCount,
+  getCorrectAttempts,
+  getTotalAttempts,
 } from '../../src/db/repositories/attemptsRepository';
-import { getQuestionsByBundesland } from '../../src/db/repositories/questionsRepository';
 import { getExamHistory } from '../../src/db/repositories/examRepository';
+import { getQuestionsByBundesland } from '../../src/db/repositories/questionsRepository';
+import { useAppStore } from '../../src/stores/useAppStore';
 import type { ExamSession } from '../../src/types';
 
 export default function HomeScreen() {
@@ -45,13 +45,19 @@ export default function HomeScreen() {
     }, [loadStats])
   );
 
-  const accuracy = totalAttempts > 0 ? Math.round((correctAttempts / totalAttempts) * 100) : 0;
-  const coverage = totalQuestions > 0 ? Math.round((attemptedCount / totalQuestions) * 100) : 0;
-  const readiness = totalAttempts > 0
-    ? Math.round((correctAttempts / totalAttempts) * (attemptedCount / totalQuestions) * 100)
-    : 0;
+  const accuracy = totalAttempts > 0 ? correctAttempts / totalAttempts : 0;
+  const coverage = totalQuestions > 0 ? attemptedCount / totalQuestions : 0;
+  
+  const coverageFactor = (coverage <= 0 ? 0.1 : 
+    Math.min(1, Math.max(0.1, 1 + Math.log(coverage+0.2) / 1.8))
+  );
+  
+  const readiness = Math.round(coverageFactor * accuracy * 100);
 
-  const readinessColor = readiness >= 67 ? '#22C55E' : readiness >= 34 ? '#EAB308' : '#EF4444';
+  const accuracyPercentage = Math.round(accuracy * 100);
+  const coveragePercentage = Math.round(coverage * 100);
+
+  const readinessColor = readiness >= 80 ? '#22C55E' : readiness >= 70 ? '#EAB308' : '#EF4444';
 
   return (
     <SafeAreaView className="flex-1 bg-white">
@@ -70,7 +76,7 @@ export default function HomeScreen() {
         {/* Stats Row */}
         <View className="flex-row gap-3 mb-6">
           <View className="flex-1 bg-light rounded-xl p-4 items-center">
-            <Text className="text-2xl font-bold text-primary">{accuracy}%</Text>
+            <Text className="text-2xl font-bold text-primary">{accuracyPercentage}%</Text>
             <Text className="text-xs text-gray-500 text-center mt-1">
               {t('home.accuracy')}
             </Text>
@@ -82,7 +88,7 @@ export default function HomeScreen() {
             </Text>
           </View>
           <View className="flex-1 bg-light rounded-xl p-4 items-center">
-            <Text className="text-2xl font-bold text-primary">{coverage}%</Text>
+            <Text className="text-2xl font-bold text-primary">{coveragePercentage}%</Text>
             <Text className="text-xs text-gray-500 text-center mt-1">Coverage</Text>
           </View>
         </View>

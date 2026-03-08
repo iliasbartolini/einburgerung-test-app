@@ -1,7 +1,7 @@
-import { View, Text, Pressable, SafeAreaView, Modal } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState, useCallback } from 'react';
+import { Modal, Pressable, SafeAreaView, Text, View } from 'react-native';
 import {
   getFlashCardsForReview,
   recordFlashCardReview,
