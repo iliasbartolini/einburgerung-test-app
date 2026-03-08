@@ -328,6 +328,7 @@ export default function QuestionScreen() {
             onToggleBookmark={!isExam ? handleToggleBookmark : undefined}
             selectedOption={answers[currentQuestion.id] ?? null}
             questionStats={isPractice ? statsMap[currentQuestion.id] : undefined}
+            enableTranslate={!isExam}
           />
         )}
       </ScrollView>

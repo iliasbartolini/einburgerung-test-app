@@ -57,6 +57,36 @@ export async function translateText(
   }
 }
 
+const BATCH_DELIMITER = '|||';
+
+export async function translateBatch(
+  texts: string[],
+  targetLanguage: string
+): Promise<{ translations: string[]; fromCache: boolean }> {
+  if (targetLanguage === 'de') {
+    return { translations: texts, fromCache: false };
+  }
+
+  const joinedText = texts.join(BATCH_DELIMITER);
+
+  const cached = await getCachedTranslation(joinedText, targetLanguage);
+  if (cached) {
+    const parts = cached.translated_text.split(BATCH_DELIMITER);
+    if (parts.length === texts.length) {
+      return { translations: parts, fromCache: true };
+    }
+  }
+
+  const result = await translateText(joinedText, targetLanguage);
+  const parts = result.translatedText.split(BATCH_DELIMITER);
+
+  if (parts.length !== texts.length) {
+    return { translations: texts, fromCache: false };
+  }
+
+  return { translations: parts.map((p) => p.trim()), fromCache: false };
+}
+
 export async function translateWord(
   word: string,
   targetLanguage: string

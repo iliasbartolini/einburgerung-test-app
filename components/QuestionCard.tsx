@@ -1,9 +1,11 @@
 import { View, Text, Pressable, Image } from 'react-native';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Question, QuestionStats } from '../src/types';
 import TranslatableText from './TranslatableText';
 import { getQuestionImage } from '../src/utils/questionImages';
 import { getStatusIcon, getStatusColor } from '../src/utils/difficultyTier';
+import { translateBatch } from '../src/services/translationService';
 
 interface QuestionCardProps {
   question: Question;
@@ -16,6 +18,7 @@ interface QuestionCardProps {
   disabled?: boolean;
   selectedOption?: string | null;
   questionStats?: QuestionStats | null;
+  enableTranslate?: boolean;
 }
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'] as const;
@@ -53,14 +56,24 @@ export default function QuestionCard({
   disabled = false,
   selectedOption: externalSelectedOption,
   questionStats,
+  enableTranslate = true,
 }: QuestionCardProps) {
+  const { i18n } = useTranslation();
   const [internalSelected, setInternalSelected] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
+  const [translations, setTranslations] = useState<string[] | null>(null);
+  const [translating, setTranslating] = useState(false);
+
+  const targetLanguage = i18n.language;
+  const isGerman = targetLanguage === 'de';
 
   // Reset internal state when the question changes
   useEffect(() => {
     setInternalSelected(null);
     setAnswered(false);
+    setShowTranslation(false);
+    setTranslations(null);
   }, [question.id]);
 
   const selectedOption = externalSelectedOption !== undefined ? externalSelectedOption : internalSelected;
@@ -79,6 +92,34 @@ export default function QuestionCard({
     setAnswered(true);
     const isCorrect = optionKey === question.correct_option;
     onAnswer(optionKey, isCorrect);
+  };
+
+  const handleToggleTranslation = async () => {
+    if (isGerman || !enableTranslate) return;
+
+    if (showTranslation) {
+      setShowTranslation(false);
+      return;
+    }
+
+    if (translations) {
+      setShowTranslation(true);
+      return;
+    }
+
+    setTranslating(true);
+    try {
+      const result = await translateBatch(
+        [question.question_text, question.option_a, question.option_b, question.option_c, question.option_d],
+        targetLanguage
+      );
+      setTranslations(result.translations);
+      setShowTranslation(true);
+    } catch (error) {
+      console.error('Translation failed:', error);
+    } finally {
+      setTranslating(false);
+    }
   };
 
   const getOptionStyle = (optionKey: string) => {
@@ -127,6 +168,19 @@ export default function QuestionCard({
               {getStatusIcon(questionStats)}
             </Text>
           )}
+          {enableTranslate && (
+            <Pressable
+              onPress={handleToggleTranslation}
+              className="p-2"
+              disabled={isGerman || translating}
+              accessibilityRole="button"
+              accessibilityLabel={showTranslation ? 'Show original' : 'Translate question'}
+            >
+              <Text className={`text-xl ${isGerman ? 'text-gray-300' : showTranslation ? 'text-secondary' : 'text-gray-500'}`}>
+                {translating ? '\u2026' : '\uD83C\uDF10'}
+              </Text>
+            </Pressable>
+          )}
           {onToggleBookmark && (
             <Pressable
               onPress={onToggleBookmark}
@@ -142,10 +196,16 @@ export default function QuestionCard({
 
       {/* Question Text */}
       <View className="mb-6">
-        <TranslatableText
-          text={question.question_text}
-          className="text-lg font-medium text-gray-900 leading-7"
-        />
+        {showTranslation && translations ? (
+          <Text className="text-lg font-medium text-gray-900 leading-7">
+            {translations[0]}
+          </Text>
+        ) : (
+          <TranslatableText
+            text={question.question_text}
+            className="text-lg font-medium text-gray-900 leading-7"
+          />
+        )}
       </View>
 
       {/* Question Image */}
@@ -181,7 +241,7 @@ export default function QuestionCard({
                 </Text>
               </View>
               <Text className={`flex-1 text-base ${getOptionTextColor(optionKey)}`}>
-                {option}
+                {showTranslation && translations ? translations[index + 1] : option}
               </Text>
             </Pressable>
           );
