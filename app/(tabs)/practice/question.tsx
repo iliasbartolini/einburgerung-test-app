@@ -22,6 +22,7 @@ import {
   toggleBookmark,
 } from '../../../src/db/repositories/bookmarksRepository';
 import QuestionCard from '../../../components/QuestionCard';
+import ScrollableQuestionNavigator from '../../../components/ScrollableQuestionNavigator';
 import type { Question, QuestionStats } from '../../../src/types';
 import { calculateDifficultyTier, getNavigatorColor as getNavigatorColorUtil } from '../../../src/utils/difficultyTier';
 
@@ -255,46 +256,40 @@ export default function QuestionScreen() {
             </Text>
           </View>
           {/* Exam question navigator */}
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            className="mt-2"
-          >
-            <View className="flex-row gap-1">
-              {questions.map((q, i) => (
-                <Pressable
-                  key={q.id}
-                  onPress={() => setCurrentIndex(i)}
-                  className={`w-8 h-8 rounded items-center justify-center ${
-                    i === currentIndex
-                      ? 'bg-primary'
-                      : answers[q.id]
-                        ? 'bg-secondary/30'
-                        : 'bg-gray-100'
-                  }`}
-                >
-                  <Text
-                    className={`text-xs font-medium ${
-                      i === currentIndex ? 'text-white' : 'text-gray-600'
+          <View className="mt-2">
+            <ScrollableQuestionNavigator>
+              <View className="flex-row gap-1">
+                {questions.map((q, i) => (
+                  <Pressable
+                    key={q.id}
+                    onPress={() => setCurrentIndex(i)}
+                    className={`w-8 h-8 rounded items-center justify-center ${
+                      i === currentIndex
+                        ? 'bg-primary'
+                        : answers[q.id]
+                          ? 'bg-secondary/30'
+                          : 'bg-gray-100'
                     }`}
                   >
-                    {i + 1}
-                  </Text>
-                </Pressable>
-              ))}
-            </View>
-          </ScrollView>
+                    <Text
+                      className={`text-xs font-medium ${
+                        i === currentIndex ? 'text-white' : 'text-gray-600'
+                      }`}
+                    >
+                      {i + 1}
+                    </Text>
+                  </Pressable>
+                ))}
+              </View>
+            </ScrollableQuestionNavigator>
+          </View>
         </View>
       )}
 
       {/* Practice question navigator */}
       {isPractice && (
         <View className="px-4 py-2 bg-primary/5">
-          <ScrollView
-            ref={navigatorRef}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          >
+          <ScrollableQuestionNavigator ref={navigatorRef}>
             <View className="flex-row gap-1">
               {questions.map((q, i) => (
                 <Pressable
@@ -312,7 +307,7 @@ export default function QuestionScreen() {
                 </Pressable>
               ))}
             </View>
-          </ScrollView>
+          </ScrollableQuestionNavigator>
         </View>
       )}
 
