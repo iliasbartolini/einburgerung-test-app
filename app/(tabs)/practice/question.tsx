@@ -61,6 +61,9 @@ export default function QuestionScreen() {
   const loadQuestions = useCallback(async () => {
     if (!bundeslandId) return;
     setLoading(true);
+    setCurrentIndex(0);
+    setAnswers({});
+    setStatsMap({});
     try {
       let loaded: Question[];
       if (mode === 'exam') {
