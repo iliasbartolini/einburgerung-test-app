@@ -15,6 +15,16 @@ A free, open-source mobile app to help immigrants prepare for Germany's citizens
 - RTL support (Arabic)
 - Offline-first — no internet required after install
 
+## Screenshots
+
+<p>
+  <img src="docs/home-screen.png" width="18%" />
+  <img src="docs/practice-screen.png" width="18%" />
+  <img src="docs/practice-translate-screen.png" width="18%" />
+  <img src="docs/question-catalog-screen.png" width="18%" />
+  <img src="docs/exam-result.png" width="18%" />
+</p>
+
 ## Getting Started
 
 ### Prerequisites
