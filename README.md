@@ -1,6 +1,6 @@
-# Einbürgerungstest
+# Learning Einbürgerungstest
 
-A free, open-source mobile app to help immigrants prepare for Germany's citizenship test (Einbürgerungstest). Built with React Native and Expo, it works offline-first and supports 6 UI languages.
+A free, open-source mobile app to help immigrants learn and prepare for Germany's citizenship test (Einbürgerungstest). Built with React Native and Expo, it works offline-first and supports 8 languages.
 
 ## Features
 

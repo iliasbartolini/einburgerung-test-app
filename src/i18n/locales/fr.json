@@ -90,7 +90,8 @@
     "clear_cache": "Vider le cache",
     "translations_cached": "{{count}} traductions en cache",
     "cache_cleared": "Cache vidé",
-    "license": "Licence"
+    "license": "Licence",
+    "source_code": "Code source"
   },
   "translation": {
     "translate": "Traduire",

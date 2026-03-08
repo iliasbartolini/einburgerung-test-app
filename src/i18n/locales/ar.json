@@ -90,7 +90,8 @@
     "clear_cache": "مسح الذاكرة المؤقتة",
     "translations_cached": "{{count}} ترجمة مخزنة مؤقتاً",
     "cache_cleared": "تم مسح الذاكرة المؤقتة",
-    "license": "الرخصة"
+    "license": "الرخصة",
+    "source_code": "الكود المصدري"
   },
   "translation": {
     "translate": "ترجمة",

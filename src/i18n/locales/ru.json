@@ -90,7 +90,8 @@
     "clear_cache": "Очистить кэш",
     "translations_cached": "{{count}} переводов в кэше",
     "cache_cleared": "Кэш очищен",
-    "license": "Лицензия"
+    "license": "Лицензия",
+    "source_code": "Исходный код"
   },
   "translation": {
     "translate": "Перевести",

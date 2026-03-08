@@ -90,7 +90,8 @@
     "clear_cache": "Cache leeren",
     "translations_cached": "{{count}} Übersetzungen gespeichert",
     "cache_cleared": "Cache geleert",
-    "license": "Lizenz"
+    "license": "Lizenz",
+    "source_code": "Quellcode"
   },
   "translation": {
     "translate": "Übersetzen",

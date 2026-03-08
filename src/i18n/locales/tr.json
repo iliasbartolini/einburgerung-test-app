@@ -90,7 +90,8 @@
     "clear_cache": "Önbelleği Temizle",
     "translations_cached": "{{count}} çeviri önbellekte",
     "cache_cleared": "Önbellek temizlendi",
-    "license": "Lisans"
+    "license": "Lisans",
+    "source_code": "Kaynak kodu"
   },
   "translation": {
     "translate": "Çevir",

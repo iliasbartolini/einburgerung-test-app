@@ -1,4 +1,4 @@
-import { View, Text, Pressable, ScrollView, Modal } from 'react-native';
+import { View, Text, Pressable, ScrollView, Modal, Linking, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
@@ -187,6 +187,20 @@ export default function ProfileScreen() {
               <Text className="text-sm text-gray-500">{t('settings.license')}</Text>
               <Text className="text-sm text-gray-700">MIT</Text>
             </View>
+            <Pressable
+              className="flex-row justify-between"
+              onPress={() => {
+                const url = 'https://github.com/iliasbartolini/einburgerung-test-app';
+                if (Platform.OS === 'web') {
+                  window.open(url, '_blank');
+                } else {
+                  Linking.openURL(url);
+                }
+              }}
+            >
+              <Text className="text-sm text-gray-500">{t('settings.source_code')}</Text>
+              <Text className="text-sm text-secondary">GitHub ↗</Text>
+            </Pressable>
           </View>
         </View>
       </ScrollView>
