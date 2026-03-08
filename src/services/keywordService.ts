@@ -88,6 +88,8 @@ const WIKIPEDIA_LANG_MAP: Record<string, string> = {
   ar: 'ar',
   ru: 'ru',
   fr: 'fr',
+  it: 'it',
+  es: 'es',
 };
 
 export function getWikipediaUrl(slug: string, lang: string): string {
