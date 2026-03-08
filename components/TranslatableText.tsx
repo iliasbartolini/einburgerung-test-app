@@ -183,8 +183,12 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
     }
   }, [popover]);
 
-  const handleOpenLink = useCallback((url: string) => {
-    Linking.openURL(url);
+  const handleOpenLink = useCallback(async (url: string) => {
+    try {
+      await Linking.openURL(url);
+    } catch (error) {
+      console.error('Failed to open URL:', error);
+    }
   }, []);
 
   // Build flat list of rendered elements across all segments

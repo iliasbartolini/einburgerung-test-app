@@ -159,20 +159,33 @@ export default function FlashCardsScreen() {
                 const kwInfo = getKeywordInfo(currentCard.german_word);
                 if (!kwInfo) return null;
                 const wikiSlug = kwInfo.wikipedia;
+                const openLink = async (url: string) => {
+                  try { await Linking.openURL(url); } catch (e) { console.error('Failed to open URL:', e); }
+                };
                 return (
-                  <View className="flex-row items-center justify-center gap-3 mb-4">
+                  <View className="flex-row items-center justify-center gap-3 mb-4 flex-wrap">
                     {wikiSlug && (
                       <Pressable
-                        onPress={() => Linking.openURL(getWikipediaUrl(wikiSlug, targetLanguage === 'de' ? 'de' : targetLanguage))}
+                        onPress={() => openLink(getWikipediaUrl(wikiSlug, 'de'))}
                         className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
                       >
                         <Ionicons name="book-outline" size={14} color="#457B9D" />
-                        <Text className="text-secondary text-sm">Wikipedia</Text>
+                        <Text className="text-secondary text-sm">Wikipedia (DE)</Text>
+                        <Ionicons name="open-outline" size={10} color="#9ca3af" />
+                      </Pressable>
+                    )}
+                    {wikiSlug && targetLanguage !== 'de' && (
+                      <Pressable
+                        onPress={() => openLink(getWikipediaUrl(wikiSlug, targetLanguage))}
+                        className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
+                      >
+                        <Ionicons name="book-outline" size={14} color="#457B9D" />
+                        <Text className="text-secondary text-sm">Wikipedia ({targetLanguage.toUpperCase()})</Text>
                         <Ionicons name="open-outline" size={10} color="#9ca3af" />
                       </Pressable>
                     )}
                     <Pressable
-                      onPress={() => Linking.openURL(getEcosiaSearchUrl(kwInfo.term))}
+                      onPress={() => openLink(getEcosiaSearchUrl(kwInfo.term))}
                       className="flex-row items-center gap-1 px-3 py-1.5 bg-secondary/10 rounded-full"
                     >
                       <Ionicons name="search-outline" size={14} color="#457B9D" />
