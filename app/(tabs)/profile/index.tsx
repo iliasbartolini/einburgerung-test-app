@@ -1,4 +1,5 @@
-import { View, Text, Pressable, ScrollView, SafeAreaView, Modal } from 'react-native';
+import { View, Text, Pressable, ScrollView, Modal } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { useAppStore } from '../../../src/stores/useAppStore';

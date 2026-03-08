@@ -1,4 +1,5 @@
-import { View, Text, Pressable, SafeAreaView, ScrollView, Modal } from 'react-native';
+import { View, Text, Pressable, ScrollView, Modal } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useCallback, useRef } from 'react';
