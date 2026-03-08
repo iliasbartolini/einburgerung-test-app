@@ -93,6 +93,8 @@
   },
   "translation": {
     "translate": "ترجمة",
+    "translate_question": "ترجمة السؤال",
+    "show_original": "عرض الأصل",
     "translation_unavailable": "الترجمة غير متاحة بدون اتصال",
     "retry": "إعادة المحاولة"
   },

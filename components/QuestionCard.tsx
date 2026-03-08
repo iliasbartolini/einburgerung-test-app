@@ -58,7 +58,7 @@ export default function QuestionCard({
   questionStats,
   enableTranslate = true,
 }: QuestionCardProps) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [internalSelected, setInternalSelected] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
   const [showTranslation, setShowTranslation] = useState(false);
@@ -174,7 +174,7 @@ export default function QuestionCard({
               className="p-2"
               disabled={isGerman || translating}
               accessibilityRole="button"
-              accessibilityLabel={showTranslation ? 'Show original' : 'Translate question'}
+              accessibilityLabel={showTranslation ? t('translation.show_original') : t('translation.translate_question')}
             >
               <Text className={`text-xl ${isGerman ? 'text-gray-300' : showTranslation ? 'text-secondary' : 'text-gray-500'}`}>
                 {translating ? '\u2026' : '\uD83C\uDF10'}

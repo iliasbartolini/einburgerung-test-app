@@ -93,6 +93,8 @@
   },
   "translation": {
     "translate": "Перевести",
+    "translate_question": "Перевести вопрос",
+    "show_original": "Показать оригинал",
     "translation_unavailable": "Перевод недоступен офлайн",
     "retry": "Повторить"
   },
