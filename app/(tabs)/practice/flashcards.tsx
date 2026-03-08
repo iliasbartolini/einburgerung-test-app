@@ -86,10 +86,11 @@ export default function FlashCardsScreen() {
     router.back();
   };
 
-  const handleRestart = () => {
+  const handleRestart = async () => {
+    setShowCompletion(false);
     setCurrentIndex(0);
     setRevealed(false);
-    setShowCompletion(false);
+    await loadCards();
   };
 
   if (loading) {
