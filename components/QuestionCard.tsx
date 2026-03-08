@@ -168,19 +168,6 @@ export default function QuestionCard({
               {getStatusIcon(questionStats)}
             </Text>
           )}
-          {enableTranslate && (
-            <Pressable
-              onPress={handleToggleTranslation}
-              className="p-2"
-              disabled={isGerman || translating}
-              accessibilityRole="button"
-              accessibilityLabel={showTranslation ? t('translation.show_original') : t('translation.translate_question')}
-            >
-              <Text className={`text-xl ${isGerman ? 'text-gray-300' : showTranslation ? 'text-secondary' : 'text-gray-500'}`}>
-                {translating ? '\u2026' : '\uD83C\uDF10'}
-              </Text>
-            </Pressable>
-          )}
           {onToggleBookmark && (
             <Pressable
               onPress={onToggleBookmark}
@@ -195,16 +182,31 @@ export default function QuestionCard({
       </View>
 
       {/* Question Text */}
-      <View className="mb-6">
-        {showTranslation && translations ? (
-          <Text className="text-lg font-medium text-gray-900 leading-7">
-            {translations[0]}
-          </Text>
-        ) : (
-          <TranslatableText
-            text={question.question_text}
-            className="text-lg font-medium text-gray-900 leading-7"
-          />
+      <View className="flex-row mb-6">
+        <View className="flex-1">
+          {showTranslation && translations ? (
+            <Text className="text-lg font-medium text-gray-900 leading-7">
+              {translations[0]}
+            </Text>
+          ) : (
+            <TranslatableText
+              text={question.question_text}
+              className="text-lg font-medium text-gray-900 leading-7"
+            />
+          )}
+        </View>
+        {enableTranslate && (
+          <Pressable
+            onPress={handleToggleTranslation}
+            className="p-2 ml-1"
+            disabled={isGerman || translating}
+            accessibilityRole="button"
+            accessibilityLabel={showTranslation ? t('translation.show_original') : t('translation.translate_question')}
+          >
+            <Text className={`text-xl ${isGerman ? 'text-gray-300' : showTranslation ? 'text-secondary' : 'text-gray-500'}`}>
+              {translating ? '\u2026' : '\uD83C\uDF10'}
+            </Text>
+          </Pressable>
         )}
       </View>
 
