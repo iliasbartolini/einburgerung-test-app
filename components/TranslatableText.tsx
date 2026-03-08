@@ -8,6 +8,7 @@ import {
   saveFlashCard,
 } from '../src/db/repositories/flashCardsRepository';
 import { translateWord } from '../src/services/translationService';
+import TranslateIcon from './TranslateIcon';
 
 interface TranslatableTextProps {
   text: string;
@@ -140,9 +141,12 @@ export default function TranslatableText({ text, className }: TranslatableTextPr
           >
             {popover && (
               <>
-                <Text className="text-lg font-bold text-primary mb-1">
-                  {popover.word}
-                </Text>
+                <View className="flex-row items-center gap-2 mb-1">
+                  <TranslateIcon size={18} color="#1D3557" />
+                  <Text className="text-lg font-bold text-primary">
+                    {popover.word}
+                  </Text>
+                </View>
                 {popover.loading ? (
                   <Text className="text-gray-500">{t('common.loading')}</Text>
                 ) : popover.error ? (

@@ -6,6 +6,7 @@ import TranslatableText from './TranslatableText';
 import { getQuestionImage } from '../src/utils/questionImages';
 import { getStatusIcon, getStatusColor } from '../src/utils/difficultyTier';
 import { translateBatch } from '../src/services/translationService';
+import TranslateIcon from './TranslateIcon';
 
 interface QuestionCardProps {
   question: Question;
@@ -203,9 +204,14 @@ export default function QuestionCard({
             accessibilityRole="button"
             accessibilityLabel={showTranslation ? t('translation.show_original') : t('translation.translate_question')}
           >
-            <Text className={`text-xl ${isGerman ? 'text-gray-300' : showTranslation ? 'text-secondary' : 'text-gray-500'}`}>
-              {translating ? '\u2026' : '\uD83C\uDF10'}
-            </Text>
+            {translating ? (
+              <Text className={`text-xl ${isGerman ? 'text-gray-300' : 'text-gray-400'}`}>{'\u2026'}</Text>
+            ) : (
+              <TranslateIcon
+                size={22}
+                color={isGerman ? '#d1d5db' : showTranslation ? '#457B9D' : '#6b7280'}
+              />
+            )}
           </Pressable>
         )}
       </View>
