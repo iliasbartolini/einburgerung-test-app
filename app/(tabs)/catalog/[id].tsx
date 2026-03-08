@@ -1,5 +1,4 @@
 import { View, Text, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { getQuestionById, getQuestionStats } from '../../../src/db/repositories/questionsRepository';
@@ -37,14 +36,14 @@ export default function QuestionDetailScreen() {
 
   if (!question) {
     return (
-      <SafeAreaView className="flex-1 bg-white items-center justify-center">
+      <View className="flex-1 bg-white items-center justify-center">
         <Text className="text-gray-500">Loading...</Text>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       <ScrollView className="flex-1" contentContainerStyle={{ paddingVertical: 16 }}>
         <QuestionCard
           question={question}
@@ -77,6 +76,6 @@ export default function QuestionDetailScreen() {
           </View>
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

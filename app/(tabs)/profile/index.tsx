@@ -1,6 +1,5 @@
 import { View, Text, Pressable, ScrollView, Modal, Linking, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 import { useAppStore } from '../../../src/stores/useAppStore';
@@ -57,7 +56,7 @@ export default function ProfileScreen() {
   const currentDraftLand = BUNDESLAENDER.find((l) => l.id === draftBundeslandId);
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       <ScrollView className="flex-1" contentContainerStyle={{ padding: 16 }}>
         {/* Language */}
         <Text className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
@@ -237,6 +236,6 @@ export default function ProfileScreen() {
           </Pressable>
         </Pressable>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 }

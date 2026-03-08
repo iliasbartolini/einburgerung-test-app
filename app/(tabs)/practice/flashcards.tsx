@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   getFlashCardsForReview,
   recordFlashCardReview,
@@ -97,15 +96,15 @@ export default function FlashCardsScreen() {
 
   if (loading) {
     return (
-      <SafeAreaView className="flex-1 bg-white items-center justify-center">
+      <View className="flex-1 bg-white items-center justify-center">
         <Text className="text-gray-500">{t('common.loading')}</Text>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (cards.length === 0) {
     return (
-      <SafeAreaView className="flex-1 bg-white items-center justify-center px-6">
+      <View className="flex-1 bg-white items-center justify-center px-6">
         <Ionicons name="book-outline" size={64} color="#1D3557" style={{ marginBottom: 24 }} />
         <Text className="text-2xl font-bold text-primary mb-3 text-center">
           {t('flashcards.empty_title')}
@@ -119,12 +118,12 @@ export default function FlashCardsScreen() {
         >
           <Text className="text-white font-semibold text-lg">{t('common.ok')}</Text>
         </Pressable>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       {/* Header */}
       <View className="px-6 pt-4 pb-2">
         <Text className="text-lg text-gray-600">
@@ -283,6 +282,6 @@ export default function FlashCardsScreen() {
           </Pressable>
         </Pressable>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 }

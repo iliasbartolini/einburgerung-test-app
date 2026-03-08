@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { getBookmarkedIds } from '../../../src/db/repositories/bookmarksRepository';
 import {
   getAllQuestionStats,
@@ -137,7 +136,7 @@ export default function CatalogScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       {/* Search */}
       <View className="px-4 pt-2 pb-2">
         <TextInput
@@ -226,6 +225,6 @@ export default function CatalogScreen() {
           keyExtractor={(item) => String(item.id)}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

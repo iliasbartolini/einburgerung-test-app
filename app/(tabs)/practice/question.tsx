@@ -1,5 +1,4 @@
 import { View, Text, Pressable, ScrollView, Modal } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, useCallback, useRef } from 'react';
@@ -226,15 +225,15 @@ export default function QuestionScreen() {
 
   if (loading) {
     return (
-      <SafeAreaView className="flex-1 bg-white items-center justify-center">
+      <View className="flex-1 bg-white items-center justify-center">
         <Text className="text-gray-500">{t('common.loading')}</Text>
-      </SafeAreaView>
+      </View>
     );
   }
 
   if (questions.length === 0) {
     return (
-      <SafeAreaView className="flex-1 bg-white items-center justify-center px-6">
+      <View className="flex-1 bg-white items-center justify-center px-6">
         <Text className="text-lg text-gray-500 text-center">
           {mode === 'review'
             ? t('practice.no_mistakes')
@@ -246,12 +245,12 @@ export default function QuestionScreen() {
         >
           <Text className="text-white font-semibold">{t('common.ok')}</Text>
         </Pressable>
-      </SafeAreaView>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       {/* Exam timer */}
       {isExam && (
         <View className="px-4 py-2 bg-primary/5">
@@ -435,6 +434,6 @@ export default function QuestionScreen() {
           </Pressable>
         </Pressable>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 }

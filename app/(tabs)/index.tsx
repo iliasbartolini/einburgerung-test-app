@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   getAttemptedQuestionCount,
   getCorrectAttempts,
@@ -62,7 +61,7 @@ export default function HomeScreen() {
   const readinessColor = readiness >= 80 ? '#22C55E' : readiness >= 70 ? '#EAB308' : '#EF4444';
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       <ScrollView className="flex-1" contentContainerStyle={{ padding: 16 }}>
         {/* Readiness Score */}
         <View className="items-center mb-8 mt-4">
@@ -200,6 +199,6 @@ export default function HomeScreen() {
           </View>
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

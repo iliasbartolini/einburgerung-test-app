@@ -1,5 +1,4 @@
 import { View, Text, Pressable } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
@@ -26,7 +25,7 @@ export default function ResultsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View className="flex-1 bg-white">
       <View className="flex-1 items-center justify-center px-6">
         {/* Result badge */}
         <View
@@ -76,6 +75,6 @@ export default function ResultsScreen() {
           </Pressable>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
