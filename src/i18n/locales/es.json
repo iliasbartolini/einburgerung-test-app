@@ -119,7 +119,7 @@
     "empty_message": "¡Toca palabras en alemán mientras estudias para guardarlas para revisión!",
     "completed_title": "¡Revisión Completa!",
     "completed_message": "Revisaste {{count}} tarjetas.",
-    "continue": "Continuar Estudiando",
+    "continue": "Cerrar",
     "review_again": "Revisar de Nuevo",
     "remove_confirm_title": "Quitar Tarjeta",
     "remove_confirm": "¿Estás seguro de que quieres quitar esta palabra de tus tarjetas?"

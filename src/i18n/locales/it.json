@@ -119,7 +119,7 @@
     "empty_message": "Tocca le parole tedesche durante lo studio per salvarle per la revisione!",
     "completed_title": "Revisione Completata!",
     "completed_message": "Hai rivisto {{count}} flash card.",
-    "continue": "Continua Studio",
+    "continue": "Chiudi",
     "review_again": "Rivedi Ancora",
     "remove_confirm_title": "Rimuovi Flash Card",
     "remove_confirm": "Sei sicuro di voler rimuovere questa parola dalle tue flash card?"

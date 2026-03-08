@@ -119,7 +119,7 @@
     "empty_message": "Appuyez sur les mots allemands pendant l'étude pour les sauvegarder!",
     "completed_title": "Révision terminée!",
     "completed_message": "Vous avez révisé {{count}} cartes.",
-    "continue": "Continuer",
+    "continue": "Fermer",
     "review_again": "Réviser à nouveau",
     "remove_confirm_title": "Retirer la carte",
     "remove_confirm": "Êtes-vous sûr de vouloir retirer ce mot de vos cartes?"

@@ -119,7 +119,7 @@
     "empty_message": "Çalışırken Almanca kelimelere tıklayarak inceleme için kaydedin!",
     "completed_title": "İnceleme Tamamlandı!",
     "completed_message": "{{count}} kartı incelendi.",
-    "continue": "Çalışmaya Devam Et",
+    "continue": "Kapat",
     "review_again": "Tekrar İncele",
     "remove_confirm_title": "Kartı Kaldır",
     "remove_confirm": "Bu kelimeyi kartlarınızdan kaldırmak istediğinizden emin misiniz?"

@@ -119,7 +119,7 @@
     "empty_message": "Tippen Sie beim Lernen auf deutsche Wörter, um sie für die Wiederholung zu speichern!",
     "completed_title": "Wiederholung abgeschlossen!",
     "completed_message": "Sie haben {{count}} Lernkarten wiederholt.",
-    "continue": "Weiter lernen",
+    "continue": "Schließen",
     "review_again": "Erneut wiederholen",
     "remove_confirm_title": "Lernkarte entfernen",
     "remove_confirm": "Sind Sie sicher, dass Sie dieses Wort aus Ihren Lernkarten entfernen möchten?"

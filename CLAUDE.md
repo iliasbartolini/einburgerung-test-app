@@ -55,6 +55,7 @@ The root layout (`app/_layout.tsx`) orchestrates initialization: DB schema creat
 ## Key Conventions
 
 - **Styling**: NativeWind v4 (Tailwind classes via `className`). Custom palette defined in `tailwind.config.js`: `primary` (#1D3557), `secondary` (#457B9D), `accent` (#E63946), `light` (#F1FAEE).
+- **No emojis**: emoji/Unicode symbols as text characters fail to render on iOS. Always use @expo/vector-icons (Ionicons) instead of emojis.
 - **DB access**: Always through repository functions, never import `getDatabase()` directly in components.
 - **All UI strings** go through `t()` from `useTranslation()`. No hardcoded user-facing text.
 - **Question IDs** are BAMF numbers 1-460. Topics by range: 1-100 politik, 101-200 geschichte, 201-300 gesellschaft, 301-460 bundesland.

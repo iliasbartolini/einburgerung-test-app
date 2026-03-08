@@ -119,7 +119,7 @@
     "empty_message": "انقر على الكلمات الألمانية أثناء الدراسة لحفظها للمراجعة!",
     "completed_title": "اكتملت المراجعة!",
     "completed_message": "لقد راجعت {{count}} بطاقة.",
-    "continue": "متابعة الدراسة",
+    "continue": "إغلاق",
     "review_again": "راجع مرة أخرى",
     "remove_confirm_title": "إزالة البطاقة",
     "remove_confirm": "هل أنت متأكد من إزالة هذه الكلمة من بطاقاتك؟"

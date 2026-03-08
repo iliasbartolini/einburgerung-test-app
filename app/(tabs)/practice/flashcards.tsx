@@ -84,6 +84,7 @@ export default function FlashCardsScreen() {
   };
 
   const handleContinue = () => {
+    setShowCompletion(false);
     router.back();
   };
 
@@ -125,21 +126,21 @@ export default function FlashCardsScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white">
       {/* Header */}
-      <View className="px-6 pt-4 pb-2 flex-row items-center justify-between">
+      <View className="px-6 pt-4 pb-2">
         <Text className="text-lg text-gray-600">
           {t('practice.question')} {currentIndex + 1} {t('practice.of')} {cards.length}
         </Text>
-        <Pressable
-          onPress={() => setShowRemoveConfirm(true)}
-          className="p-2"
-        >
-          <Ionicons name="trash-outline" size={24} color="#6b7280" />
-        </Pressable>
       </View>
 
       {/* Flash Card */}
       <View className="flex-1 items-center justify-center px-6">
         <View className="bg-white rounded-3xl shadow-lg p-8 w-full min-h-80 items-center justify-center border border-gray-100">
+          <Pressable
+            onPress={() => setShowRemoveConfirm(true)}
+            className="absolute top-4 right-4 p-2"
+          >
+            <Ionicons name="trash-outline" size={20} color="#9ca3af" />
+          </Pressable>
           <Text className="text-4xl font-bold text-primary text-center mb-6">
             {currentCard.german_word}
           </Text>
@@ -254,7 +255,7 @@ export default function FlashCardsScreen() {
             className="bg-white rounded-2xl p-6 mx-8 w-80 shadow-lg"
             onPress={(e) => e.stopPropagation()}
           >
-            <Ionicons name="trophy-outline" size={64} color="#1D3557" style={{ marginBottom: 16 }} />
+            <Ionicons name="trophy-outline" size={64} color="#1D3557" style={{ marginBottom: 16, alignSelf: 'center' }} />
             <Text className="text-2xl font-bold text-primary text-center mb-2">
               {t('flashcards.completed_title')}
             </Text>

@@ -119,7 +119,7 @@
     "empty_message": "Tap on German words while studying to save them for review!",
     "completed_title": "Review Complete!",
     "completed_message": "You reviewed {{count}} flash cards.",
-    "continue": "Continue Studying",
+    "continue": "Close",
     "review_again": "Review Again",
     "remove_confirm_title": "Remove Flash Card",
     "remove_confirm": "Are you sure you want to remove this word from your flash cards?"
