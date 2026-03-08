@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getBookmarkedIds } from '../../../src/db/repositories/bookmarksRepository';
 import {
@@ -17,7 +18,7 @@ import {
 } from '../../../src/db/repositories/questionsRepository';
 import { useAppStore } from '../../../src/stores/useAppStore';
 import type { Question, QuestionStats } from '../../../src/types';
-import { getStatusIcon, getStatusColor } from '../../../src/utils/difficultyTier';
+import { getStatusIconName, getStatusColor } from '../../../src/utils/difficultyTier';
 
 type Filter = 'all' | 'politik' | 'geschichte' | 'gesellschaft' | 'bundesland' | 'bookmarked' | 'incorrect' | 'unanswered' | 'struggling' | 'comfortable';
 
@@ -126,11 +127,11 @@ export default function CatalogScreen() {
         <Text className="text-xs text-secondary mt-1 capitalize">{item.topic}</Text>
       </View>
       <Text className={`text-lg font-bold mr-2 ${getStatusColor(stat)}`}>
-        {getStatusIcon(stat)}
+        {getStatusIconName(stat) && <Ionicons name={getStatusIconName(stat) as any} size={18} />}
       </Text>
-      <Text className="text-lg">
-        {bookmarkedIds.has(item.id) ? '\u2605' : ''}
-      </Text>
+      {bookmarkedIds.has(item.id) && (
+        <Ionicons name="star" size={18} color="#EAB308" />
+      )}
     </Pressable>
   );
   };

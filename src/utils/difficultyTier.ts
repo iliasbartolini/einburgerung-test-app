@@ -16,13 +16,13 @@ export function calculateDifficultyTier(
 }
 
 /**
- * Get status icon for a question based on its stats.
+ * Get status icon name (Ionicons) for a question based on its stats.
  */
-export function getStatusIcon(stats: QuestionStats | null | undefined): string {
-  if (!stats || stats.total_attempts === 0) return '\u2014'; // —
-  if (stats.difficulty_tier === 'mastered') return '\u2713'; // ✓
-  if (stats.difficulty_tier === 'struggling') return '\u2717'; // ✗
-  return '\u23FA'; // ⏺
+export function getStatusIconName(stats: QuestionStats | null | undefined): string | null {
+  if (!stats || stats.total_attempts === 0) return null;
+  if (stats.difficulty_tier === 'mastered') return 'checkmark';
+  if (stats.difficulty_tier === 'struggling') return 'close';
+  return 'ellipse';
 }
 
 /**

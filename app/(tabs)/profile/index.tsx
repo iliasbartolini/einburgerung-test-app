@@ -1,4 +1,5 @@
 import { View, Text, Pressable, ScrollView, Modal, Linking, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
@@ -69,7 +70,7 @@ export default function ProfileScreen() {
           <Text className="text-base text-gray-800">
             {currentDraftLang?.nativeName} ({currentDraftLang?.name})
           </Text>
-          <Text className="text-gray-400">{showLanguagePicker ? '\u25B2' : '\u25BC'}</Text>
+          <Ionicons name={showLanguagePicker ? 'chevron-up' : 'chevron-down'} size={16} color="#9ca3af" />
         </Pressable>
         {showLanguagePicker && (
           <View className="bg-gray-50 rounded-xl mb-4 overflow-hidden">
@@ -105,7 +106,7 @@ export default function ProfileScreen() {
           className="flex-row items-center justify-between p-4 bg-gray-50 rounded-xl mb-2"
         >
           <Text className="text-base text-gray-800">{currentDraftLand?.name || '-'}</Text>
-          <Text className="text-gray-400">{showBundeslandPicker ? '\u25B2' : '\u25BC'}</Text>
+          <Ionicons name={showBundeslandPicker ? 'chevron-up' : 'chevron-down'} size={16} color="#9ca3af" />
         </Pressable>
         {showBundeslandPicker && (
           <View className="bg-gray-50 rounded-xl mb-4 overflow-hidden">
@@ -199,7 +200,7 @@ export default function ProfileScreen() {
               }}
             >
               <Text className="text-sm text-gray-500">{t('settings.source_code')}</Text>
-              <Text className="text-sm text-secondary">GitHub ↗</Text>
+              <Text className="text-sm text-secondary">GitHub <Ionicons name="open-outline" size={12} color="#457B9D" /></Text>
             </Pressable>
           </View>
         </View>

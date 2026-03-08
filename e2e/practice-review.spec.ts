@@ -16,7 +16,7 @@ test('practice mode, review mistakes, and flashcards', async ({ page }) => {
     // Answer by selecting first option
     await page.getByRole('radio').first().click();
     // Check feedback
-    const feedback = page.getByText(/[✓✗] (?:Correct!|Incorrect)/);
+    const feedback = page.getByText(/Correct!|Incorrect/);
     await expect(feedback).toBeVisible();
     const text = await feedback.textContent();
     if (text?.includes('Correct')) correctCount++;

@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, Pressable, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   getFlashCardsForReview,
@@ -104,7 +105,7 @@ export default function FlashCardsScreen() {
   if (cards.length === 0) {
     return (
       <SafeAreaView className="flex-1 bg-white items-center justify-center px-6">
-        <Text className="text-6xl mb-6">📚</Text>
+        <Ionicons name="book-outline" size={64} color="#1D3557" style={{ marginBottom: 24 }} />
         <Text className="text-2xl font-bold text-primary mb-3 text-center">
           {t('flashcards.empty_title')}
         </Text>
@@ -132,7 +133,7 @@ export default function FlashCardsScreen() {
           onPress={() => setShowRemoveConfirm(true)}
           className="p-2"
         >
-          <Text className="text-2xl">🗑️</Text>
+          <Ionicons name="trash-outline" size={24} color="#6b7280" />
         </Pressable>
       </View>
 
@@ -155,7 +156,7 @@ export default function FlashCardsScreen() {
                   className="flex-1 bg-accent py-4 rounded-xl active:bg-accent/80"
                 >
                   <Text className="text-white font-semibold text-lg text-center">
-                    ✗ {t('flashcards.i_didnt_know')}
+                    <Ionicons name="close" size={18} color="white" /> {t('flashcards.i_didnt_know')}
                   </Text>
                 </Pressable>
                 <Pressable
@@ -163,7 +164,7 @@ export default function FlashCardsScreen() {
                   className="flex-1 bg-green-500 py-4 rounded-xl active:bg-green-600"
                 >
                   <Text className="text-white font-semibold text-lg text-center">
-                    ✓ {t('flashcards.i_knew_it')}
+                    <Ionicons name="checkmark" size={18} color="white" /> {t('flashcards.i_knew_it')}
                   </Text>
                 </Pressable>
               </View>
@@ -253,7 +254,7 @@ export default function FlashCardsScreen() {
             className="bg-white rounded-2xl p-6 mx-8 w-80 shadow-lg"
             onPress={(e) => e.stopPropagation()}
           >
-            <Text className="text-6xl text-center mb-4">🎉</Text>
+            <Ionicons name="trophy-outline" size={64} color="#1D3557" style={{ marginBottom: 16 }} />
             <Text className="text-2xl font-bold text-primary text-center mb-2">
               {t('flashcards.completed_title')}
             </Text>

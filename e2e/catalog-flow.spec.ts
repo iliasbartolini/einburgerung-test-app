@@ -57,7 +57,7 @@ test('catalog: filter, search, and answer question', async ({ page }) => {
 
   // Answer the question
   await page.getByRole('radio').first().click();
-  await expect(page.getByText(/[✓✗] (?:Correct!|Incorrect)/)).toBeVisible();
+  await expect(page.getByText(/ Correct!| Incorrect/)).toBeVisible();
 
   // --- Bookmark the question ---
   await page.getByRole('button', { name: 'Add bookmark' }).click();

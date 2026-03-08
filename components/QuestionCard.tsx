@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, Pressable, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { translateBatch } from '../src/services/translationService';
 import type { Question, QuestionStats } from '../src/types';
-import { getStatusColor, getStatusIcon } from '../src/utils/difficultyTier';
+import { getStatusColor, getStatusIconName } from '../src/utils/difficultyTier';
 import { getQuestionImage } from '../src/utils/questionImages';
 import TranslatableText from './TranslatableText';
 import TranslateIcon from './TranslateIcon';
@@ -167,9 +168,9 @@ export default function QuestionCard({
               {question.topic}
             </Text>
           </View>
-          {questionStats && (
+          {questionStats && getStatusIconName(questionStats) && (
             <Text className={`text-lg font-bold ${getStatusColor(questionStats)}`}>
-              {getStatusIcon(questionStats)}
+              <Ionicons name={getStatusIconName(questionStats) as any} size={18} />
             </Text>
           )}
           {onToggleBookmark && (
@@ -179,7 +180,7 @@ export default function QuestionCard({
               accessibilityRole="button"
               accessibilityLabel={isBookmarked ? 'Remove bookmark' : 'Add bookmark'}
             >
-              <Text className="text-xl">{isBookmarked ? '\u2605' : '\u2606'}</Text>
+              <Ionicons name={isBookmarked ? 'star' : 'star-outline'} size={22} color={isBookmarked ? '#EAB308' : '#9ca3af'} />
             </Pressable>
           )}
         </View>
@@ -208,7 +209,7 @@ export default function QuestionCard({
             accessibilityLabel={showTranslation ? t('translation.show_original') : t('translation.translate_question')}
           >
             {translating ? (
-              <Text className={`text-xl ${isGerman ? 'text-gray-300' : 'text-gray-400'}`}>{'\u2026'}</Text>
+              <Ionicons name="ellipsis-horizontal" size={22} color={isGerman ? '#d1d5db' : '#9ca3af'} />
             ) : (
               <TranslateIcon
                 size={22}
@@ -268,17 +269,9 @@ export default function QuestionCard({
               : 'bg-red-50'
           }`}
         >
-          <Text
-            className={`text-base font-semibold ${
-              selectedOption === question.correct_option
-                ? 'text-green-700'
-                : 'text-red-700'
-            }`}
-          >
-            {selectedOption === question.correct_option
-              ? '\u2713 Correct!'
-              : '\u2717 Incorrect'}
-          </Text>
+          {selectedOption === question.correct_option
+            ? <Text className="text-base font-semibold text-green-700"><Ionicons name="checkmark" size={16} /> Correct!</Text>
+            : <Text className="text-base font-semibold text-red-700"><Ionicons name="close" size={16} /> Incorrect</Text>}
         </View>
       )}
     </View>

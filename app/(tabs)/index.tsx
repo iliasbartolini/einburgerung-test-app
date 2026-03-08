@@ -2,6 +2,7 @@ import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   getAttemptedQuestionCount,
@@ -105,7 +106,7 @@ export default function HomeScreen() {
               className="flex-1 p-4 rounded-xl bg-primary active:bg-primary/80"
               accessibilityRole="button"
             >
-              <Text className="text-2xl mb-1">{'\u270F\uFE0F'}</Text>
+              <Ionicons name="create-outline" size={28} color="white" style={{ marginBottom: 4 }} />
               <Text className="text-white font-semibold text-sm">
                 {t('practice.practice_mode')}
               </Text>
@@ -118,7 +119,7 @@ export default function HomeScreen() {
               className="flex-1 p-4 rounded-xl bg-secondary active:bg-secondary/80"
               accessibilityRole="button"
             >
-              <Text className="text-2xl mb-1">{'\u23F1\uFE0F'}</Text>
+              <Ionicons name="timer-outline" size={28} color="white" style={{ marginBottom: 4 }} />
               <Text className="text-white font-semibold text-sm">
                 {t('practice.exam_mode')}
               </Text>
@@ -134,7 +135,7 @@ export default function HomeScreen() {
               className="flex-1 p-4 rounded-xl bg-accent active:bg-accent/80"
               accessibilityRole="button"
             >
-              <Text className="text-2xl mb-1">{'\uD83D\uDD04'}</Text>
+              <Ionicons name="refresh" size={28} color="white" style={{ marginBottom: 4 }} />
               <Text className="text-white font-semibold text-sm">
                 {t('practice.review_mode')}
               </Text>
@@ -147,7 +148,7 @@ export default function HomeScreen() {
               className="flex-1 p-4 rounded-xl bg-amber-600 active:bg-amber-600/80"
               accessibilityRole="button"
             >
-              <Text className="text-2xl mb-1">{'\uD83D\uDCC7'}</Text>
+              <Ionicons name="card-outline" size={28} color="white" style={{ marginBottom: 4 }} />
               <Text className="text-white font-semibold text-sm">
                 {t('practice.flashcards_mode')}
               </Text>
