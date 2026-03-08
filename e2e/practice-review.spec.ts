@@ -34,8 +34,10 @@ test('practice mode, review mistakes, and flashcards', async ({ page }) => {
   // --- Verify Home Dashboard values ---
   const accuracy = Math.round((correctCount / 10) * 100);
   const coverage = Math.round((10 / 310) * 100);
+  const readiness = 4;
 
   // Readiness is shown inside the big circle
+  await expect(page.getByText(`${readiness}%`).first()).toBeVisible();
   await expect(page.getByText('Readiness')).toBeVisible();
 
   // Accuracy stat
