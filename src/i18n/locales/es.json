@@ -1,0 +1,125 @@
+{
+  "app": {
+    "name": "Einbürgerungstest"
+  },
+  "onboarding": {
+    "welcome_title": "Bienvenido",
+    "welcome_subtitle": "Elige tu idioma",
+    "select_bundesland": "Selecciona tu Bundesland",
+    "bundesland_subtitle": "Elige el estado donde vives",
+    "continue": "Continuar"
+  },
+  "tabs": {
+    "home": "Inicio",
+    "practice": "Práctica",
+    "catalog": "Catálogo",
+    "profile": "Perfil"
+  },
+  "home": {
+    "dashboard": "Panel",
+    "readiness": "Preparación",
+    "questions_practiced": "Preguntas Practicadas",
+    "accuracy": "Precisión",
+    "quick_actions": "Práctica",
+    "start_practice": "Comenzar Práctica",
+    "take_exam": "Hacer Examen",
+    "review_mistakes": "Revisar Errores"
+  },
+  "practice": {
+    "title": "Práctica",
+    "choose_mode": "Elige tu modo de estudio",
+    "practice_mode": "Modo Práctica",
+    "practice_desc": "Estudia preguntas a tu propio ritmo",
+    "exam_mode": "Simulación de Examen",
+    "exam_desc": "33 preguntas en 60 minutos",
+    "review_mode": "Revisar Errores",
+    "review_desc": "Practica las preguntas que te equivocaste",
+    "flashcards_mode": "Revisar Palabras Difíciles",
+    "flashcards_desc": "Practica las palabras que guardaste mientras estudiabas",
+    "question": "Pregunta",
+    "of": "de",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "check": "Comprobar Respuesta",
+    "correct": "¡Correcto!",
+    "incorrect": "Incorrecto",
+    "no_mistakes": "No hay errores para revisar. ¡Sigue practicando!"
+  },
+  "exam": {
+    "title": "Simulación de Examen",
+    "time_remaining": "Tiempo Restante",
+    "submit": "Enviar Examen",
+    "results": "Resultados del Examen",
+    "score": "Puntuación",
+    "passed": "¡Aprobado!",
+    "failed": "No Aprobado",
+    "pass_threshold": "Necesitas al menos 17 respuestas correctas de 33 para aprobar.",
+    "try_again": "Intentar de Nuevo",
+    "review_answers": "Revisar Respuestas",
+    "submit_confirm_title": "Enviar Examen",
+    "submit_confirm": "¿Estás seguro de que quieres enviar? No podrás cambiar tus respuestas después de enviar."
+  },
+  "catalog": {
+    "title": "Catálogo de Preguntas",
+    "search": "Buscar preguntas...",
+    "showing": "Mostrando {{count}} de {{total}} preguntas",
+    "all": "Todas",
+    "politik": "Política",
+    "geschichte": "Historia",
+    "gesellschaft": "Sociedad",
+    "bundesland": "Estado",
+    "bookmarked": "Marcadas",
+    "incorrect": "Incorrectas",
+    "unanswered": "Sin Responder",
+    "struggling": "Difíciles",
+    "comfortable": "Fáciles"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "bundesland": "Bundesland",
+    "save": "Guardar",
+    "delete_progress": "Eliminar Todo el Progreso",
+    "delete_confirm": "¿Estás seguro? Esto eliminará permanentemente todos tus datos de práctica, historial de exámenes y marcadores.",
+    "delete_confirm_title": "Eliminar Todo el Progreso",
+    "delete": "Eliminar",
+    "about": "Acerca de",
+    "version": "Versión",
+    "cache": "Caché de Traducciones",
+    "clear_cache": "Limpiar Caché",
+    "translations_cached": "{{count}} traducciones en caché",
+    "cache_cleared": "Caché limpiada",
+    "license": "Licencia"
+  },
+  "translation": {
+    "translate": "Traducir",
+    "translate_question": "Traducir pregunta",
+    "show_original": "Mostrar original",
+    "translation_unavailable": "Traducción no disponible sin conexión",
+    "retry": "Reintentar"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "ok": "OK",
+    "close": "Cerrar",
+    "cancel": "Cancelar"
+  },
+  "flashcards": {
+    "save": "Guardar en Tarjetas",
+    "remove": "Quitar de Tarjetas",
+    "show_answer": "Mostrar Respuesta",
+    "i_knew_it": "Lo sabía",
+    "i_didnt_know": "No lo sabía",
+    "correct": "Correcto",
+    "incorrect": "Incorrecto",
+    "empty_title": "No Hay Tarjetas Aún",
+    "empty_message": "¡Toca palabras en alemán mientras estudias para guardarlas para revisión!",
+    "completed_title": "¡Revisión Completa!",
+    "completed_message": "Revisaste {{count}} tarjetas.",
+    "continue": "Continuar Estudiando",
+    "review_again": "Revisar de Nuevo",
+    "remove_confirm_title": "Quitar Tarjeta",
+    "remove_confirm": "¿Estás seguro de que quieres quitar esta palabra de tus tarjetas?"
+  }
+}

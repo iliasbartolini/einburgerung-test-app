@@ -1,0 +1,125 @@
+{
+  "app": {
+    "name": "Einbürgerungstest"
+  },
+  "onboarding": {
+    "welcome_title": "Benvenuto",
+    "welcome_subtitle": "Scegli la tua lingua",
+    "select_bundesland": "Seleziona il tuo Bundesland",
+    "bundesland_subtitle": "Scegli lo stato in cui vivi",
+    "continue": "Continua"
+  },
+  "tabs": {
+    "home": "Home",
+    "practice": "Pratica",
+    "catalog": "Catalogo",
+    "profile": "Profilo"
+  },
+  "home": {
+    "dashboard": "Cruscotto",
+    "readiness": "Preparazione",
+    "questions_practiced": "Domande Praticate",
+    "accuracy": "Accuratezza",
+    "quick_actions": "Pratica",
+    "start_practice": "Inizia Pratica",
+    "take_exam": "Fai l'Esame",
+    "review_mistakes": "Rivedi Errori"
+  },
+  "practice": {
+    "title": "Pratica",
+    "choose_mode": "Scegli la tua modalità di studio",
+    "practice_mode": "Modalità Pratica",
+    "practice_desc": "Studia le domande al tuo ritmo",
+    "exam_mode": "Simulazione Esame",
+    "exam_desc": "33 domande in 60 minuti",
+    "review_mode": "Rivedi Errori",
+    "review_desc": "Pratica le domande sbagliate",
+    "flashcards_mode": "Rivedi Parole Difficili",
+    "flashcards_desc": "Pratica le parole salvate durante lo studio",
+    "question": "Domanda",
+    "of": "di",
+    "next": "Avanti",
+    "previous": "Indietro",
+    "check": "Controlla Risposta",
+    "correct": "Corretto!",
+    "incorrect": "Sbagliato",
+    "no_mistakes": "Nessun errore da rivedere. Continua a praticare!"
+  },
+  "exam": {
+    "title": "Simulazione Esame",
+    "time_remaining": "Tempo Rimanente",
+    "submit": "Invia Esame",
+    "results": "Risultati Esame",
+    "score": "Punteggio",
+    "passed": "Superato!",
+    "failed": "Non Superato",
+    "pass_threshold": "Hai bisogno di almeno 17 risposte corrette su 33 per superare.",
+    "try_again": "Riprova",
+    "review_answers": "Rivedi Risposte",
+    "submit_confirm_title": "Invia Esame",
+    "submit_confirm": "Sei sicuro di voler inviare? Non potrai modificare le tue risposte dopo l'invio."
+  },
+  "catalog": {
+    "title": "Catalogo Domande",
+    "search": "Cerca domande...",
+    "showing": "Mostrando {{count}} di {{total}} domande",
+    "all": "Tutte",
+    "politik": "Politica",
+    "geschichte": "Storia",
+    "gesellschaft": "Società",
+    "bundesland": "Stato",
+    "bookmarked": "Segnalibri",
+    "incorrect": "Sbagliate",
+    "unanswered": "Non Risposte",
+    "struggling": "Difficili",
+    "comfortable": "Facili"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "language": "Lingua",
+    "bundesland": "Bundesland",
+    "save": "Salva",
+    "delete_progress": "Elimina Tutti i Progressi",
+    "delete_confirm": "Sei sicuro? Questo eliminerà permanentemente tutti i tuoi dati di pratica, cronologia degli esami e segnalibri.",
+    "delete_confirm_title": "Elimina Tutti i Progressi",
+    "delete": "Elimina",
+    "about": "Info",
+    "version": "Versione",
+    "cache": "Cache Traduzioni",
+    "clear_cache": "Cancella Cache",
+    "translations_cached": "{{count}} traduzioni in cache",
+    "cache_cleared": "Cache cancellata",
+    "license": "Licenza"
+  },
+  "translation": {
+    "translate": "Traduci",
+    "translate_question": "Traduci domanda",
+    "show_original": "Mostra originale",
+    "translation_unavailable": "Traduzione non disponibile offline",
+    "retry": "Riprova"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Qualcosa è andato storto",
+    "ok": "OK",
+    "close": "Chiudi",
+    "cancel": "Annulla"
+  },
+  "flashcards": {
+    "save": "Salva nelle Flash Card",
+    "remove": "Rimuovi dalle Flash Card",
+    "show_answer": "Mostra Risposta",
+    "i_knew_it": "Lo sapevo",
+    "i_didnt_know": "Non lo sapevo",
+    "correct": "Corretto",
+    "incorrect": "Sbagliato",
+    "empty_title": "Nessuna Flash Card Ancora",
+    "empty_message": "Tocca le parole tedesche durante lo studio per salvarle per la revisione!",
+    "completed_title": "Revisione Completata!",
+    "completed_message": "Hai rivisto {{count}} flash card.",
+    "continue": "Continua Studio",
+    "review_again": "Rivedi Ancora",
+    "remove_confirm_title": "Rimuovi Flash Card",
+    "remove_confirm": "Sei sicuro di voler rimuovere questa parola dalle tue flash card?"
+  }
+}

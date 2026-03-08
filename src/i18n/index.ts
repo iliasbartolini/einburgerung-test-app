@@ -7,6 +7,8 @@ import tr from './locales/tr.json';
 import ar from './locales/ar.json';
 import ru from './locales/ru.json';
 import fr from './locales/fr.json';
+import it from './locales/it.json';
+import es from './locales/es.json';
 
 export const SUPPORTED_LANGUAGES = [
   { code: 'en', name: 'English', nativeName: 'English', rtl: false },
@@ -15,6 +17,8 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'ar', name: 'Arabic', nativeName: 'العربية', rtl: true },
   { code: 'ru', name: 'Russian', nativeName: 'Русский', rtl: false },
   { code: 'fr', name: 'French', nativeName: 'Français', rtl: false },
+  { code: 'it', name: 'Italian', nativeName: 'Italiano', rtl: false },
+  { code: 'es', name: 'Spanish', nativeName: 'Español', rtl: false },
 ] as const;
 
 export type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number]['code'];
@@ -28,6 +32,8 @@ const resources = {
   ar: { translation: ar },
   ru: { translation: ru },
   fr: { translation: fr },
+  it: { translation: it },
+  es: { translation: es },
 };
 
 // eslint-disable-next-line import/no-named-as-default-member
